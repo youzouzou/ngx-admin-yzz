@@ -1,0 +1,23 @@
+<div class="table" [style.width]="screenWidth+'px'">
+  <div class="top-bar">
+    <div class="top-menu-list" [style.width]="100*menuList.length+'px'">
+      <div (mouseenter)="menu.showChildren=true"
+           (mouseleave)="menu.showChildren=false"
+           *ngFor="let menu of menuList;let i=index"
+           class="top-menu-item">
+        <div class="top-menu-item" routerLink="{{
+        (menu.children && menu.children.length)?
+        (menu.path+'/'+menu.children[0].path):menu.path
+        }}">{{menu.title}}</div>
+        <div class="top-child-box"
+             [ngStyle]="{'left':i*100+'px'}"
+             *ngIf="menu.showChildren && menu.children && menu.children.length">
+          <div *ngFor="let childMenu of menu.children"
+               routerLink="{{menu.path+'/'+childMenu.path}}"
+               class="top-child-item">{{childMenu.title}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top-padding"></div>
+</div>

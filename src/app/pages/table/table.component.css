@@ -1,0 +1,37 @@
+.table {
+  margin-left: 1%;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.tr {
+  width: 98%;
+  padding: 0 1%;
+  border-bottom: 1px solid #dfe3eb;
+  overflow: hidden;
+}
+
+.tr:nth-child(odd) {
+  background: #eee;
+}
+
+.tr:first-child {
+  background: #dfe3eb;
+}
+
+.tr:hover {
+  background: #dfe3eb;
+}
+
+.td {
+  min-width: 80px;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+  float: left;
+  overflow: hidden;
+  line-height: 50px;
+}

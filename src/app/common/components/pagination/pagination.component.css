@@ -1,0 +1,20 @@
+.pagination-box {
+  width: 100%;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.pagination-item {
+  display: inline-block;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #dfe3eb;
+  padding: 3px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-active {
+  background: #888;
+  color: #fff;
+}

@@ -1,0 +1,137 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #ebeff5;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 15px;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.breadcrumb-box {
+  width: 99%;
+  padding-left: 1%;
+  margin-bottom: 10px;
+  display: block;
+  background: #fff;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.breadcrumb-box span {
+  outline: none;
+  cursor: pointer;
+}
+
+.animation-linear-show {
+  animation: linear-show-func 1s linear;
+}
+
+.linear-show-hide {
+  animation: linear-show-hide-func 2.5s linear;
+  opacity: 0;
+}
+
+@keyframes linear-show-func {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes linear-show-func {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes linear-hide-func {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes linear-show-func {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes linear-show-hide-func {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes linear-show-hide-func {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.service-msg {
+  padding: 5px 15px;
+  position: fixed;
+  top: 90px;
+  width: 200px;
+  font-size: 12px;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  animation: linear-show-hide-func 3s;
+  opacity: 0;
+  border: 1px solid #ddffff;
+}
+
+.btn-default {
+  background: #fff;
+  border: 1px solid #dfe3eb;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  outline: none;
+}

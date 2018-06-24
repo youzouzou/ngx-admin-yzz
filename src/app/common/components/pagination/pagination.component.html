@@ -1,0 +1,6 @@
+<!--左移、右移1页，点击事件、跳转-->
+<div class="pagination-box">
+  <span [ngStyle]="{'display':curPage==1?'none':'inline-block'}" (click)="changePage(curPage-1)" class="pagination-item"> < </span>
+  <span (click)="changePage(pageNo)" class="pagination-item" [ngClass]="{'pagination-active':curPage==pageNo}" *ngFor="let pageNo of pageList">{{pageNo}}</span>
+  <span [ngStyle]="{'display':curPage==totalPage?'none':'inline-block'}" (click)="changePage(curPage+1)" class="pagination-item"> > </span>
+</div>
