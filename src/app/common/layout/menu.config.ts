@@ -1,17 +1,21 @@
 import {TableComponent} from "../../pages/table/table.component";
 import {SmartTableComponent} from "../../pages/table/smart-table/smart-table.component";
+import {ChartComponent} from "../../pages/chart/chart.component";
 
 const menuList = [
   {
-    title: 'Table', path: 'table',
+    title: '表格', path: 'table',
     children: [
       {
-        title: 'Basic Table', path: 'basic_table'
+        title: '基本表格', path: 'basic_table'
       },
       {
-        title: 'Smart Table', path: 'smart_table'
+        title: '智能表格', path: 'smart_table'
       }
     ]
+  },
+  {
+    path: 'chart', title: '图表', component: ChartComponent
   }
 ];
 

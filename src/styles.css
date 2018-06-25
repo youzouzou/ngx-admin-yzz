@@ -7,7 +7,7 @@ html, body {
 }
 
 .tooltip {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   display: none;
   background: #fff;

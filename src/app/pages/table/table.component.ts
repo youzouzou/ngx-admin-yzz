@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {msgService} from "../../common/service/msg.service";
+import {modalService} from "../../common/service/modal.service";
 
 @Component({
   selector: 'table',
@@ -55,6 +56,146 @@ export class TableComponent {
       receiver: '王小二'
     },
     {
+      name: '黄焖鸡+茄子+千张豆腐+火腿',
+      price: 25.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡+茄子+千张豆腐+火腿',
+      price: 25.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡+茄子+千张豆腐+火腿',
+      price: 25.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡+茄子+千张豆腐+火腿',
+      price: 25.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
+      name: '黄焖鸡',
+      price: 16.00,
+      remark: '不要辣',
+      address: 'xx区xx街道xx楼xx层xx号',
+      receiver: '王小二'
+    },
+    {
       name: '黄焖鸡',
       price: 16.00,
       remark: '不要辣',
@@ -73,8 +214,7 @@ export class TableComponent {
     return Object.keys(item);
   }
 
-  constructor(public msgService:msgService) {
-    this.msgService = msgService;
+  constructor(public msgService:msgService, public modalService:modalService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
@@ -91,6 +231,13 @@ export class TableComponent {
 
   getPageData(curPageNo) {
     console.log('触发', curPageNo);
+  }
+
+  openModal() {
+    var setModal = this.modalService.setModal;
+    setModal({
+      content: 'open success.'
+    });
   }
 
 }

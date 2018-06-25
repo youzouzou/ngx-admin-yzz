@@ -12,7 +12,7 @@ export class Tooltip {
     el.nativeElement.style.position = 'relative';
     this.newDiv = document.createElement('div');
     this.newDiv.className = 'tooltip';
-    el.nativeElement.appendChild(this.newDiv);
+    document.body.appendChild(this.newDiv);
     this.ELDOM = el;
   }
 

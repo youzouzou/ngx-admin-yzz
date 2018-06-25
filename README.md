@@ -1,27 +1,29 @@
-# Ng2
+# ngx-admin
+---
+Pages
+[x]表格
+[x]图表
+[ ]表单
+[ ]标签页
+[ ]富文本（要能支持内联样式）
+[ ]上传文件&图片处理
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+Components
+[ ]导航栏（顶部、侧边）
+[x]面包屑导航
+[ ]下拉框（级联、搜索匹配）
+[ ]搜索框
+[ ]模态框（支持内置表单、上传文件、下拉筛选等自定义模板）
+[ ]按钮（默认、安全、危险、警告、不可用）
+[ ]标签输入框
 
-## Development server
+Directives
+[ ]tooltip
+[ ]animation
+[ ]validate
+[ ]loading
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Services
+[ ]message（tip、alert，默认、安全、危险、警告，可点击关闭）
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+// Others（还没想好de）

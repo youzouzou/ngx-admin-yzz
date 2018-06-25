@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import menuConfig from '../menu.config'
+import routesData from '../../../app-routing.module';
 @Component({
   selector: 'breadcrumb',
   templateUrl: './breadcrumb.component.html',
 })
 export class BreadcrumbComponent {
-  menuList = menuConfig.menuList;
+  menuList = routesData.routes;
   breadcrumbs;
 
   constructor(private router:Router) {
+    console.log(routesData);
     this.router.events
       .subscribe((event) => {
         this.breadcrumbs = [];
