@@ -1,13 +1,13 @@
 .table {
-  margin-left: 1%;
+  width: 98%;
+  margin: 0 auto;
   background: #fff;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .tr {
-  width: 98%;
-  padding: 0 1%;
+  width: 100%;
   border-bottom: 1px solid #dfe3eb;
   overflow: hidden;
 }
@@ -35,3 +35,5 @@
   overflow: hidden;
   line-height: 50px;
 }
+
+

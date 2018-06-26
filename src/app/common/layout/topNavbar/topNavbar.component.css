@@ -16,12 +16,6 @@
   margin: 0;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-
 .top-menu-item {
   width: 100px;
   line-height: 60px;

@@ -4,6 +4,13 @@ html, body {
   width: 100%;
   height: 100%;
   background: #ebeff5;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .tooltip {
@@ -135,3 +142,4 @@ html, body {
   border-radius: 5px;
   outline: none;
 }
+

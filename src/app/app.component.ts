@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { globalService } from './common/service/global.service';
+import {Component} from '@angular/core';
+import {globalService} from './common/service/global.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

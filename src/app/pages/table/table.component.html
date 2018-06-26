@@ -1,9 +1,9 @@
-<div [style.width]="screenWidth">
+<div [ngStyle]="{'width':screenWidth}">
   <div class="table" animation="linearShow">
     <div class="tr">
       <div class="td"
-           [ngStyle]="{'width':tableConfig.width[i],'height':tableConfig.height}"
-           *ngFor="let label of labelList;let i=index">
+           *ngFor="let label of labelList;let i=index"
+           [ngStyle]="{'width':tableConfig.width[i],'height':tableConfig.height}">
         {{ label }}
       </div>
     </div>
@@ -19,8 +19,9 @@
         <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
       </div>
     </div>
- </div>
+  </div>
   <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage" [curPage]="pageConfig.curPage"></pagination>
+  <!--<button (click)="openModal()">test</button>-->
+  <div routerLink="/table/table_detail">详情</div>
+
 </div>
-<!--<button (click)="openModal()">test</button>-->
-<div routerLink="/table/table_detail">详情</div>

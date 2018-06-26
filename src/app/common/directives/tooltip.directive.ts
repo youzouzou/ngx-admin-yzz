@@ -1,19 +1,26 @@
-import { Directive, ElementRef, Input, HostListener } from '@angular/core';
+import {Directive, ElementRef, Input, HostListener} from '@angular/core';
 
 @Directive({
   selector: '[tooltip]'
 })
 export class Tooltip {
-  @Input() tooltip:string;
+  @Input() tooltip: string;
   newDiv: any;
   ELDOM: any;
 
-  constructor(el:ElementRef) {
+  constructor(el: ElementRef) {
+    var vm = this;
     el.nativeElement.style.position = 'relative';
-    this.newDiv = document.createElement('div');
-    this.newDiv.className = 'tooltip';
+    vm.newDiv = document.createElement('div');
+    vm.newDiv.className = 'tooltip';
+    vm.newDiv.onmouseenter = function () {
+      vm.newDiv.style.display = 'block';
+    };
+    vm.newDiv.onmouseleave = function () {
+      vm.newDiv.style.display = 'none';
+    };
     document.body.appendChild(this.newDiv);
-    this.ELDOM = el;
+    vm.ELDOM = el;
   }
 
   @HostListener('mouseenter') onMouseEnter() {

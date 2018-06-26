@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {msgService} from "../../common/service/msg.service";
 import {modalService} from "../../common/service/modal.service";
 
@@ -9,7 +9,8 @@ import {modalService} from "../../common/service/modal.service";
 })
 
 export class TableComponent {
-  pageConfig:object;
+  screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth) + 'px';
+  pageConfig: any;
   labelList = [
     '菜名',
     '价格',
@@ -21,7 +22,7 @@ export class TableComponent {
 
   data = [
     {
-      name: '黄焖鸡+茄子+千张豆腐+火腿',
+      name: '黄焖鸡+茄子+千张豆腐+火腿+鸡蛋+茄子+千张豆腐+火腿+鸡蛋+茄子+千张豆腐+火腿+鸡蛋',
       price: 25.00,
       remark: '不要辣',
       address: 'xx区xx街道xx楼xx层xx号',
@@ -208,17 +209,20 @@ export class TableComponent {
     width: ['15%', '10%', '20%', '30%', '15%', '10%'],
     height: '50px'
   };
-  screenWidth = window.innerWidth * 0.98 + 'px';
 
   getKeys(item) {
     return Object.keys(item);
   }
 
-  constructor(public msgService:msgService, public modalService:modalService) {
+  constructor(public msgService: msgService, public modalService: modalService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
     };
+    var vm = this;
+    window.onresize = function () {
+      vm.screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth) + 'px';
+    }
   }
 
   alertMsg(item, index) {
@@ -239,5 +243,4 @@ export class TableComponent {
       content: 'open success.'
     });
   }
-
 }
