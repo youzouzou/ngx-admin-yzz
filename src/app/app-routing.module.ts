@@ -1,26 +1,28 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 // pages
-import { TableComponent } from './pages/table/table.component';
-import { SmartTableComponent } from "./pages/table/smart-table/smart-table.component";
+import {TableComponent} from './pages/table/table.component';
+import {SmartTableComponent} from "./pages/table/smart-table/smart-table.component";
 import {TableDetailComponent} from "./pages/table/detail/detail.component";
 import {ChartComponent} from "./pages/chart/chart.component";
-const routes:Routes = [
+const routes: Routes = [
   {
-    path: 'table', title: '表格', children: [
-    {
-      path: 'basic_table', title: '基本表格', component: TableComponent
-    },
-    {
-      path: 'table_detail', title: '表格详情', component: TableDetailComponent
-    },
-    {path: 'smart_table', title: '智能表格', component: SmartTableComponent}
-  ]
+    path: 'table',
+    children: [
+      {
+        path: 'basic_table',  component: TableComponent
+      },
+      {
+        path: 'table_detail', component: TableDetailComponent
+      },
+      {path: 'smart_table', component: SmartTableComponent}
+    ]
   },
   {
-    path: 'chart', title: '图表', component: ChartComponent
-  }
+    path: 'chart', component: ChartComponent
+  },
+  { path: '', redirectTo: 'table/basic_table', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -31,4 +33,3 @@ const routes:Routes = [
 })
 export class AppRoutingModule {
 }
-export default {routes}
