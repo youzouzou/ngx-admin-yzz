@@ -22,6 +22,7 @@ Directives
 - [ ] animation
 - [ ] validate
 - [ ] loading
+- [ ] 小数点精度问题
 
 Services
 - [ ] message（tip、alert，默认、安全、危险、警告，可点击关闭）
