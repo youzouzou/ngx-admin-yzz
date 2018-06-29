@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./smart-table.page.css']
 })
 
-export class SmartTableComponent {
+export class SmartTablePage {
   settings = {
     columns: {
       name: {

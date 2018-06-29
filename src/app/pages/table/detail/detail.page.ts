@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
   selector: 'table-detail',
   templateUrl: './detail.page.html',
 })
-export class TableDetailComponent {
+export class TableDetailPage {
 }
