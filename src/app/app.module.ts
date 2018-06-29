@@ -11,9 +11,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TopNavbarComponent } from './common/layout/topNavbar/topNavbar.component';
 // pages
 import { TableComponent } from './pages/table/table.page';
-import { SmartTableComponent } from './pages/table/smart-table/smart-table.page';
+import { SmartTablePage } from './pages/table/smart-table/smart-table.page';
 import {ChartComponent} from "./pages/chart/chart.page";
-import {TableDetailComponent} from "./pages/table/detail/detail.page";
+import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {TabPage} from "./pages/tab/tab.page";
 // components
 import {BreadcrumbComponent} from "./common/layout/breadcrumb/breadcrumb.component";
@@ -27,15 +27,13 @@ import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {PaginationComponent} from "./common/components/pagination/pagination.component";
 import {modalService} from "./common/service/modal.service";
+import {AnimationPage} from "./pages/animation/animation.page";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavbarComponent,
-    TableComponent,
-    SmartTableComponent,
-    TableDetailComponent,
     BreadcrumbComponent,
     Tooltip,
     Animation,
@@ -43,7 +41,11 @@ import {modalService} from "./common/service/modal.service";
     ModalComponent,
     ChartComponent,
     TabComponent,
-    TabPage
+    TableComponent,
+    SmartTablePage,
+    TableDetailPage,
+    TabPage,
+    AnimationPage
   ],
   imports: [
     BrowserModule,

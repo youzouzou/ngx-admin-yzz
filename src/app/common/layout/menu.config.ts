@@ -1,8 +1,9 @@
 import {TableComponent} from "../../pages/table/table.page";
-import {SmartTableComponent} from "../../pages/table/smart-table/smart-table.page";
+import {SmartTablePage} from "../../pages/table/smart-table/smart-table.page";
 import {ChartComponent} from "../../pages/chart/chart.page";
-import {TableDetailComponent} from "../../pages/table/detail/detail.page";
+import {TableDetailPage} from "../../pages/table/detail/detail.page";
 import {TabPage} from "../../pages/tab/tab.page";
+import {AnimationPage} from "../../pages/animation/animation.page";
 
 const menuList:any = [
   {
@@ -12,15 +13,15 @@ const menuList:any = [
         title: '基本表格', path: 'basic_table', component: TableComponent,
         children: [
           {
-            path: 'table_detail', title: '表格详情', component: TableDetailComponent
+            path: 'table_detail', title: '表格详情', component: TableDetailPage
           }
         ]
       },
       {
-        title: '智能表格', path: 'smart_table', component: SmartTableComponent,
+        title: '智能表格', path: 'smart_table', component: SmartTablePage,
         children: [
           {
-            path: 'table_detail', title: '表格详情', component: TableDetailComponent
+            path: 'table_detail', title: '表格详情', component: TableDetailPage
           }
         ]
       }
@@ -31,6 +32,9 @@ const menuList:any = [
   },
   {
     path: 'tab', title: '标签页', component: TabPage
+  },
+  {
+    path: 'animation', title: '动画', component: AnimationPage
   }
 ];
 
