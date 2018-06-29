@@ -4,6 +4,7 @@
       <div (mouseenter)="menu.showChildren=true"
            (mouseleave)="menu.showChildren=false"
            *ngFor="let menu of menuList;let i=index"
+           (click)="setActive(i)"
            class="top-menu-item">
         <!--[ngClass]="{'top-menu-item-active':curPath==menu.path}"-->
         <div class="top-menu-item" routerLink="{{
@@ -14,8 +15,9 @@
         <div class="top-child-box"
              [ngStyle]="{'left':i*100+'px'}"
              *ngIf="menu.showChildren && menu.children && menu.children.length">
-          <div *ngFor="let childMenu of menu.children"
+          <div *ngFor="let childMenu of menu.children;let j=index"
                routerLink="{{menu.path+'/'+childMenu.path}}"
+               (click)="setActive(j)"
                class="top-child-item">{{childMenu.title}}
           </div>
         </div>

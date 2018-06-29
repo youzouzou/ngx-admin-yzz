@@ -1,6 +1,5 @@
-import {Component, ElementRef, Renderer2} from '@angular/core';
+import {Component, Renderer2, OnInit} from '@angular/core';
 import menuConfig from '../menu.config';
-import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'top-navbar',
@@ -10,42 +9,47 @@ import {NavigationEnd, Router} from "@angular/router";
 export class TopNavbarComponent {
   menuList = menuConfig.menuList;
   screenWidth = window.innerWidth;
-  curPath: string;
   curPathIndex: number;
   prePathIndex: number = 0;
+  render2: any;
 
-  constructor(private router: Router, el: ElementRef, render2: Renderer2) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) { // 当导航成功结束时执行
-        console.log('当前路由', event.url, render2.selectRootElement('.top-menu-item-active'));
-        if (event.url) {
-          var paths = event.url.split('/');
-          if (paths.length > 1) {
-            this.curPath = paths[1];
-            for (let i = 0; i < this.menuList.length; i++) {
-              if (this.menuList[i].path === this.curPath) {
-                this.prePathIndex = this.curPathIndex ? this.curPathIndex : 0;
-                this.curPathIndex = i;
-                // 设置移动动画
-                if (this.prePathIndex < this.curPathIndex) {
-                  for (let j = this.prePathIndex * 100; j <= this.curPathIndex * 100; j++) {
-                    setTimeout(function () {
-                      render2.selectRootElement('.top-menu-item-active').style.left = j + 'px';
-                    }, 100 / (this.curPathIndex - this.prePathIndex));
-                  }
-                } else if (this.prePathIndex > this.curPathIndex) {
-                  for (let k = this.prePathIndex * 100; k >= this.curPathIndex * 100; k--) {
-                    setTimeout(function () {
-                      render2.selectRootElement('.top-menu-item-active').style.left = k + 'px';
-                    }, 100 / (this.prePathIndex - this.curPathIndex));
-                  }
-                }
-                break;
-              }
-            }
-          }
+  constructor(render2: Renderer2) {
+    this.render2 = render2;
+  }
+
+  ngOnInit() {
+    var paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
+    if (paths.length > 1) {
+      for (let i = 0; i < this.menuList.length; i++) {
+        if (this.menuList[i].path === paths[1]) {
+          this.prePathIndex = 0;
+          this.curPathIndex = i;
+          this.render2.selectRootElement('.top-menu-item-active').style.left = i*100 + 'px';
+          break;
         }
       }
-    });
+    }
   }
+
+  setActive(i) {
+    this.prePathIndex = this.curPathIndex;
+    this.curPathIndex = i;
+    let render2 = this.render2;
+    // 设置移动动画
+    let dom = render2.selectRootElement('.top-menu-item-active');
+    if (this.prePathIndex < this.curPathIndex) {
+      for (let j = this.prePathIndex * 100; j <= this.curPathIndex * 100; j++) {
+        setTimeout(function () {
+          dom.style.left = j + 'px';
+        }, 100);
+      }
+    } else if (this.prePathIndex > this.curPathIndex) {
+      for (let k = this.prePathIndex * 100; k >= this.curPathIndex * 100; k--) {
+        setTimeout(function () {
+          dom.style.left = k + 'px';
+        }, 100);
+      }
+    }
+  }
+
 }
