@@ -9,6 +9,7 @@ export class BreadcrumbComponent {
   menuList: any = routesData.menuList;
   breadcrumbs;
 
+  // todo 考虑参数问题
   constructor(private router: Router) {
     console.log('路由数据', this.menuList);
     this.router.events

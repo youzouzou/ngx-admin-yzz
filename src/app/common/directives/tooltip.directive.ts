@@ -12,7 +12,23 @@ export class Tooltip {
     var vm = this;
     el.nativeElement.style.position = 'relative';
     vm.newDiv = document.createElement('div');
-    vm.newDiv.className = 'tooltip';
+    // todo 0629 设置位置和颜色
+    vm.newDiv.style.position = 'absolute';
+    vm.newDiv.style.zIndex = 1000;
+    vm.newDiv.style.borderRadius = '8px';
+    vm.newDiv.style.padding = '5px 15px';
+    vm.newDiv.style.lineHeight = '24px';
+    vm.newDiv.style.fontSize = '12px';
+    vm.newDiv.style.display = 'none';
+    // 配置颜色
+    if(el.nativeElement.getAttribute('tooltip-type') === 'black'){
+      vm.newDiv.style.background = '#000';
+      vm.newDiv.style.color = '#fff';
+    } else {
+      vm.newDiv.style.background = '#fff';
+      vm.newDiv.style.color = '#000';
+    }
+
     vm.newDiv.onmouseenter = function () {
       vm.newDiv.style.display = 'block';
     };

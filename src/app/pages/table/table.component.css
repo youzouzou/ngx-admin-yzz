@@ -7,7 +7,9 @@
 }
 
 .tr {
-  width: 100%;
+  width: 98%;
+  padding-left: 1%;
+  padding-right: 1%;
   border-bottom: 1px solid #dfe3eb;
   overflow: hidden;
 }

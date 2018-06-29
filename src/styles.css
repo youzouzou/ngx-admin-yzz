@@ -12,17 +12,6 @@ html, body {
   color: transparent;
 }
 
-.tooltip {
-  position: absolute;
-  z-index: 1000;
-  display: none;
-  background: #fff;
-  border-radius: 8px;
-  padding: 5px 15px;
-  line-height: 24px;
-  font-size: 12px;
-}
-
 .breadcrumb-box {
   width: 99%;
   padding-left: 1%;
@@ -39,86 +28,6 @@ html, body {
   cursor: pointer;
 }
 
-.animation-linear-show {
-  animation: linear-show-func 1s linear;
-}
-
-.linear-show-hide {
-  animation: linear-show-hide-func 2.5s linear;
-  opacity: 0;
-}
-
-@keyframes linear-show-func {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes linear-show-func {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes linear-hide-func {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes linear-show-func {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes linear-show-hide-func {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes linear-show-hide-func {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .service-msg {
   padding: 5px 15px;
   position: fixed;
@@ -128,7 +37,7 @@ html, body {
   text-align: center;
   background: #fff;
   border-radius: 10px;
-  animation: linear-show-hide-func 3s;
+  animation: show-msg 3s;
   opacity: 0;
   border: 1px solid #ddffff;
 }
@@ -142,3 +51,36 @@ html, body {
   outline: none;
 }
 
+@keyframes show-msg {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes show-msg {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

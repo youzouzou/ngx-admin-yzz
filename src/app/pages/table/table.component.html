@@ -1,5 +1,5 @@
 <div [ngStyle]="{'width':screenWidth}">
-  <div class="table" animation="linearShow">
+  <div class="table" animation="linear-show">
     <div class="tr">
       <div class="td"
            *ngFor="let label of labelList;let i=index"
@@ -11,17 +11,16 @@
       <div class="td"
            *ngFor="let key of getKeys(item);let i=index"
            [ngStyle]="{'width':tableConfig.width[i],'height':tableConfig.height}"
-           [tooltip]="item[key]"
+           [tooltip]="item[key]" tooltip-type="black"
       >
         {{ item[key] }}
       </div>
       <div class="td" [ngStyle]="{'width':tableConfig.width[tableConfig.width.length-1]}">
         <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
+        <button routerLink="/table/table_detail" class="btn-default">详情</button>
       </div>
     </div>
   </div>
   <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage" [curPage]="pageConfig.curPage"></pagination>
   <!--<button (click)="openModal()">test</button>-->
-  <div routerLink="/table/table_detail">详情</div>
-
 </div>
