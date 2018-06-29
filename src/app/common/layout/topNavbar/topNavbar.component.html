@@ -5,18 +5,22 @@
            (mouseleave)="menu.showChildren=false"
            *ngFor="let menu of menuList;let i=index"
            class="top-menu-item">
+        <!--[ngClass]="{'top-menu-item-active':curPath==menu.path}"-->
         <div class="top-menu-item" routerLink="{{
         (menu.children && menu.children.length)?
         (menu.path+'/'+menu.children[0].path):menu.path
-        }}">{{menu.title}}</div>
+        }}">{{menu.title}}
+        </div>
         <div class="top-child-box"
              [ngStyle]="{'left':i*100+'px'}"
              *ngIf="menu.showChildren && menu.children && menu.children.length">
           <div *ngFor="let childMenu of menu.children"
                routerLink="{{menu.path+'/'+childMenu.path}}"
-               class="top-child-item">{{childMenu.title}}</div>
+               class="top-child-item">{{childMenu.title}}
+          </div>
         </div>
       </div>
+      <div class="top-menu-item-active"></div><!--[ngStyle]="{'left':100*curPathIndex+'px'}"-->
     </div>
   </div>
   <div class="top-padding"></div>
