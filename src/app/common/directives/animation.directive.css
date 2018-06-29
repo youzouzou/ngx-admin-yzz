@@ -11,8 +11,8 @@
   animation: bounce-show-func 1s linear
 }
 
-.turn-over{
-  animation: turn-over-func 1s linear
+.rotateY-show{
+  animation: rotateY-show-func 1s linear
 }
 
 @keyframes linear-show-func {
@@ -111,7 +111,7 @@
   }
 }
 
-@keyframes turn-over-func {
+@keyframes rotateY-show-func {
   0% {
     transform: rotateY(0deg);
   }
@@ -120,7 +120,25 @@
   }
 }
 
-@-webkit-keyframes turn-over-func {
+@-webkit-keyframes rotateY-show-func {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate-show-func {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-show-func {
   0% {
     transform: rotateY(0deg);
   }

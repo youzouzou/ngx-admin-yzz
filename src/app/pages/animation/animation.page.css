@@ -1,0 +1,49 @@
+.animation-page {
+  width: 98%;
+  margin: 20px 1%;
+}
+
+.animation-box {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border-radius: 10px;
+  background: #6462B5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  font-size: 12px;
+  flex-direction: column;
+  color: #fff;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+}
+
+.animation-name {
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.animation-btn {
+  background: #fff;
+  border: 1px solid #dfe3eb;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 12px;
+  width: 50px;
+  color: #333;
+  outline: none;
+  text-align: center;
+}
+
+.animation-desc {
+  margin: 20px 0;
+}
