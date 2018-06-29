@@ -7,13 +7,12 @@ import {Component} from '@angular/core';
 })
 
 export class AnimationPage {
-  boxList = ['linear-show', 'bounce-show', 'rotateY-show'];
+  boxList = ['linear-show', 'bounce-show', 'rotate-x-show', 'rotate-y-show', 'rotate-z-show'];
 
   showAgain(event, index) {
     let dom = event.target;
     let parent = dom.parentElement;
-    let parent2 = dom.parentElement.parentElement;
-    parent2.removeChild(parent);
-    parent2.appendChild(parent);
+    parent.removeChild(dom);
+    parent.appendChild(dom);
   }
 }

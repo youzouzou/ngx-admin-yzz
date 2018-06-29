@@ -3,9 +3,8 @@
     只需要在html标签上添加属性animation即可设置动画，可选值如下：
   </div>
   <div class="animation-box" *ngFor="let animation of boxList;let i=index" [animation]="animation">
-    <div [animation]="animation">
+    <div [animation]="animation" (mouseenter)="showAgain($event, i)" class="animation-inner" >
       <div class="animation-name">{{animation}}</div>
-      <button class="animation-btn" (click)="showAgain($event, i)">Show</button>
     </div>
   </div>
 </div>

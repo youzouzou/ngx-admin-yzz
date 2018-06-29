@@ -1,5 +1,5 @@
 .linear-show {
-  animation: linear-show-func 1s linear
+  animation: linear-show-func 1s linear;
 }
 
 .linear-show-hide {
@@ -8,11 +8,19 @@
 }
 
 .bounce-show {
-  animation: bounce-show-func 1s linear
+  animation: bounce-show-func 1s linear;
 }
 
-.rotateY-show{
-  animation: rotateY-show-func 1s linear
+.rotate-x-show {
+  animation: rotate-x-show-func 1s linear;
+}
+
+.rotate-y-show {
+  animation: rotate-y-show-func 1s linear;
+}
+
+.rotate-z-show {
+  animation: rotate-z-show-func 1s linear;
 }
 
 @keyframes linear-show-func {
@@ -111,7 +119,25 @@
   }
 }
 
-@keyframes rotateY-show-func {
+@keyframes rotate-x-show-func {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-x-show-func {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes rotate-y-show-func {
   0% {
     transform: rotateY(0deg);
   }
@@ -120,7 +146,7 @@
   }
 }
 
-@-webkit-keyframes rotateY-show-func {
+@-webkit-keyframes rotate-y-show-func {
   0% {
     transform: rotateY(0deg);
   }
@@ -129,21 +155,22 @@
   }
 }
 
-@keyframes rotate-show-func {
+@keyframes rotate-z-show-func {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateZ(0deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateZ(360deg);
   }
 }
 
-@-webkit-keyframes rotate-show-func {
+@-webkit-keyframes rotate-z-show-func {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateZ(0deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateZ(360deg);
   }
 }
+
 
