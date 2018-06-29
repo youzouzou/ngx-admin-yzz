@@ -38,4 +38,7 @@
   line-height: 50px;
 }
 
-
+.page-row{
+  width:98%;
+  margin:20px 1% 30px 1%;
+}

@@ -26,6 +26,13 @@
 .tab-title > div {
   padding: 8px 0;
   border-radius: 8px 8px 0 0;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 
 .tab-title-active > div {

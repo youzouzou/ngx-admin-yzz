@@ -21,6 +21,8 @@
       </div>
     </div>
   </div>
-  <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage" [curPage]="pageConfig.curPage"></pagination>
+ <div class="page-row">
+   <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage" [curPage]="pageConfig.curPage"></pagination>
+ </div>
   <!--<button (click)="openModal()">test</button>-->
 </div>
