@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'smart-table',
-  templateUrl: './smart-table.component.html',
-  styleUrls: ['./smart-table.component.css']
+  templateUrl: './smart-table.page.html',
+  styleUrls: ['./smart-table.page.css']
 })
 
 export class SmartTableComponent {

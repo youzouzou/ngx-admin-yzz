@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'chart-page',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  templateUrl: './chart.page.html',
+  styleUrls: ['./chart.page.css']
 })
 
 export class ChartComponent {

@@ -4,8 +4,8 @@ import {modalService} from "../../common/service/modal.service";
 
 @Component({
   selector: 'table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  templateUrl: './table.page.html',
+  styleUrls: ['./table.page.css']
 })
 
 export class TableComponent {

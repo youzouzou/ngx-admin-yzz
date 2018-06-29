@@ -1,7 +1,8 @@
-import {TableComponent} from "../../pages/table/table.component";
-import {SmartTableComponent} from "../../pages/table/smart-table/smart-table.component";
-import {ChartComponent} from "../../pages/chart/chart.component";
-import {TableDetailComponent} from "../../pages/table/detail/detail.component";
+import {TableComponent} from "../../pages/table/table.page";
+import {SmartTableComponent} from "../../pages/table/smart-table/smart-table.page";
+import {ChartComponent} from "../../pages/chart/chart.page";
+import {TableDetailComponent} from "../../pages/table/detail/detail.page";
+import {TabPage} from "../../pages/tab/tab.page";
 
 const menuList:any = [
   {
@@ -27,6 +28,9 @@ const menuList:any = [
   },
   {
     path: 'chart', title: '图表', component: ChartComponent
+  },
+  {
+    path: 'tab', title: '标签页', component: TabPage
   }
 ];
 
