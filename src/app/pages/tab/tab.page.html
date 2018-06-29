@@ -1,0 +1,8 @@
+<div class="tab-page">
+  <tab [curIndex]="curTabIndex" (changeTab)="getTabData($event)"></tab>
+  <div class="tab-content-box">
+    <div class="tab-content">
+      选中第{{curTabIndex+1}}个标签
+    </div>
+  </div>
+</div>

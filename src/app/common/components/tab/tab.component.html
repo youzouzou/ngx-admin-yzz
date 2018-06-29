@@ -1,0 +1,11 @@
+<div class="tab-box">
+  <div class="tab-title-bar">
+    <ng-container *ngFor="let tab of tabList;let i = index">
+      <div class="tab-title" [ngClass]="{'tab-title-active':i==curIndex}" (click)="changeCurTab(i)" *ngIf="!tab.hidden">
+        <div>
+          {{tab.title}}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'tab-page',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class TabPage {
+  curTabIndex: number = 0;
 
+  getTabData(index) {
+    this.curTabIndex = index;
+  }
 }

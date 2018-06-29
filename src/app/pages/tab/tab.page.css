@@ -1,0 +1,14 @@
+.tab-page {
+  width: 48%;
+  margin-left: 2%;
+}
+
+.tab-content-box {
+  width: 100%;
+  background: #fff;
+  min-height: 200px;
+}
+
+.tab-content {
+  padding: 15px;
+}
