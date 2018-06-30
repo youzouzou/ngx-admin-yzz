@@ -1,0 +1,79 @@
+.form-page {
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+  padding: 30px 0;
+}
+
+.form-part {
+  width: 45%;
+  margin-left: 2%;
+}
+
+.form-box {
+  padding: 30px;
+  border-radius: 15px;
+  background: #fff;
+  clear: both;
+  overflow: hidden;
+}
+
+.form-group {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 15px;
+  clear: both;
+  overflow: hidden;
+}
+
+.form-group label {
+  width: 14%;
+  padding-right: 6%;
+  float: left;
+  text-align: right;
+  line-height: 40px;
+  height: 40px;
+  display: block;
+  overflow: hidden;
+}
+
+.form-content {
+  width: 80%;
+  float: left;
+}
+
+.form-radio {
+  margin-top: 10px;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 0 2%;
+  height: 40px;
+  border: 1px solid #dfe3eb;
+  border-radius: 5px;
+}
+
+.form-btn {
+  text-align: center;
+  margin-left: -10%;
+}
+
+button, .default-btn {
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #dfe3eb;
+}
+
+.confirm-btn {
+  background: #20B2AA;
+  color: #fff;
+  margin-left: 30px;
+}
+
+.confirm-btn:hover {
+  background: #40E0D0;
+}

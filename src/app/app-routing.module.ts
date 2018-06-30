@@ -9,6 +9,7 @@ import {TabPage} from "./pages/tab/tab.page";
 import {AnimationPage} from "./pages/animation/animation.page";
 import {DocumentPage} from "./pages/document/document.page";
 import {UploadPage} from "./pages/upload/upload.page";
+import {FormPage} from "./pages/form/form.page";
 const routes: Routes = [
   {
     path: 'table',
@@ -35,6 +36,9 @@ const routes: Routes = [
   },
   {
     path: 'document', component: DocumentPage
+  },
+  {
+    path: 'form', component: FormPage
   },
   { path: '', redirectTo: 'table/basic_table', pathMatch: 'full' }
 ];

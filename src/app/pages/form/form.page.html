@@ -1,0 +1,33 @@
+<div class="form-page">
+  <div class="form-part">
+    <div class="form-box">
+      <div class="form-group">
+        <label>姓名</label>
+        <div class="form-content">
+          <input type="text" [(ngModel)]="user.name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>年龄</label>
+        <div class="form-content">
+          <input type="number" [(ngModel)]="user.age">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>性别</label>
+        <div class="form-content">
+          <div class="form-radio">
+            <radio [radioData]="sexList" (changeRadio)="changeSex($event)" [radioColor]="'#20B2AA'" [selectedValue]="user.sex" [selectedName]="'sex'" [radioLable]="'title'"></radio>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label></label>
+        <div class="form-content form-btn">
+          <button class="default-btn" (click)="resetForm()">重置</button>
+          <button (click)="submitForm()" class="confirm-btn">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

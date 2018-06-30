@@ -16,6 +16,9 @@ const menuList:any = [
     path: 'chart', title: '图表'
   },
   {
+    path: 'form', title: '表单'
+  },
+  {
     path: 'tab', title: '标签页'
   },
   {

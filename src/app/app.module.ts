@@ -6,6 +6,7 @@ import {AppRoutingModule} from './/app-routing.module';
 // dependences
 import {ChartModule} from 'angular2-chartjs';
 import {FileUploadModule} from 'ng2-file-upload';
+import { FormsModule }   from '@angular/forms';
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 // pages
@@ -30,6 +31,7 @@ import {Animation} from "./common/directives/animation.directive";
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {modalService} from "./common/service/modal.service";
+import {FormPage} from "./pages/form/form.page";
 
 @NgModule({
   declarations: [
@@ -49,13 +51,15 @@ import {modalService} from "./common/service/modal.service";
     TabPage,
     AnimationPage,
     DocumentPage,
-    UploadPage
+    UploadPage,
+    FormPage
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartModule,
-    FileUploadModule
+    FileUploadModule,
+    FormsModule
   ],
   providers: [globalService, msgService, modalService],
   bootstrap: [AppComponent]
