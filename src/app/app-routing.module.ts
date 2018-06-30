@@ -8,6 +8,7 @@ import {ChartComponent} from "./pages/chart/chart.page";
 import {TabPage} from "./pages/tab/tab.page";
 import {AnimationPage} from "./pages/animation/animation.page";
 import {DocumentPage} from "./pages/document/document.page";
+import {UploadPage} from "./pages/upload/upload.page";
 const routes: Routes = [
   {
     path: 'table',
@@ -28,6 +29,9 @@ const routes: Routes = [
   },
   {
     path: 'animation', component: AnimationPage
+  },
+  {
+    path: 'upload', component: UploadPage
   },
   {
     path: 'document', component: DocumentPage

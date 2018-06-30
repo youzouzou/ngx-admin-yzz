@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './/app-routing.module';
 // dependences
 import {ChartModule} from 'angular2-chartjs';
-
+import {FileUploadModule} from 'ng2-file-upload';
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 // pages
@@ -15,12 +15,14 @@ import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {TabPage} from "./pages/tab/tab.page";
 import {AnimationPage} from "./pages/animation/animation.page";
 import {DocumentPage} from "./pages/document/document.page";
+import {UploadPage} from "./pages/upload/upload.page";
 // components
 import {BreadcrumbComponent} from "./common/layout/breadcrumb/breadcrumb.component";
 import {ModalComponent} from "./common/components/modal/modal.component";
 import {TabComponent} from "./common/components/tab/tab.component";
 import {CheckboxComponent} from "./common/components/checkbox/checkbox.component";
 import {PaginationComponent} from "./common/components/pagination/pagination.component";
+import {RadioComponent} from "./common/components/radio/radio.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
@@ -28,8 +30,6 @@ import {Animation} from "./common/directives/animation.directive";
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {modalService} from "./common/service/modal.service";
-import {RadioComponent} from "./common/components/radio/radio.component";
-
 
 @NgModule({
   declarations: [
@@ -48,12 +48,14 @@ import {RadioComponent} from "./common/components/radio/radio.component";
     TableDetailPage,
     TabPage,
     AnimationPage,
-    DocumentPage
+    DocumentPage,
+    UploadPage
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartModule
+    ChartModule,
+    FileUploadModule
   ],
   providers: [globalService, msgService, modalService],
   bootstrap: [AppComponent]
