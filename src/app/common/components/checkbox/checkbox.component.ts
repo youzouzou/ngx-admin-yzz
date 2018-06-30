@@ -11,11 +11,14 @@ export class CheckboxComponent {
   @Input() checkIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAXVBMVEUAAAAtJiUSCwpoTk47JyhrVlRPOjl/YGAKBwcGBAQKBwYAAAAWEhIdFBQbFhYiFhYwKSYtIyMsICEyJiUdFBQ1LC1IPDxTQkBTOzthQkCAXFukcHCAaWYAAAAKBgbQXivSAAAAHXRSTlMAp4BWNjAqIffs6OXa18vAt6GPiYF7ZmJaRBYOBU4rugEAAABTSURBVBjTtcg3DoBAFANRk3POYbj/MRHVCn7NKyx59D9/lLGBaXvKZGJNa1pPcboXhs8GELm2XsRSArOc2COXKjy9NHQDpd6ODEj0EUEgY/H1rxsobgP48AG/KwAAAABJRU5ErkJggg==';
   @Input() checkboxBg = '#fff'; // 复选框的背景色
   @Input() checkboxSize = 20; // 复选框大小
+  @Input() checkDisabled = false;// 是否可选，默认为可选
   @Output() changeCheckStatus: EventEmitter<boolean | number | string> = new EventEmitter;
 
   changeStatus(checkStatus) {
-    this.checkStatus = !checkStatus;
-    this.changeCheckStatus.emit(this.checkStatus);
+    if (!this.checkDisabled) {
+      this.checkStatus = !checkStatus;
+      this.changeCheckStatus.emit(this.checkStatus);
+    }
     event.preventDefault();
     event.stopPropagation();
   }

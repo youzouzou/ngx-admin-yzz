@@ -4,6 +4,7 @@
     <div *ngFor="let api of apiList;let i=index" class="document-row" (click)="select(i)">
       <div class="document-checkbox">
         <checkbox (changeCheckStatus)="changeStatus($event, i)" [checkboxSize]="20" [checkStatus]="api.checkStatus"
+                  [checkDisabled]="true"
                   [checkboxBg]="'#dfe3eb'"></checkbox>
       </div>
       <span class="document-title">
@@ -12,6 +13,7 @@
     </div>
   </div>
   <div class="document-right">
+    <div>版本1.0</div>
     <h6>文档说明：</h6>
     {{index+1}} . {{apiList[index].title}}
   </div>

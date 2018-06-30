@@ -11,7 +11,7 @@ export class DocumentPage {
   apiList = [
     {
       title: '表格',
-      checkStatus: false,
+      checkStatus: true
     },
     {
       title: '图表（Chart.js）',
@@ -23,7 +23,7 @@ export class DocumentPage {
     },
     {
       title: '标签页',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '富文本',
@@ -43,7 +43,7 @@ export class DocumentPage {
     },
     {
       title: '面包屑导航',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '下拉框',
@@ -51,6 +51,10 @@ export class DocumentPage {
     },
     {
       title: '搜索框',
+      checkStatus: false,
+    },
+    {
+      title: '单/复选框',
       checkStatus: false,
     },
     {
@@ -67,11 +71,11 @@ export class DocumentPage {
     },
     {
       title: 'tooltip',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: 'animation',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: 'validate',
