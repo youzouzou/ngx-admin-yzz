@@ -22,6 +22,18 @@ export class FormPage {
     }
   ];
 
+  hobbyList = [
+    {
+      desc: '看书'
+    },
+    {
+      desc: '听歌'
+    },
+    {
+      desc: '敲代码'
+    }
+  ];
+
   submitForm() {
     console.log('提交数据', this.user)
   }
@@ -36,6 +48,20 @@ export class FormPage {
       name: '',
       sex: 'female'
     };
+    this.hobbyList = [
+      {
+        desc: '看书'
+      },
+      {
+        desc: '听歌'
+      },
+      {
+        desc: '敲代码'
+      }
+    ];
+  }
+
+  changeStatus() {
   }
 
 }

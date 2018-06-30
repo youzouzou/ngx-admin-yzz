@@ -17,7 +17,21 @@
         <label>性别</label>
         <div class="form-content">
           <div class="form-radio">
-            <radio [radioData]="sexList" (changeRadio)="changeSex($event)" [radioColor]="'#20B2AA'" [selectedValue]="user.sex" [selectedName]="'sex'" [radioLable]="'title'"></radio>
+            <radio [radioData]="sexList" (changeRadio)="changeSex($event)" [radioColor]="'#20B2AA'"
+                   [selectedValue]="user.sex" [selectedName]="'sex'" [radioLable]="'title'"></radio>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>兴趣爱好</label>
+        <div class="form-content">
+          <div class="form-checkbox" *ngFor="let hobby of hobbyList">
+            <checkbox (changeCheckStatus)="changeStatus($event, i)" [checkboxSize]="20"
+                      [checkStatus]="hobby.checkStatus"
+                      [checkDisabled]="false"
+                      [checkboxColor]="'white'"
+                      [checkboxBg]="'#20B2AA'"></checkbox>
+            {{hobby.desc}}
           </div>
         </div>
       </div>
