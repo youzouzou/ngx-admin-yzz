@@ -1,5 +1,4 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {} from "selenium-webdriver";
 @Component({
   selector: 'tab',
   templateUrl: './tab.component.html',
