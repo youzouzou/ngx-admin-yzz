@@ -104,4 +104,8 @@ export class DocumentPage {
   select(index) {
     this.index = index;
   }
+
+  selectRadio(data) {
+    console.log('选中的值', data);
+  }
 }

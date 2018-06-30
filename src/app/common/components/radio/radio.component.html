@@ -1,0 +1,20 @@
+<div class="radio-group-box">
+  <div *ngFor="let item of radioData;let i=index" class="radio-item">
+    <div class="radio-box" (click)="selectRadio(item, i)"
+         [ngStyle]="{
+         'border': '1px solid '+ radioColor,
+         'background': radioBg,
+         'width': radioSize+'px',
+         'height': radioSize+'px'}"
+    >
+      <div [ngClass]="{'radio-active': i==selectedIndex}"
+           [ngStyle]="{
+           'background': i==selectedIndex?radioColor:radioBg,
+            'width': radioSize/2+'px',
+            'height': radioSize/2+'px'}"></div>
+    </div>
+    <span class="radio-label">
+      {{item.title}}
+    </span>
+  </div>
+</div>

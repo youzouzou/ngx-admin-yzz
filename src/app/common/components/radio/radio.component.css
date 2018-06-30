@@ -1,0 +1,24 @@
+.radio-group-box {
+
+}
+
+.radio-item {
+  float: left;
+}
+
+.radio-box {
+  border-radius: 50%;
+  float: left;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.radio-active {
+  border-radius: 50%;
+  background: #fff;
+}
+
+.radio-label {
+  font-size: inherit;
+}
