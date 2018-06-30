@@ -55,7 +55,7 @@ export class DocumentPage {
     },
     {
       title: '单/复选框',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '模态框',

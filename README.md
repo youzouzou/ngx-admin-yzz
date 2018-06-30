@@ -1,12 +1,13 @@
 # ngx-admin
 ---
 Pages
-- [ ] 表格
+- [x] 表格
 - [ ] 图表
 - [ ] 表单
-- [ ] 标签页
+- [x] 标签页
 - [ ] 富文本（要能支持内联样式，建议在pell的基础上二次开发）
 - [ ] 上传文件&图片处理
+- [x] 单/复选框
 
 Components
 - [ ] 导航栏（顶部、侧边）
@@ -18,8 +19,8 @@ Components
 - [ ] 标签输入框
 
 Directives
-- [ ] tooltip
-- [ ] animation
+- [x] tooltip
+- [x] animation
 - [ ] validate
 - [ ] loading
 - [ ] 小数点精度问题
