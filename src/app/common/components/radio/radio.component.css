@@ -4,6 +4,7 @@
 
 .radio-item {
   float: left;
+  margin-right: 20px;
 }
 
 .radio-box {
@@ -12,6 +13,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-right: 5px;
 }
 
 .radio-active {
