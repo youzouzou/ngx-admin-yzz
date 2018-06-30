@@ -17,7 +17,7 @@
              *ngIf="menu.showChildren && menu.children && menu.children.length">
           <div *ngFor="let childMenu of menu.children;let j=index"
                routerLink="{{menu.path+'/'+childMenu.path}}"
-               (click)="setActive(j)"
+               (click)="setActive(i)"
                class="top-child-item">{{childMenu.title}}
           </div>
         </div>
