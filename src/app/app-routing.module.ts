@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 
 // pages
 import {TableComponent} from './pages/table/table.page';
-import {SmartTablePage} from "./pages/table/smart-table/smart-table.page";
 import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {ChartComponent} from "./pages/chart/chart.page";
 import {TabPage} from "./pages/tab/tab.page";
@@ -18,8 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'table_detail', component: TableDetailPage
-      },
-      {path: 'smart_table', component: SmartTablePage}
+      }
     ]
   },
   {

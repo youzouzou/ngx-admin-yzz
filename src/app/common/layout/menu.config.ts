@@ -9,14 +9,6 @@ const menuList:any = [
             path: 'table_detail', title: '表格详情'
           }
         ]
-      },
-      {
-        title: '智能表格', path: 'smart_table',
-        children: [
-          {
-            path: 'table_detail', title: '表格详情'
-          }
-        ]
       }
     ]
   },
