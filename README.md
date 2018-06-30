@@ -5,7 +5,7 @@ Pages
 - [ ] 图表
 - [ ] 表单
 - [ ] 标签页
-- [ ] 富文本（要能支持内联样式）
+- [ ] 富文本（要能支持内联样式，建议在pell的基础上二次开发）
 - [ ] 上传文件&图片处理
 
 Components
@@ -26,5 +26,6 @@ Directives
 
 Services
 - [ ] message（tip、alert，默认、安全、危险、警告，可点击关闭）
+- [ ] http（get、put、delete、post）
 
 // Others（还没想好de）
