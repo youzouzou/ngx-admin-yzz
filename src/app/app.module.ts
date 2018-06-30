@@ -15,19 +15,22 @@ import { SmartTablePage } from './pages/table/smart-table/smart-table.page';
 import {ChartComponent} from "./pages/chart/chart.page";
 import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {TabPage} from "./pages/tab/tab.page";
+import {AnimationPage} from "./pages/animation/animation.page";
+import {DocumentPage} from "./pages/document/document.page";
 // components
 import {BreadcrumbComponent} from "./common/layout/breadcrumb/breadcrumb.component";
 import {ModalComponent} from "./common/components/modal/modal.component";
 import {TabComponent} from "./common/components/tab/tab.component";
-
+import {CheckboxComponent} from "./common/components/checkbox/checkbox.component";
+import {PaginationComponent} from "./common/components/pagination/pagination.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
+// service
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
-import {PaginationComponent} from "./common/components/pagination/pagination.component";
 import {modalService} from "./common/service/modal.service";
-import {AnimationPage} from "./pages/animation/animation.page";
+
 
 
 @NgModule({
@@ -41,11 +44,13 @@ import {AnimationPage} from "./pages/animation/animation.page";
     ModalComponent,
     ChartComponent,
     TabComponent,
+    CheckboxComponent,
     TableComponent,
     SmartTablePage,
     TableDetailPage,
     TabPage,
-    AnimationPage
+    AnimationPage,
+    DocumentPage
   ],
   imports: [
     BrowserModule,
