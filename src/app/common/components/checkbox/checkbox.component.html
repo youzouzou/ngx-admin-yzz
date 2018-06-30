@@ -1,3 +1,8 @@
-<div>
-  <input type="checkbox">
+<div class="checkbox-box"
+     [ngStyle]="{'background': checkboxBg, 'width':checkboxSize+'px', 'height': checkboxSize+'px'}"
+     (click)="changeStatus(checkStatus)">
+  <div *ngIf="checkStatus"
+       [ngClass]="{'checkbox-icon-white':checkboxColor=='white', 'checkbox-icon-black':checkboxColor=='black'}"
+       [ngStyle]="{'background':'url('+checkIcon+')', 'width':checkboxSize+'px', 'height': checkboxSize+'px', 'background-size': ' cover'}"
+  ></div>
 </div>

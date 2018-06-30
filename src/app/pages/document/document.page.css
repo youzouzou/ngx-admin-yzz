@@ -1,0 +1,44 @@
+.document-page {
+  width: 96%;
+  padding: 20px 1%;
+  margin: 20px 1%;
+  font-size: 14px;
+  background: #fff;
+  clear: both;
+  overflow: hidden;
+}
+
+.document-left {
+  width: 35%;
+  float: left;
+}
+
+.document-left > div {
+  border-right: 1px solid #dfe3eb;
+}
+
+.document-right {
+  width: 63%;
+  padding-left: 2%;
+  float: left;
+}
+
+.document-row {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.document-title {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.document-checkbox {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+}
