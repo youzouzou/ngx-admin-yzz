@@ -22,7 +22,10 @@
           </div>
         </div>
       </div>
-      <div class="top-menu-item-active"></div><!--[ngStyle]="{'left':100*curPathIndex+'px'}"-->
+      <div class="top-menu-item-active"
+           (mouseenter)="menuList[curPathIndex].showChildren=true"
+           (mouseleave)="menuList[curPathIndex].showChildren=false"
+      ></div><!--[ngStyle]="{'left':100*curPathIndex+'px'}"-->
     </div>
   </div>
   <div class="top-padding"></div>
