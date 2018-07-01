@@ -39,6 +39,7 @@ export class FormPage {
   }
 
   changeSex(data) {
+    // 单选框需要在这里手动修改值
     console.log('改变性别', data);
     this.user.sex = data.item.sex;
   }
@@ -62,6 +63,7 @@ export class FormPage {
   }
 
   changeStatus(data, i) {
+    // 复选框需要在这里手动修改列表状态值
     console.log('选择兴趣', data, i);
     this.hobbyList[i].checkStatus = data;
   }
