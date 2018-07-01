@@ -9,7 +9,6 @@ export class Validate {
 
   el:any;
   newDiv:any;
-  msg:string;
 
   constructor(el:ElementRef) {
     this.el = el;
@@ -26,13 +25,19 @@ export class Validate {
     this.newDiv.style.top = this.el.nativeElement.clientHeight;
     this.newDiv.style.left = this.el.nativeElement.offsetLeft;
     this.newDiv.style.color = 'red';
-    this.newDiv.innerText = this.msg;
     this.el.nativeElement.parentElement.appendChild(this.newDiv);
     let vm = this;
     this.el.nativeElement.onchange = function () {
+      vm.newDiv.style.display = 'none';
       for (let i = 0; i < vm.rule.length; i++) {
-        if(vm.rule[i].required){
-          vm.msg='g';
+        if (vm.rule[i].required && String(vm.validateValue)=='') {
+          vm.newDiv.innerText = vm.rule[i].message;
+          vm.newDiv.style.display = 'inline-block';
+          break;
+        } else if(vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)){
+          vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
+          vm.newDiv.style.display = 'inline-block';
+          break;
         }
       }
     }
