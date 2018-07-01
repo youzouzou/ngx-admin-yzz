@@ -21,15 +21,17 @@ export class UploadPage {
 
   selectedFileOnChanged() {
     // 这里是文件选择完成后的操作处理
-    this.uploader.queue[0].onSuccess = (response, status, headers) => {
-      // 上传文件成功
-      if (status == 200) { // 上传文件后获取服务器返回的数据
-        let tempRes = JSON.parse(response);
-      }
-      else { // 上传文件后获取服务器返回的数据错误
-      }
-    };
-    this.uploader.queue[0].upload(); // 开始上传
+    for (let i = 0; i < this.uploader.queue.length; i++) {
+      this.uploader.queue[i].onSuccess = (response, status, headers) => {
+        // 上传文件成功
+        if (status == 200) { // 上传文件后获取服务器返回的数据
+          console.log(i + '上传成功', JSON.parse(response));
+        }
+        else { // 上传文件后获取服务器返回的数据错误
+        }
+      };
+      this.uploader.queue[i].upload(); // 开始上传
+    }
   }
 
 }

@@ -19,7 +19,7 @@ export class DocumentPage {
     },
     {
       title: '表单',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '标签页',
