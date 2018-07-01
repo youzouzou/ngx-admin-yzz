@@ -44,8 +44,21 @@ export class FormPage {
       },
       {
         validator: function (value) {
-          if(value.length>3){
+          if (value.length > 3) {
             return '名字不能太长哦';
+          }
+        }
+      }
+    ],
+    age: [
+      {
+        required: true,
+        message: '请输入年龄'
+      },
+      {
+        validator: function (value) {
+          if (value < 0) {
+            return '虽然你年轻得像逆生长，但年龄必须是正数哦';
           }
         }
       }
@@ -54,7 +67,7 @@ export class FormPage {
 
   // 提交表单
   submitForm() {
-    console.log('提交数据', this.user, this.hobbyList)
+      console.log('提交数据', this.user, this.hobbyList)
   }
 
   // 改变性别
