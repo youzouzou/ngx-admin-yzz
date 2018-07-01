@@ -31,7 +31,7 @@ export class DocumentPage {
     },
     {
       title: '上传文件',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '图片处理',
