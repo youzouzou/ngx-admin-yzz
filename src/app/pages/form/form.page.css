@@ -68,6 +68,10 @@ button, .default-btn {
   border: 1px solid #dfe3eb;
 }
 
+.default-btn:hover{
+  background: #eee;
+}
+
 .confirm-btn {
   background: #20B2AA;
   color: #fff;
@@ -76,4 +80,16 @@ button, .default-btn {
 
 .confirm-btn:hover {
   background: #40E0D0;
+}
+
+.form-checkbox {
+  display: flex;
+  justify-content: flex-start;
+  float: left;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.form-checkbox-desc {
+  margin-left: 5px;
 }

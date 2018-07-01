@@ -22,7 +22,7 @@ export class FormPage {
     }
   ];
 
-  hobbyList = [
+  hobbyList:any = [
     {
       desc: '看书'
     },
@@ -35,7 +35,7 @@ export class FormPage {
   ];
 
   submitForm() {
-    console.log('提交数据', this.user)
+    console.log('提交数据', this.user, this.hobbyList)
   }
 
   changeSex(data) {
@@ -48,7 +48,7 @@ export class FormPage {
       name: '',
       sex: 'female'
     };
-    this.hobbyList = [
+    this.hobbyList= [
       {
         desc: '看书'
       },
@@ -61,7 +61,9 @@ export class FormPage {
     ];
   }
 
-  changeStatus() {
+  changeStatus(data, i) {
+    console.log('选择兴趣', data, i);
+    this.hobbyList[i].checkStatus = data;
   }
 
 }

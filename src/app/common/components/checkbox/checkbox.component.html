@@ -3,11 +3,18 @@
      'background': checkboxBg,
      'width':checkboxSize+'px',
      'height': checkboxSize+'px',
-     'cursor': checkDisabled?'not-allowed':''}"
+     'cursor': checkDisabled?'not-allowed':'',
+     'border': '1px solid '+(checkboxBorderColor?checkboxBorderColor:checkboxBg)
+     }"
      (click)="changeStatus(checkStatus)">
   <div *ngIf="checkStatus"
+       [ngStyle]="{
+       'background':'url('+checkIcon+')',
+       'width':checkboxSize+'px',
+       'height': checkboxSize+'px',
+       'background-size': ' cover'
+       }"
        [ngClass]="{'checkbox-icon-white':checkboxColor=='white', 'checkbox-icon-black':checkboxColor=='black'}"
-       [ngStyle]="{'background':'url('+checkIcon+')', 'width':checkboxSize+'px', 'height': checkboxSize+'px', 'background-size': ' cover'}"
   ></div>
   <div>
   </div>

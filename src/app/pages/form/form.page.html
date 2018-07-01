@@ -25,13 +25,16 @@
       <div class="form-group">
         <label>兴趣爱好</label>
         <div class="form-content">
-          <div class="form-checkbox" *ngFor="let hobby of hobbyList">
+          <div class="form-checkbox" *ngFor="let hobby of hobbyList;let i=index">
             <checkbox (changeCheckStatus)="changeStatus($event, i)" [checkboxSize]="20"
                       [checkStatus]="hobby.checkStatus"
                       [checkDisabled]="false"
-                      [checkboxColor]="'white'"
-                      [checkboxBg]="'#20B2AA'"></checkbox>
-            {{hobby.desc}}
+                      [checkboxColor]="'black'"
+                      [checkboxBorderColor]="'#20B2AA'"
+                      [checkboxBg]="'#fff'"></checkbox>
+            <span class="form-checkbox-desc">
+              {{hobby.desc}}
+            </span>
           </div>
         </div>
       </div>
