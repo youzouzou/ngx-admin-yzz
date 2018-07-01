@@ -25,9 +25,6 @@ const menuList:any = [
     path: 'animation', title: '动画'
   },
   {
-    path: 'upload', title: '文件上传'
-  },
-  {
     path: 'document', title: '文档'
   }
 ];

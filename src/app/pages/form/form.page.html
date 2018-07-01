@@ -47,4 +47,16 @@
       </div>
     </div>
   </div>
+  <div class="form-part">
+    <div class="form-box">
+      <div class="upload-box">
+        <input type="file" ng2FileSelect [uploader]="uploader" multiple (change)="selectedFileOnChanged($event)"/>
+        上传文件
+      </div>
+
+      <div *ngFor="let item of uploader.queue">
+        {{item.progress + '%'}}
+      </div>
+    </div>
+  </div>
 </div>

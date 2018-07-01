@@ -8,6 +8,7 @@
 .form-part {
   width: 45%;
   margin-left: 2%;
+  float: left;
 }
 
 .form-box {
@@ -16,6 +17,7 @@
   background: #fff;
   clear: both;
   overflow: hidden;
+  min-height: 340px;
 }
 
 .form-group {
@@ -92,4 +94,27 @@ button, .default-btn {
 
 .form-checkbox-desc {
   margin-left: 5px;
+}
+
+.upload-box {
+  width: 80px;
+  height: 35px;
+  background: #1FBF5B;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.upload-box input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5000;
 }
