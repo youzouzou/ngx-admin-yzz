@@ -7,13 +7,13 @@ import {FileUploader} from 'ng2-file-upload';
 })
 
 export class FormPage {
-  user: any = {
+  user:any = {
     name: '',
     age: 0,
     sex: 'female'
   };
 
-  sexList: any = [
+  sexList:any = [
     {
       sex: 'female',
       title: '女'
@@ -24,7 +24,7 @@ export class FormPage {
     }
   ];
 
-  hobbyList: any = [
+  hobbyList:any = [
     {
       desc: '看书'
     },
@@ -35,6 +35,22 @@ export class FormPage {
       desc: '敲代码'
     }
   ];
+
+  rules:any = {
+    name: [
+      {
+        required: true,
+        message: '请输入姓名'
+      },
+      {
+        validator: function (value) {
+          if(value.length>3){
+            return '名字不能太长哦';
+          }
+        }
+      }
+    ]
+  };
 
   // 提交表单
   submitForm() {
@@ -76,7 +92,7 @@ export class FormPage {
   }
 
   // 文件上传操作
-  uploader: any;
+  uploader:any;
   url = 'http://upload/picture';
 
   constructor() {

@@ -4,7 +4,7 @@
       <div class="form-group">
         <label>姓名</label>
         <div class="form-content">
-          <input type="text" [(ngModel)]="user.name">
+          <input type="text" [(ngModel)]="user.name" validate [rule]="rules.name" [validateValue]="user.name">
         </div>
       </div>
       <div class="form-group">
