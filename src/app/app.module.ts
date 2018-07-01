@@ -17,6 +17,8 @@ import {TabPage} from "./pages/tab/tab.page";
 import {AnimationPage} from "./pages/animation/animation.page";
 import {DocumentPage} from "./pages/document/document.page";
 import {UploadPage} from "./pages/upload/upload.page";
+import {FormPage} from "./pages/form/form.page";
+
 // components
 import {BreadcrumbComponent} from "./common/layout/breadcrumb/breadcrumb.component";
 import {ModalComponent} from "./common/components/modal/modal.component";
@@ -27,11 +29,11 @@ import {RadioComponent} from "./common/components/radio/radio.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
+import {Validate} from "./common/directives/validate.directive";
 // service
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {modalService} from "./common/service/modal.service";
-import {FormPage} from "./pages/form/form.page";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import {FormPage} from "./pages/form/form.page";
     TopNavbarComponent,
     BreadcrumbComponent,
     Tooltip,
+    Validate,
     Animation,
     PaginationComponent,
     ModalComponent,
