@@ -7,12 +7,13 @@ import {FileUploader} from 'ng2-file-upload';
 })
 
 export class FormPage {
-  user = {
+  user: any = {
     name: '',
+    age: 0,
     sex: 'female'
   };
 
-  sexList = [
+  sexList: any = [
     {
       sex: 'female',
       title: '女'
@@ -51,6 +52,7 @@ export class FormPage {
   resetForm() {
     this.user = {
       name: '',
+      age: 0,
       sex: 'female'
     };
     this.hobbyList = [
@@ -74,7 +76,7 @@ export class FormPage {
   }
 
   // 文件上传操作
-  uploader: FileUploader;
+  uploader: any;
   url = 'http://upload/picture';
 
   constructor() {
@@ -84,6 +86,7 @@ export class FormPage {
       method: "POST",
       itemAlias: "file" // 后端设定的字段名成
     });
+    this.resetForm();
   }
 
   selectedFileOnChanged() {
