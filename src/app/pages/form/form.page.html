@@ -50,13 +50,31 @@
   <div class="form-part">
     <div class="form-box">
       <div class="upload-box">
-        <input type="file" ng2FileSelect [uploader]="uploader" multiple (change)="selectedFileOnChanged($event)"/>
+        <input type="file" accept="image/*" id="uploader" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)"/>
         上传文件
       </div>
-
+      <div style="margin-left:30px;float: left;">
+        <button class="default-btn" (click)="submitUpload()">确定</button>
+      </div>
       <div *ngFor="let item of uploader.queue">
         {{item.progress + '%'}}
       </div>
+
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1/1"
+        [resizeToWidth]="128"
+        format="jpeg"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (loadImageFailed)="imageLoadFailed()"
+        style="max-height: 330px;"
+        [style.display]="cropperReady ? null : 'none'"
+      ></image-cropper>
+
+      <img *ngIf="croppedImage" [src]="croppedImage" class="cropper-img"/>
+
     </div>
   </div>
 </div>

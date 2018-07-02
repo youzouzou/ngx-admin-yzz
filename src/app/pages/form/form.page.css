@@ -70,7 +70,7 @@ button, .default-btn {
   border: 1px solid #dfe3eb;
 }
 
-.default-btn:hover{
+.default-btn:hover {
   background: #eee;
 }
 
@@ -107,6 +107,7 @@ button, .default-btn {
   line-height: 35px;
   overflow: hidden;
   position: relative;
+  float: left;
 }
 
 .upload-box input {
@@ -117,4 +118,9 @@ button, .default-btn {
   top: 0;
   left: 0;
   z-index: 5000;
+}
+
+.cropper-img {
+  width: 100px;
+  height: 100px;
 }
