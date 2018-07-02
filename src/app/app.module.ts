@@ -8,6 +8,7 @@ import {ChartModule} from 'angular2-chartjs';
 import {FileUploadModule} from 'ng2-file-upload';
 import { FormsModule }   from '@angular/forms';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { HttpClientModule } from '@angular/common/http';
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 // pages
@@ -59,6 +60,7 @@ import {modalService} from "./common/service/modal.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ChartModule,
     FileUploadModule,
     FormsModule,
