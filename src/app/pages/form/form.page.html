@@ -4,13 +4,15 @@
       <div class="form-group">
         <label>姓名</label>
         <div class="form-content">
-          <input type="text" [(ngModel)]="user.name">
+          <input type="text" [(ngModel)]="user.name"
+                 validate [rule]="rules.name" [validateValue]="user.name">
         </div>
       </div>
       <div class="form-group">
         <label>年龄</label>
         <div class="form-content">
-          <input type="number" [(ngModel)]="user.age">
+          <input type="number" [(ngModel)]="user.age"
+                 validate [rule]="rules.age" [validateValue]="user.age">
         </div>
       </div>
       <div class="form-group">
@@ -42,7 +44,7 @@
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button (click)="submitForm()" class="confirm-btn">确认</button>
+          <button (click)="submitForm()" class="confirm-btn" validate [validated]="'submit'" [validateRules]="rules">确认</button>
         </div>
       </div>
     </div>

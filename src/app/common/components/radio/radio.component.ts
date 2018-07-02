@@ -16,7 +16,7 @@ export class RadioComponent implements DoCheck {
   @Input() radioColor = '#ccc';
   @Output() changeRadio:EventEmitter<any> = new EventEmitter;
 
-  ngDoCheck() { // todo 什么时候触发这个？
+  ngDoCheck() {
     this.setData();
   }
 

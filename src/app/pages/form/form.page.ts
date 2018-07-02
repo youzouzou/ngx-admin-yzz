@@ -7,13 +7,13 @@ import {FileUploader} from 'ng2-file-upload';
 })
 
 export class FormPage {
-  user: any = {
+  user:any = {
     name: '',
     age: 0,
     sex: 'female'
   };
 
-  sexList: any = [
+  sexList:any = [
     {
       sex: 'female',
       title: '女'
@@ -24,7 +24,7 @@ export class FormPage {
     }
   ];
 
-  hobbyList: any = [
+  hobbyList:any = [
     {
       desc: '看书'
     },
@@ -36,9 +36,38 @@ export class FormPage {
     }
   ];
 
+  rules:any = {
+    name: [
+      {
+        required: true,
+        message: '请输入姓名'
+      },
+      {
+        validator: function (value) {
+          if (value.length > 3) {
+            return '名字不能太长哦';
+          }
+        }
+      }
+    ],
+    age: [
+      {
+        required: true,
+        message: '请输入年龄'
+      },
+      {
+        validator: function (value) {
+          if (value < 0) {
+            return '虽然你年轻得像逆生长，但年龄必须是正数哦';
+          }
+        }
+      }
+    ]
+  };
+
   // 提交表单
   submitForm() {
-    console.log('提交数据', this.user, this.hobbyList)
+      console.log('提交数据', this.user, this.hobbyList)
   }
 
   // 改变性别
@@ -76,8 +105,8 @@ export class FormPage {
   }
 
   // 文件上传操作
-  uploader: any;
-  url = 'http://debug.mall.naildaka.com/vapi/v3/mall/upload/picture'; //'http://upload/picture';
+  uploader:any;
+  url = 'http://upload/picture';
 
   constructor(private renderer: Renderer2) {
     let vm = this;
