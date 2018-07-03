@@ -1,25 +1,29 @@
-<div [style.height]="screenHeight+'px'" class="left-navbar">
+<div [style.height]="screenHeight+'px'" class="left-navbar" [ngClass]="{'left-navbar-hide':foldStatus}">
   <div>
     <div class="side-menu-list">
-      <div *ngFor="let menu of menuList;let i=index" style="position: relative;">
-        <div class="side-menu-item" (click)="changeMenu(menu,null,i)"
-             [ngClass]="{'side-menu-item-active':menu.path==curParent}"
-             routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.children[0].path):menu.path}}">
-          {{menu.title}}
-        </div>
-        <div class="side-menu-item-switc-box" *ngIf="menu.children && menu.children.length" (click)="menu.showChildren=!menu.showChildren">
-          <div class="side-menu-item-switch"
-               [ngClass]="{'side-menu-item-switch-open':menu.showChildren, 'side-menu-item-switch-close':!menu.showChildren}"></div>
-        </div>
-        <div class="side-child-box" *ngIf="menu.showChildren && menu.children && menu.children.length">
-          <div *ngFor="let childMenu of menu.children;let j=index"
-               (click)="changeMenu(menu,childMenu)"
-               [ngClass]="{'side-menu-item-active':menu.path==curParent && childMenu.path==curChild}"
-               routerLink="{{menu.path+'/'+childMenu.path}}"
-               class="side-child-item">{{childMenu.title}}
+      <div class="side-folder" (click)="flod()"></div>
+      <ng-container *ngIf="!foldStatus">
+        <div *ngFor="let menu of menuList;let i=index" style="position: relative;">
+          <div class="side-menu-item" (click)="changeMenu(menu,null,i)"
+               [ngClass]="{'side-menu-item-active':menu.path==curParent}"
+               routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.children[0].path):menu.path}}">
+            {{menu.title}}
+          </div>
+          <div class="side-menu-item-switc-box" *ngIf="menu.children && menu.children.length"
+               (click)="menu.showChildren=!menu.showChildren">
+            <div class="side-menu-item-switch"
+                 [ngClass]="{'side-menu-item-switch-open':menu.showChildren, 'side-menu-item-switch-close':!menu.showChildren}"></div>
+          </div>
+          <div class="side-child-box" *ngIf="menu.showChildren && menu.children && menu.children.length">
+            <div *ngFor="let childMenu of menu.children;let j=index"
+                 (click)="changeMenu(menu,childMenu)"
+                 [ngClass]="{'side-menu-item-active':menu.path==curParent && childMenu.path==curChild}"
+                 routerLink="{{menu.path+'/'+childMenu.path}}"
+                 class="side-child-item">{{childMenu.title}}
+            </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>

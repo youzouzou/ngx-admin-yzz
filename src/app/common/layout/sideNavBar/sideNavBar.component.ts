@@ -13,6 +13,7 @@ export class SideNavbarComponent {
   curParent: string;
   curChild: string;
   render2: any;
+  foldStatus = false;
 
   constructor(render2: Renderer2, private router: Router) {
     this.render2 = render2;
@@ -39,13 +40,18 @@ export class SideNavbarComponent {
   changeMenu(menu, childMenu, index) {
     this.curParent = menu.path;
     for (let i = 0; i < this.menuList.length; i++) {
-      if(index>=0 && index==i){
+      if (index >= 0 && index == i) {
         continue;
       }
       this.menuList[i].showChildren = false;
     }
     menu.showChildren = !menu.showChildren;
     this.curChild = childMenu ? childMenu.path : ((menu.children && menu.children.length) ? menu.children[0].path : '');
+  }
+
+  flod() {
+    this.foldStatus = !this.foldStatus;
+    document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
   }
 
 }
