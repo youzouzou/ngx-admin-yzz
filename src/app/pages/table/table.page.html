@@ -1,4 +1,4 @@
-<div [ngStyle]="{'width':screenWidth}">
+<div [ngStyle]="{'width':screenWidth-150+'px'}"><!--todo 这个写法不灵活，这个减去150是侧边菜单栏的宽度-->
   <div class="table" animation="linear-show">
     <div class="tr">
       <div class="td"
@@ -21,8 +21,9 @@
       </div>
     </div>
   </div>
- <div class="page-row">
-   <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage" [curPage]="pageConfig.curPage"></pagination>
- </div>
+  <div class="page-row">
+    <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage"
+                [curPage]="pageConfig.curPage"></pagination>
+  </div>
   <!--<button (click)="openModal()">test</button>-->
 </div>

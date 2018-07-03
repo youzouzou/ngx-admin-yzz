@@ -9,7 +9,7 @@ import {modalService} from "../../common/service/modal.service";
 })
 
 export class TableComponent {
-  screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth) + 'px';
+  screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth);
   pageConfig: any;
   labelList = [
     '菜名',
@@ -221,7 +221,7 @@ export class TableComponent {
     };
     var vm = this;
     window.onresize = function () {
-      vm.screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth) + 'px';
+      vm.screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth);
     }
   }
 
