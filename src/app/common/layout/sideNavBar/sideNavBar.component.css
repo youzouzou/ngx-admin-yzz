@@ -1,0 +1,139 @@
+.left-navbar {
+  width: 150px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #000;
+  overflow-y: auto;
+  z-index: 9999;
+  color: #fff;
+  font-size: 14px;
+}
+
+.side-menu-list {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.side-menu-item {
+  min-height: 50px;
+  line-height: 50px;
+  display: block;
+  outline: none;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.side-menu-item:hover, .side-child-item:hover {
+  background: #333;
+}
+
+.side-child-box {
+  line-height: 30px;
+  background: #333;
+  padding: 15px 0;
+  animation: scroll-show 0.3s linear;
+  transform-origin: 0 0 0;
+}
+
+.side-child-item {
+  line-height: 45px;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.side-menu-item-switc-box {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 15px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.side-menu-item-switch {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPwAAACgBAMAAADayRzYAAAALVBMVEUAAADp6enu7u7v7+/r6+vn5+fq6urs7Ozt7e3k5OT////8/Pz4+Pj09PTx8fENVckgAAAACnRSTlMAbdvbkkmStrYkcXSIfAAABQNJREFUeNrtW01v0zAYTqRmiFuAjY8LUhFM4lAktGlwAcF6R900MY5lE4ITAqGxE4gJdhw/xBl/YAm/oEkOHRKIpZGAad2h3W9gW6na+k3mJI8tkPBznec3r/348ePXrqGhoaGhoaGhoaHxX2Bh6spr21AEc/X91K1L6X+3xm+0Wge3HxtKYFUPWq14/0lqg1I38n0/2K8bKvC06x8i2K2lfd65nS3GmBOUDQUwPzbYIdx4IqXBYve4geM3VUz/bKfXe9BO6f25v8WO4AYzhnSU7jR6vXth8tye3mB/4DVr0sPPR1ush0/XExs87PTDu8G67OjWR78ffnMvMbkHUT+84zXvSQ7/rOOyfvg4qXPzToP14QQ35UY3K0Od+0mdj/W+r5/+hNTwZ6Oh8N5eUvijRd+HS9QBwlilMdz5F4Pi1Hc2BC+2pSa/xYbwNSn8znALV6b0na/4w+GdpPClnZEm3rY08ptvI5cxweCXOoPwcslfOhbzAZKpN9rI8b/JIt9y1CCJJe5Io7N/VaraD8KH75KaLUVsBN62rYL2bLNZNxJH3x0NH5RtKYLnjyb/eS95V3jLtfPil1Jmns9qJbnhOW6UnGBXntqL53SM54jXtGWqPfEypKnLNZ2EaV/hUvL3uZTInjsAnj6d0Gvpjatc+ptBWTLtPbLqyOzLU37zFU/7cOXEVULGakam2jOPU3LCFJL+YyD5Kk/7cM04EYsdfp20i7NvscvTvl0TGOINfrji4ie+y2QqhQZ+iaz9skTa25n/Byf/bJFMHmQWCgoqYrnt64UkvhSAtUzUPktHZpUqvxzaNycyawVue56TSSwX8sXMK0L+Obp7Z6TwmQILhjKY5LCe2SJQuQBon3sGzQ1+4ISeX+xcpnNUQlDyj1cI7W1g6LhqTwHtKiPEcZPdcbptEZgcARYI+ffrKtVeTP5JxNvHNmqQsw+ftUTUfrcGHw+mM396qtojA9i0c3h7uFKx1Cmo/NaGDMNivSnYyyzx9mU556OZgpJlSymK+Nv3DTEuEm8/WLLgttGuwUdaRPlDO/+UEcYCyl/O79NJ8pkxTnYO4exXBUdagnwH3j0RXQVHWoKcB9666DwP0B71TItdhPYUZj7PfxmiPYVFqz2TtfSPJXP1E7yPpT3GK9lpH6zB139kPH8A3h66BaJHHjFP4fSzdlqCarIFhhRQe0j5bYHJkXkTO0fJ/zKLt8/v8IA6P1X7sC7tLki88VWJMRfoLeL52wU+UeWFyHz2rRnw/APyU9qL6amsPEppPz1ooIL86yfPTvjCEADz/G2bcBOgPXTgHasAtMeVf16oSzj500udpkrai3eUKv0yBa+e6H4KmBzc9vjfelEeASYHIX94tffqAShg4tWeR0AlB6v2hGvk0YGgBoOARmrWs1+84aDjfE2wF0sFZdn2cuQCz23gA2+L/6Cv2RUHP/A6Lstx7YKTL3JJeKBuD1R7BgBoj14O0tt2pVjgbA+v9jVDLS5yzxuI2quFxekMcKTFbQ+i9rjnR26acc8PqT1e6gRMDmp7KO1/AskDyg/QHlF+QO1x5cfVHqvzA7e0KE5xyi+6ZZKffoNT+zOGStBnjWppL74yAguYuPLjtEeeAoK0x20P/qAStz2ODzwnBX7m1ECOtHj6Xf8YwS+A9gD5n91tHSL+9dr4O5h7dfdg6gMw8ShWV+8ZGhoaGhoaGhoa/yZ+A12+tfgSvobeAAAAAElFTkSuQmCC');
+  background-size: cover;
+  width: 12px;
+  height: 7px;
+}
+
+@keyframes scroll-show {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes scroll-show {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes rotate-show {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
+@-webkit-keyframes rotate-show {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
+@keyframes rotate-hide {
+  0% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-hide {
+  0% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.side-menu-item-switch-open {
+  transform: rotateZ(180deg);
+  animation: rotate-show 0.2s ease-in-out;
+}
+
+.side-menu-item-switch-close {
+  animation: rotate-hide 0.2s ease-in-out;
+}
+
+.side-menu-item-active {
+  color: #ff893e;
+}

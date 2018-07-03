@@ -11,6 +11,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
+import {SideNavbarComponent} from "./common/layout/sideNavBar/sideNavBar.component";
 // pages
 import {TableComponent} from './pages/table/table.page';
 import {ChartComponent} from "./pages/chart/chart.page";
@@ -40,6 +41,7 @@ import {modalService} from "./common/service/modal.service";
   declarations: [
     AppComponent,
     TopNavbarComponent,
+    SideNavbarComponent,
     BreadcrumbComponent,
     Tooltip,
     Validate,

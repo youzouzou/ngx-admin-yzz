@@ -30,16 +30,16 @@ export class DocumentPage {
       checkStatus: false,
     },
     {
-      title: '上传文件',
+      title: '上传文件（ng2-file-upload）',
       checkStatus: true,
     },
     {
-      title: '图片处理',
-      checkStatus: false,
+      title: '图片裁剪（ngx-image-cropper）',
+      checkStatus: true,
     },
     {
       title: '顶部&侧边导航栏',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '面包屑导航',
@@ -79,7 +79,7 @@ export class DocumentPage {
     },
     {
       title: 'validate',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: 'loading',
