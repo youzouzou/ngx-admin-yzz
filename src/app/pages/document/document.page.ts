@@ -14,7 +14,7 @@ export class DocumentPage {
       checkStatus: true
     },
     {
-      title: '图表（Chart.js）',
+      title: '图表',
       checkStatus: true,
     },
     {
@@ -30,15 +30,15 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
-      title: '上传文件（ng2-file-upload）',
+      title: '上传文件',
       checkStatus: true,
     },
     {
-      title: '图片裁剪（ngx-image-cropper）',
+      title: '图片裁剪',
       checkStatus: true,
     },
     {
-      title: '顶部&侧边导航栏',
+      title: '导航栏',
       checkStatus: true,
     },
     {

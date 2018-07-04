@@ -44,7 +44,7 @@
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button (click)="submitForm()" class="confirm-btn" validate [validated]="'submit'" [validateRules]="rules">
+          <button class="confirm-btn" validate [validated]="'submit'" (click)="submitForm($event)" [validateRules]="rules">
             确认
           </button>
         </div>

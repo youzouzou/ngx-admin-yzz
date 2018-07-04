@@ -20,13 +20,35 @@
     <!--文档详细说明-->
 
     <!---->
-    <div *ngIf="apiList[index].title=='表格'">
-
+    <div *ngIf="apiList[index].title=='图表'">
+      Chart.js
     </div>
 
     <div *ngIf="apiList[index].title=='上传文件'">
       <a href="https://github.com/valor-software/ng2-file-upload" target="_blank">文件上传插件ng2-file-upload</a>
       再看看这个回答，待优化：https://github.com/valor-software/ng2-file-upload/issues/718
+    </div>
+
+    <div *ngIf="apiList[index].title=='富文本'">
+      Todo：需要做成组件，将自定义的上传图片加入进去，要考虑宽度和高度的自定义样式
+    </div>
+
+    <div *ngIf="apiList[index].title=='上传文件'">
+      ng2-file-upload
+    </div>
+
+    <div *ngIf="apiList[index].title=='图片裁剪'">
+      ngx-image-cropper
+    </div>
+
+    <div *ngIf="apiList[index].title=='导航栏'">
+      侧边和顶部
+      <br>
+      Todo：用户头像昵称、登入登出；权限设置
+    </div>
+
+    <div *ngIf="apiList[index].title=='tooltip'">
+      Todo：不一定根据长度判断是否显示；需要设置显示的位置，不一定是底部，可以自定义，有四个方向
     </div>
 
   </div>

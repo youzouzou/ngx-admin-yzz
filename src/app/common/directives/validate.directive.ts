@@ -1,17 +1,18 @@
-import {Directive, ElementRef, Input, EventEmitter} from '@angular/core';
+import {Directive, ElementRef, Input, Output, EventEmitter} from '@angular/core';
 
 @Directive({
   selector: '[validate]'
 })
 export class Validate {
-  @Input() rule:any;
-  @Input() validateValue:any;
-  @Input() validated:string;// 验证的类型，input，submit
-  @Input() validateRules:any;
-  el:any;
-  newDiv:any;
+  @Input() rule: any;
+  @Input() validateValue: any;
+  @Input() validated: string;// 验证的类型，input，submit
+  @Input() validateRules: any;
+  @Output() click: EventEmitter<Boolean> = new EventEmitter;
+  el: any;
+  newDiv: any;
 
-  constructor(el:ElementRef) {
+  constructor(el: ElementRef) {
     this.el = el;
   }
 
@@ -52,18 +53,23 @@ export class Validate {
       let vm = this;
       vm.el.nativeElement.onclick = function () {
         let res = true;
-        console.log('表单校验', vm.validateRules);
-        for (let i = 0; vm.validateRules && i < vm.validateRules.length; i++) {
-          console.log(vm.validateRules[i]);
-          if(vm.validateRules[i].validateResult===false){
-            res = false;
+        let keys = vm.getKeys(vm.validateRules);
+        for (let i = 0; vm.validateRules && i < keys.length; i++) {
+          for (let j = 0; j < vm.validateRules[keys[i]].length; j++) {
+            if (vm.validateRules[keys[i]][j].validateResult === false) {
+              res = false;
+            }
           }
         }
-        if(!res){
-          console.log('表单校验失败');
-        }
+        // if (!res) {
+        //   console.log('表单校验失败');
+        // }
+        vm.click.emit(res);
       }
     }
   }
 
+  getKeys(item) {
+    return Object.keys(item);
+  }
 }

@@ -77,8 +77,9 @@ export class FormPage {
   url = 'http://upload/picture'; // 这里是后端的接口url
 
   // 提交表单
-  submitForm() {
-    console.log('提交数据', this.user, this.hobbyList)
+  submitForm(res){
+    console.log('表单校验结果', res);
+    console.log('提交数据', this.user, this.hobbyList);
   }
 
   // 改变性别
