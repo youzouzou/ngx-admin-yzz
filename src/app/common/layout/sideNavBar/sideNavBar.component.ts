@@ -14,14 +14,15 @@ export class SideNavbarComponent {
   curChild: string;
   render2: any;
   foldStatus = false;
+  showChildBoxIndex: number;
 
   constructor(render2: Renderer2, private router: Router) {
     this.render2 = render2;
-    document.body.style.paddingLeft = '150px';
-    document.body.style.width = this.foldStatus ? (window.innerWidth-50+'px') : (window.innerWidth-150+'px');
+    document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
+    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
     var vm = this;
     window.onresize = function () {
-      document.body.style.width = vm.foldStatus ? (window.innerWidth-50+'px') : (window.innerWidth-150+'px');
+      document.body.style.width = vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
     }
   }
 
@@ -57,7 +58,15 @@ export class SideNavbarComponent {
   flod() {
     this.foldStatus = !this.foldStatus;
     document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
-    document.body.style.width = this.foldStatus ? (window.innerWidth-50+'px') : (window.innerWidth-150+'px');
+    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
+  }
+
+  showChildBox(i) {
+    this.showChildBoxIndex = i;
+  }
+
+  hideChildBox() {
+    this.showChildBoxIndex = null;
   }
 
 }

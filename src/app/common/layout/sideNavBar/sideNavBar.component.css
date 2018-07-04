@@ -13,11 +13,16 @@
 .side-menu-list {
   padding: 50px 0;
   text-align: center;
+  line-height: 50px;
+}
+
+.side-menu-item-box {
+  position: relative;
+  min-height: 50px;
 }
 
 .side-menu-item {
   min-height: 50px;
-  line-height: 50px;
   display: block;
   outline: none;
   moz-user-select: -moz-none;
@@ -40,6 +45,7 @@
   padding: 15px 0;
   animation: scroll-show 0.3s linear;
   transform-origin: 0 0 0;
+  position: relative;
 }
 
 .side-child-item {
@@ -86,6 +92,24 @@
   }
   100% {
     transform: scaleY(1);
+  }
+}
+
+@keyframes scroll-show-x {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@-webkit-keyframes scroll-show-x {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
 
@@ -153,4 +177,35 @@
 
 .left-navbar-hide {
   left: -100px;
+}
+
+.side-menu-item-icon-box {
+  position: absolute;
+  padding-top: 18px;
+  top: 0;
+  height: 30px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10001;
+  outline: none;
+}
+
+.side-menu-item-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.side-menu-item-fold {
+  background: #333333;
+  position: fixed;
+  top: 0;
+  left: 49px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 20000;
+  outline: none;
+  border: 0;
+  animation: scroll-show-x 0.2s linear;
+  transform-origin: 0 0 0;
 }
