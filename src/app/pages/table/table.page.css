@@ -1,44 +1,38 @@
-.table {
+table {
   width: 98%;
   margin: 0 auto;
   background: #fff;
   overflow: hidden;
   border-radius: 5px;
+  font-size: 14px;
 }
 
-.tr {
-  width: 98%;
-  padding-left: 1%;
-  padding-right: 1%;
-  border-bottom: 1px solid #dfe3eb;
-  overflow: hidden;
-}
-
-.tr:nth-child(odd) {
+tr:nth-child(odd) {
   background: #eee;
 }
 
-.tr:first-child {
+tr:first-child {
   background: #dfe3eb;
 }
 
-.tr:hover {
+tr:hover {
   background: #dfe3eb;
 }
 
-.td {
-  min-width: 80px;
-  -ms-text-overflow: ellipsis;
-  text-overflow: ellipsis;
+td{
+  padding:5px 10px;
+  line-height: 30px;
+  height:40px;
+}
+
+.page-row {
+  width: 98%;
+  margin: 20px 1% 30px 1%;
+}
+
+.item-length {
+  max-width: 100px;
   white-space: nowrap;
-  text-align: center;
-  font-size: 14px;
-  float: left;
+  text-overflow: ellipsis;
   overflow: hidden;
-  line-height: 50px;
-}
-
-.page-row{
-  width:98%;
-  margin:20px 1% 30px 1%;
 }

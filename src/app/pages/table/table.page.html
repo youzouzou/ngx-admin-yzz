@@ -1,26 +1,22 @@
-<div [ngStyle]="{'width':screenWidth-150+'px'}"><!--todo 这个写法不灵活，这个减去150是侧边菜单栏的宽度-->
-  <div class="table" animation="linear-show">
-    <div class="tr">
-      <div class="td"
-           *ngFor="let label of labelList;let i=index"
-           [ngStyle]="{'width':tableConfig.width[i],'height':tableConfig.height}">
+<div class="table-page">
+  <table animation="linear-show">
+    <tr>
+      <td *ngFor="let label of labelList;let i=index">
         {{ label }}
-      </div>
-    </div>
-    <div class="tr" *ngFor="let item of data;let i=index">
-      <div class="td"
-           *ngFor="let key of getKeys(item);let i=index"
-           [ngStyle]="{'width':tableConfig.width[i],'height':tableConfig.height}"
-           [tooltip]="item[key]" tooltip-type="black"
-      >
-        {{ item[key] }}
-      </div>
-      <div class="td" [ngStyle]="{'width':tableConfig.width[tableConfig.width.length-1]}">
+      </td>
+    </tr>
+    <tr *ngFor="let item of data;let i=index">
+      <td *ngFor="let key of getKeys(item);let i=index">
+        <div [tooltip]="item[key]" tooltip-type="black" class="item-length">
+          {{ item[key] }}
+        </div>
+      </td>
+      <td>
         <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
         <button routerLink="/table/table_detail" class="btn-default">详情</button>
-      </div>
-    </div>
-  </div>
+      </td>
+    </tr>
+  </table>
   <div class="page-row">
     <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage"
                 [curPage]="pageConfig.curPage"></pagination>

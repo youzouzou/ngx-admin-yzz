@@ -3,13 +3,12 @@ import {msgService} from "../../common/service/msg.service";
 import {modalService} from "../../common/service/modal.service";
 
 @Component({
-  selector: 'table',
+  selector: 'table-page',
   templateUrl: './table.page.html',
   styleUrls: ['./table.page.css']
 })
 
 export class TableComponent {
-  screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth);
   pageConfig: any;
   labelList = [
     '菜名',
@@ -205,11 +204,6 @@ export class TableComponent {
     }
   ];
 
-  tableConfig = {
-    width: ['15%', '10%', '20%', '30%', '15%', '10%'],
-    height: '50px'
-  };
-
   getKeys(item) {
     return Object.keys(item);
   }
@@ -219,10 +213,6 @@ export class TableComponent {
       totalPage: 6,
       curPage: 3
     };
-    var vm = this;
-    window.onresize = function () {
-      vm.screenWidth = (1200 > window.innerWidth ? 1200 : window.innerWidth);
-    }
   }
 
   alertMsg(item, index) {
