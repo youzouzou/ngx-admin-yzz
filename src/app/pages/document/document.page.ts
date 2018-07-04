@@ -27,7 +27,7 @@ export class DocumentPage {
     },
     {
       title: '富文本',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '上传文件（ng2-file-upload）',

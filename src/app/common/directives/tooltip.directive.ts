@@ -12,7 +12,7 @@ export class Tooltip {
     var vm = this;
     el.nativeElement.style.position = 'relative';
     vm.newDiv = document.createElement('div');
-    // todo 0629 设置位置和颜色
+    // todo 0629 设置位置和颜色，并且不一定需要超长才展示
     vm.newDiv.style.position = 'absolute';
     vm.newDiv.style.zIndex = 1000;
     vm.newDiv.style.borderRadius = '8px';

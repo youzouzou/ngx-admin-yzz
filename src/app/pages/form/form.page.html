@@ -82,10 +82,41 @@
 
     </div>
   </div>
+  <!--<div class="form-part">
+    <div class="form-box">
+      &lt;!&ndash;下拉输入筛选框&ndash;&gt;
+      <select-input></select-input>
+    </div>
+  </div>
+
   <div class="form-part">
     <div class="form-box">
-      <!--下拉输入筛选框-->
-      <select-input></select-input>
+    </div>
+  </div>
+-->
+  <div class="form-part">
+    <div class="form-box">
+      <jodit-editor
+        (onResize)="initEditor($event)"
+        (onChange)="changeEditor($event)"
+        [config]="{
+        zIndex:99999,
+        buttons: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
+        buttonsMD: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
+        buttonsSM: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
+        buttonsXS: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
+        askBeforePasteHTML: false,
+        askBeforePasteFromWord: true,
+        language: 'zh_cn',
+        showTooltip: false,
+        width: 400,
+        height: 660}"></jodit-editor>
+    </div>
+  </div>
+
+  <div class="form-part">
+    <div class="form-box">
+      <div id="richContent"></div>
     </div>
   </div>
 </div>

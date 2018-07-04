@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Component({
@@ -8,6 +8,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 
 export class FormPage {
+  changeEditor: (event: any) => void;
+  render2: any;
   user: any = {
     name: '',
     age: 0,
@@ -66,6 +68,9 @@ export class FormPage {
     ]
   };
 
+  richContent = '';
+  private initEditor: (event) => any;
+
   // 提交表单
   submitForm() {
     console.log('提交数据', this.user, this.hobbyList)
@@ -109,7 +114,7 @@ export class FormPage {
   uploader: any;
   url = 'http://upload/picture'; // 这里是后端的接口url
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, render2: Renderer2) {
     let vm = this;
     this.uploader = new FileUploader({
       url: vm.url,
@@ -117,6 +122,20 @@ export class FormPage {
       itemAlias: "file" // 后端设定的字段名成
     });
     this.resetForm();
+
+
+    this.changeEditor=function(event) {
+      // console.log('富文本', event.editor.value);
+      this.richContent = event.editor.value;
+      render2.selectRootElement('#richContent').innerHTML = event.editor.value;
+    }
+
+    this.initEditor=function(event) {
+      // console.log(event);
+      // event.editor.value = '';
+      // render2.selectRootElement('#richContent').innerHTML = event.editor.value;
+    }
+
   }
 
 // 图片裁剪

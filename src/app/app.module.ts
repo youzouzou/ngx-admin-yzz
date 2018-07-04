@@ -9,6 +9,7 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { FormsModule }   from '@angular/forms';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
+import { JoditAngularModule } from 'jodit-angular';
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 import {SideNavbarComponent} from "./common/layout/sideNavBar/sideNavBar.component";
@@ -68,7 +69,8 @@ import {modalService} from "./common/service/modal.service";
     ChartModule,
     FileUploadModule,
     FormsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    JoditAngularModule
   ],
   providers: [globalService, msgService, modalService],
   bootstrap: [AppComponent]
