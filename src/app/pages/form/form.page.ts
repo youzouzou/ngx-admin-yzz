@@ -107,7 +107,7 @@ export class FormPage {
 
   // 文件上传操作
   uploader: any;
-  url = 'http://upload/picture';
+  url = 'http://upload/picture'; // 这里是后端的接口url
 
   constructor(private http: HttpClient) {
     let vm = this;

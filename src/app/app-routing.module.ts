@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 // pages
-import {TableComponent} from './pages/table/table.page';
+import {TablePage} from './pages/table/table.page';
 import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {ChartComponent} from "./pages/chart/chart.page";
 import {TabPage} from "./pages/tab/tab.page";
@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'table',
     children: [
       {
-        path: 'basic_table',  component: TableComponent
+        path: 'basic_table',  component: TablePage
       },
       {
         path: 'table_detail', component: TableDetailPage

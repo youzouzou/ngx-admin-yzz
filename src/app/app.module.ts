@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 import {SideNavbarComponent} from "./common/layout/sideNavBar/sideNavBar.component";
 // pages
-import {TableComponent} from './pages/table/table.page';
+import {TablePage} from './pages/table/table.page';
 import {ChartComponent} from "./pages/chart/chart.page";
 import {TableDetailPage} from "./pages/table/detail/detail.page";
 import {TabPage} from "./pages/tab/tab.page";
@@ -28,6 +28,7 @@ import {TabComponent} from "./common/components/tab/tab.component";
 import {CheckboxComponent} from "./common/components/checkbox/checkbox.component";
 import {PaginationComponent} from "./common/components/pagination/pagination.component";
 import {RadioComponent} from "./common/components/radio/radio.component";
+import {SelectInputComponent} from "./common/components/selectInput/selectInput.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
@@ -52,7 +53,8 @@ import {modalService} from "./common/service/modal.service";
     TabComponent,
     CheckboxComponent,
     RadioComponent,
-    TableComponent,
+    SelectInputComponent,
+    TablePage,
     TableDetailPage,
     TabPage,
     AnimationPage,

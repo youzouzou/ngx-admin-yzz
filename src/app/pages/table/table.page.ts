@@ -8,7 +8,7 @@ import {modalService} from "../../common/service/modal.service";
   styleUrls: ['./table.page.css']
 })
 
-export class TableComponent {
+export class TablePage {
   pageConfig: any;
   labelList = [
     '菜名',
