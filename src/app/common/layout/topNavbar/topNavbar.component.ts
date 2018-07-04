@@ -12,19 +12,25 @@ export class TopNavbarComponent {
   curPathIndex: number;
   prePathIndex: number = 0;
   render2: any;
+  curParent: string;
+  curChild: string;
 
   constructor(render2: Renderer2) {
     this.render2 = render2;
   }
 
   ngOnInit() {
-    var paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
+    let paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
     if (paths.length > 1) {
+      this.curParent = paths[1];
+      if (paths.length > 2) {
+        this.curChild = paths[2];
+      }
       for (let i = 0; i < this.menuList.length; i++) {
         if (this.menuList[i].path === paths[1]) {
           this.prePathIndex = 0;
           this.curPathIndex = i;
-          this.render2.selectRootElement('.top-menu-item-active').style.left = i*100 + 'px';
+          this.render2.selectRootElement('.top-menu-item-active').style.left = i * 100 + 'px';
           break;
         }
       }
@@ -48,6 +54,13 @@ export class TopNavbarComponent {
         setTimeout(function () {
           dom.style.left = k + 'px';
         }, 100);
+      }
+    }
+    let paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
+    if (paths.length > 1) {
+      this.curParent = paths[1];
+      if (paths.length > 2) {
+        this.curChild = paths[2];
       }
     }
   }

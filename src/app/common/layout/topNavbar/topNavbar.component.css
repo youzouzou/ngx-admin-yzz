@@ -27,11 +27,11 @@
   outline: none;
   moz-user-select: -moz-none;
   -moz-user-select: none;
-  -o-user-select:none;
-  -khtml-user-select:none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .top-menu-item:hover {
@@ -65,10 +65,14 @@
   outline: none;
 }
 
-.top-menu-item-active{
+.top-menu-item-active {
   position: absolute;
   top: 55px;
   width: 100px;
-  height:5px;
+  height: 5px;
   background: #bcc;
+}
+
+.top-child-item-active {
+  color: #ff893e;
 }

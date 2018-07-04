@@ -18,6 +18,7 @@
           <div *ngFor="let childMenu of menu.children;let j=index"
                routerLink="{{menu.path+'/'+childMenu.path}}"
                (click)="setActive(i)"
+               [ngClass]="{'top-child-item-active': curParent==menu.path && curChild==childMenu.path}"
                class="top-child-item">{{childMenu.title}}
           </div>
         </div>
