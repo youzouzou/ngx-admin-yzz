@@ -54,8 +54,7 @@
   <div class="form-part">
     <div class="form-box">
       <div class="upload-box">
-        <input type="file" accept="image/*" id="uploader" ng2FileSelect [uploader]="uploader"
-               (change)="selectedFileOnChanged($event)"/>
+        <input type="file" accept="image/*" (change)="selectedFileOnChanged($event)"/>
         打开本地图片
       </div>
       <div style="margin-left:30px;float: left;">
@@ -111,6 +110,10 @@
         showTooltip: false,
         width: 400,
         height: 660}"></jodit-editor>
+      <div class="jodit-editor-upload">
+        <input type="file" accept="image/*" id="uploader" ng2FileSelect [uploader]="uploader"
+               (change)="jodiEditorUpload($event)"/>
+      </div>
     </div>
   </div>
 

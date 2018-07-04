@@ -10,6 +10,7 @@
   margin-left: 2%;
   margin-bottom: 30px;
   float: left;
+  position: relative;
 }
 
 .form-box {
@@ -19,6 +20,7 @@
   clear: both;
   overflow: hidden;
   min-height: 340px;
+  position: relative;
 }
 
 .form-group {
@@ -130,6 +132,23 @@ button, .default-btn {
   height: 100px;
 }
 
-.jodit_tooltip{
+.jodit_tooltip {
   display: block !important;
+}
+
+.jodit-editor-upload {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAZBAMAAABN41qcAAAAKlBMVEX5+fkiIiKNjY3h4eHe3t6Li4uampqXl5c8PDwzMzOsrKxUVFRRUVEqKiq0Gx2BAAAAVklEQVQY02OgN+AUBIMJCBFWCBWAEGGy3gyiFJBEEsUYWBJQRGwOM3iIo4gwMLA0ChagiCh5CApKIYuwC04UFBRCFlkoKIgmoggRwedCXogvLjAMPAAANqYLG0p9oi0AAAAASUVORK5CYII=');
+  width: 30px;
+  height: 20px;
+  background-size: cover;
+  position: absolute;
+  top: 100px;
+  left: 138px;
+  z-index: 100000;
+  overflow:hidden;
+}
+
+.jodit-editor-upload input{
+  opacity: 0;
+
 }

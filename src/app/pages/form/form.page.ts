@@ -9,13 +9,12 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 export class FormPage {
   changeEditor: (event: any) => void;
-  render2: any;
+  initEditor: (event) => any;
   user: any = {
     name: '',
     age: 0,
     sex: 'female'
   };
-
   sexList: any = [
     {
       sex: 'female',
@@ -26,7 +25,6 @@ export class FormPage {
       title: '男'
     }
   ];
-
   hobbyList: any = [
     {
       desc: '看书'
@@ -38,7 +36,6 @@ export class FormPage {
       desc: '敲代码'
     }
   ];
-
   rules: any = {
     name: [
       {
@@ -67,9 +64,17 @@ export class FormPage {
       }
     ]
   };
-
   richContent = '';
-  private initEditor: (event) => any;
+  cropUploader: any;
+// 图片裁剪
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  cropperReady = false;
+  cropperFile: any;
+  // 文件上传操作
+  uploader: any;
+  editor: any;
+  url = 'http://upload/picture'; // 这里是后端的接口url
 
   // 提交表单
   submitForm() {
@@ -110,10 +115,6 @@ export class FormPage {
     this.hobbyList[i].checkStatus = data;
   }
 
-  // 文件上传操作
-  uploader: any;
-  url = 'http://upload/picture'; // 这里是后端的接口url
-
   constructor(private http: HttpClient, render2: Renderer2) {
     let vm = this;
     this.uploader = new FileUploader({
@@ -123,28 +124,20 @@ export class FormPage {
     });
     this.resetForm();
 
-
-    this.changeEditor=function(event) {
+    this.changeEditor = function (event) {
       // console.log('富文本', event.editor.value);
       this.richContent = event.editor.value;
       render2.selectRootElement('#richContent').innerHTML = event.editor.value;
-    }
+    };
 
-    this.initEditor=function(event) {
-      // console.log(event);
+    this.initEditor = function (event) {
+      // 初始化富文本内容
+      this.editor = event.editor;
+      console.log('初始化富文本内容', event);
       // event.editor.value = '';
       // render2.selectRootElement('#richContent').innerHTML = event.editor.value;
     }
-
   }
-
-// 图片裁剪
-  imageChangedEvent: any = '';
-  originalImage: any = '';
-  croppedImage: any = '';
-  cropperReady = false;
-  cropperFile: any;
-
 
   imageCropped(image: string) {
     this.croppedImage = image;
@@ -170,27 +163,28 @@ export class FormPage {
     if (event) {
       this.imageChangedEvent = event; // 通知裁剪插件
     }
-    // 这里是文件选择完成后的操作处理
-    /*for (let i = 0; i < this.uploader.queue.length; i++) {
-     this.uploader.queue[i].onSuccess = (response, status, headers) => {
-     // 上传文件成功
-     if (status == 200) { // 上传文件后获取服务器返回的数据
-     console.log(i + '上传成功', JSON.parse(response));
-     this.originalImage = JSON.parse(response).file.url;
-     }
-     else { // 上传文件后获取服务器返回的数据错误
-     }
-     };
-     this.uploader.queue[i].upload(); // 开始上传
-     }*/
   }
 
-  cropUploader: any;
+  jodiEditorUpload() { // 富文本的上传图片操作
+    // 这里是文件选择完成后的操作处理
+    let vm = this;
+    for (let i = 0; i < vm.uploader.queue.length; i++) {
+      vm.uploader.queue[i].onSuccess = (response, status, headers) => {
+        // 上传文件成功
+        if (status == 200) { // 上传文件后获取服务器返回的数据
+          console.log(i + '上传成功', JSON.parse(response).file.url);
+          this.editor.value += '<img style="max-width:100%;" src="' + JSON.parse(response).file.url + '">';
+        }
+        else { // 上传文件后获取服务器返回的数据错误
+        }
+      };
+      this.uploader.queue[i].upload(); // 开始上传
+    }
+  }
 
   submitUpload() {
-    console.log('原图', this.originalImage);
     console.log('裁剪图', this.croppedImage);
-    console.log('????', this.cropperFile);
+    console.log('cropperFile', this.cropperFile);
     let vm = this;
     if (this.cropperFile) {
       this.cropUploader = new FileUploader({
