@@ -1,17 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
-import routesData from '../menu.config';
+import menuConfig from '../menu.config';
 @Component({
   selector: 'breadcrumb',
   templateUrl: './breadcrumb.component.html',
 })
-export class BreadcrumbComponent {
-  menuList: any = routesData.menuList;
+export class BreadcrumbComponent implements OnInit {
+  menuList: any = menuConfig.menuList;
   breadcrumbs;
 
   // todo 考虑参数问题
   constructor(private router: Router) {
-    console.log('路由数据', this.menuList);
+    // console.log('路由数据', this.menuList);
+  }
+
+  ngOnInit() {
     this.router.events
       .subscribe((event) => {
         this.breadcrumbs = [];
@@ -19,7 +22,7 @@ export class BreadcrumbComponent {
           console.log('NavigationEnd:', event.url);
           if (event && event.url) {
             let paths = event.url.split('/');
-            if (paths.length > 1) {
+            if (paths.length > 1 && paths[1]) {
               for (let i = 0; i < this.menuList.length; i++) {
                 if (paths[1] === this.menuList[i].path) {
                   console.log('匹配到一级路由', this.menuList[i].title);
@@ -56,9 +59,23 @@ export class BreadcrumbComponent {
                   break;
                 }
               }
+            } else {
+              this.breadcrumbs.push(
+                {
+                  title: menuConfig.menu.title,
+                  path: menuConfig.menu.path
+                }
+              );
+              if (menuConfig.menu.children && menuConfig.menu.children.length) {
+                this.breadcrumbs.push({
+                  title: menuConfig.menu.children[0].title,
+                  path: menuConfig.menu.children[0].path
+                });
+              }
             }
           }
         }
       });
   }
+
 }
