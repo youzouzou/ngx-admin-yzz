@@ -49,7 +49,6 @@ export class TopNavbarComponent {
     let render2 = this.render2;
     // 设置移动动画
     let dom = render2.selectRootElement('.top-menu-item-active');
-    console.log('移动', dom, this.prePathIndex, this.curPathIndex);
     if (this.prePathIndex < this.curPathIndex) {
       for (let j = this.prePathIndex * 100; j <= this.curPathIndex * 100; j++) {
         setTimeout(function () {

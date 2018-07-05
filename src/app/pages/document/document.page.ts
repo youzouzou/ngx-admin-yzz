@@ -46,28 +46,12 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
-      title: '下拉框',
-      checkStatus: false,
-    },
-    {
-      title: '搜索框',
-      checkStatus: false,
+      title: '联想输入',
+      checkStatus: true,
     },
     {
       title: '单/复选框',
       checkStatus: true,
-    },
-    {
-      title: '模态框',
-      checkStatus: false,
-    },
-    {
-      title: '按钮',
-      checkStatus: false,
-    },
-    {
-      title: '标签输入框',
-      checkStatus: false,
     },
     {
       title: 'tooltip',
@@ -80,6 +64,26 @@ export class DocumentPage {
     {
       title: 'validate',
       checkStatus: true,
+    },
+    {
+      title: '下拉框',
+      checkStatus: false,
+    },
+    {
+      title: '搜索框',
+      checkStatus: false,
+    },
+    {
+      title: '模态框',
+      checkStatus: false,
+    },
+    {
+      title: '按钮',
+      checkStatus: false,
+    },
+    {
+      title: '标签输入框',
+      checkStatus: false,
     },
     {
       title: 'filter',
