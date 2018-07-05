@@ -53,7 +53,7 @@
   padding-bottom: 5px;
   font-size: 12px;
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .top-child-item:first-child {

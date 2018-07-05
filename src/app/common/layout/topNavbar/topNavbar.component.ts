@@ -40,6 +40,7 @@ export class TopNavbarComponent {
       if (menuConfig.menu.children && menuConfig.menu.children.length) {
         this.curChild = menuConfig.menu.children[0].path;
       }
+      console.log('初始化默认菜单', this.curParent, this.curChild);
     }
   }
 
