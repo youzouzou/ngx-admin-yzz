@@ -100,6 +100,10 @@ export class DocumentPage {
     {
       title: 'message',
       checkStatus: false,
+    },
+    {
+      title: '拖拽排序',
+      checkStatus: false,
     }
   ];
 

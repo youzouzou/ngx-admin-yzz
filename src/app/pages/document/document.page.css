@@ -9,7 +9,7 @@
 }
 
 .document-left {
-  width: 35%;
+  width: 25%;
   float: left;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .document-right {
-  width: 63%;
+  width: 73%;
   padding-left: 2%;
   float: left;
 }

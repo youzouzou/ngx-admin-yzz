@@ -31,6 +31,7 @@ import {PaginationComponent} from "./common/components/pagination/pagination.com
 import {RadioComponent} from "./common/components/radio/radio.component";
 import {SelectInputComponent} from "./common/components/selectInput/selectInput.component";
 import {multiSelectComponent} from "./common/components/multiSelect/multiSelect.component";
+import {SearchComponent} from "./common/components/search/search.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
@@ -46,6 +47,7 @@ import {modalService} from "./common/service/modal.service";
     TopNavbarComponent,
     SideNavbarComponent,
     BreadcrumbComponent,
+    SearchComponent,
     Tooltip,
     Validate,
     Animation,
