@@ -1,0 +1,35 @@
+.select-component {
+  font-size: 14px;
+  position: relative;
+}
+
+.select-input {
+  width: 100%;
+  border: 1px solid #dfe3eb;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.select-item-box {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  border: 1px solid #dfe3eb;
+  border-radius: 0 0 5px 5px;
+  z-index: 10000;
+  background: #fff;
+  min-height: 30px;
+  max-height: 150px;
+  overflow: auto;
+  padding: 0 10px 5px 10px;
+}
+
+.select-item {
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+}
+
+.select-item:last-child {
+  border: 0 transparent;
+}

@@ -41,10 +41,17 @@
         </div>
       </div>
       <div class="form-group">
+        <label>毕业院校</label>
+        <div class="form-content">
+          <select-input [keyword]="user.school" [list]="schoolList" [label]="'name'" (getInputValue)="selectSchool($event)"></select-input>
+        </div>
+      </div>
+      <div class="form-group">
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button class="confirm-btn" validate [validated]="'submit'" (click)="submitForm($event)" [validateRules]="rules">
+          <button class="confirm-btn" validate [validated]="'submit'" (submit)="submitForm($event)"
+                  [validateRules]="rules">
             确认
           </button>
         </div>
@@ -81,18 +88,6 @@
 
     </div>
   </div>
-  <!--<div class="form-part">
-    <div class="form-box">
-      &lt;!&ndash;下拉输入筛选框&ndash;&gt;
-      <select-input></select-input>
-    </div>
-  </div>
-
-  <div class="form-part">
-    <div class="form-box">
-    </div>
-  </div>
--->
   <div class="form-part">
     <div class="form-box">
       <jodit-editor
@@ -119,6 +114,7 @@
 
   <div class="form-part">
     <div class="form-box">
+      <div>富文本内容：</div>
       <div id="richContent" style="height: 660px;overflow-y: auto;"></div>
     </div>
   </div>

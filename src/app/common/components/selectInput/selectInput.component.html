@@ -1,3 +1,11 @@
-<div>
-
+<div class="select-component" [ngStyle]="{'width':width+'px'}">
+  <input class="select-input" type="text" (change)="changeInput()" [(ngModel)]="keyword" (focus)="showStatus=true"
+         (blur)="blurInput()">
+  <div class="select-item-box" *ngIf="showStatus && keyword">
+    <ng-container *ngFor="let item of list">
+      <div class="select-item" *ngIf="item[label].indexOf(keyword)>-1 && showStatus" (click)="select(item)">
+        {{item[label]}}
+      </div>
+    </ng-container>
+  </div>
 </div>

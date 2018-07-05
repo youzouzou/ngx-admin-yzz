@@ -6,6 +6,7 @@ export class msgService {
   setBottomMsgLine:any;
 
   constructor() {
+    // todo 自定义可选参数：常见类型的提示，显示的位置
     this.setMsg = function (msgConfig) {
       var msgDiv = document.createElement('div');
       msgDiv.className = 'service-msg';
@@ -15,8 +16,8 @@ export class msgService {
     };
 
     // todo 0624
-    this.setBottomMsgLine = function (msgConfig) {
-    };
+    // this.setBottomMsgLine = function (msgConfig) {
+    // };
     return this;
   }
 }

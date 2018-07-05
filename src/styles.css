@@ -29,7 +29,7 @@ html, body {
 }
 
 .service-msg {
-  padding: 5px 15px;
+  padding: 10px 15px;
   position: fixed;
   top: 90px;
   width: 200px;

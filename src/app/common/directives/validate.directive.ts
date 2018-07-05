@@ -8,7 +8,7 @@ export class Validate {
   @Input() validateValue: any;
   @Input() validated: string;// 验证的类型，input，submit
   @Input() validateRules: any;
-  @Output() click: EventEmitter<Boolean> = new EventEmitter;
+  @Output() submit: EventEmitter<Boolean> = new EventEmitter;
   el: any;
   newDiv: any;
 
@@ -52,19 +52,22 @@ export class Validate {
     } else {
       let vm = this;
       vm.el.nativeElement.onclick = function () {
+        event.stopPropagation();
+        event.preventDefault();
         let res = true;
         let keys = vm.getKeys(vm.validateRules);
         for (let i = 0; vm.validateRules && i < keys.length; i++) {
           for (let j = 0; j < vm.validateRules[keys[i]].length; j++) {
-            if (vm.validateRules[keys[i]][j].validateResult === false) {
+            if (vm.validateRules[keys[i]][j].validateResult === false || (vm.validateRules[keys[i]][j].required && !vm.validateRules[keys[i]][j].validateResult)) {
               res = false;
+              break;
             }
           }
+          if (!res) {
+            break;
+          }
         }
-        // if (!res) {
-        //   console.log('表单校验失败');
-        // }
-        vm.click.emit(res);
+        vm.submit.emit(res);
       }
     }
   }

@@ -1,6 +1,7 @@
 import {Component, Renderer2} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {msgService} from "../../common/service/msg.service";
 @Component({
   selector: 'form-page',
   templateUrl: './form.page.html',
@@ -8,12 +9,14 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 
 export class FormPage {
+  // todo 按照表单顺序整理代码
   changeEditor: (event: any) => void;
   initEditor: (event) => any;
   user: any = {
     name: '',
     age: 0,
-    sex: 'female'
+    sex: 'female',
+    school: ''
   };
   sexList: any = [
     {
@@ -34,6 +37,14 @@ export class FormPage {
     },
     {
       desc: '敲代码'
+    }
+  ];
+  schoolList = [
+    {
+      name: '蓝翔'
+    },
+    {
+      name: '新东方'
     }
   ];
   rules: any = {
@@ -77,9 +88,15 @@ export class FormPage {
   url = 'http://upload/picture'; // 这里是后端的接口url
 
   // 提交表单
-  submitForm(res){
+  submitForm(res) {
     console.log('表单校验结果', res);
-    console.log('提交数据', this.user, this.hobbyList);
+    if (res) {
+      console.log('提交数据', this.user, this.hobbyList);
+    }else{
+      this.msgService.setMsg({
+        content: '表单校验失败'
+      });
+    }
   }
 
   // 改变性别
@@ -116,7 +133,7 @@ export class FormPage {
     this.hobbyList[i].checkStatus = data;
   }
 
-  constructor(private http: HttpClient, render2: Renderer2) {
+  constructor(private http: HttpClient, render2: Renderer2, public msgService: msgService) {
     let vm = this;
     this.uploader = new FileUploader({
       url: vm.url,
@@ -218,6 +235,11 @@ export class FormPage {
       ia[i] = bytes.charCodeAt(i);
     }
     return new Blob([ab], {type: 'image/png'});
+  }
+
+  selectSchool(data) {
+    console.log('选择的学校', data);
+    this.user.school = data.value;
   }
 
 }
