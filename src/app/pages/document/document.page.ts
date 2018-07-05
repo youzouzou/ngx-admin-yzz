@@ -82,6 +82,10 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
+      title: 'filter',
+      checkStatus: false,
+    },
+    {
       title: 'loading',
       checkStatus: false,
     },
