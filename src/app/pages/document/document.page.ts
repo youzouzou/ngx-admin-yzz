@@ -66,6 +66,10 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
+      title: '按钮',
+      checkStatus: true,
+    },
+    {
       title: '下拉框',
       checkStatus: false,
     },
@@ -75,10 +79,6 @@ export class DocumentPage {
     },
     {
       title: '模态框',
-      checkStatus: false,
-    },
-    {
-      title: '按钮',
       checkStatus: false,
     },
     {

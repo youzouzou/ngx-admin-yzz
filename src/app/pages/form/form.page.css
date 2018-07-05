@@ -65,10 +65,60 @@
 button, .default-btn {
   background: #fff;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 8px 15px;
   font-size: 14px;
   outline: none;
   border: 1px solid #dfe3eb;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background: #FFCC66;
+  color: #fff;
+  border: 1px solid #FFCC66;
+}
+
+.btn-success {
+  background: #1FBF5B;
+  color: #fff;
+  border: 1px solid #1FBF5B;
+}
+
+.btn-danger {
+  background: #EA0000;
+  color: #fff;
+  border: 1px solid #EA0000;
+}
+
+.flex-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-box > button, .flex-box > div {
+  margin: 0 10px;
+}
+
+.btn-disabled {
+  background: #dfe3eb;
+}
+
+.btn-ms {
+  width: 60px;
+  font-size: 12px;
+}
+
+.btn-ls {
+  width: 120px;
+  font-size: 14px;
+}
+
+.btn-xls {
+  width: 240px;
+  font-size: 16px;
 }
 
 .default-btn:hover {
