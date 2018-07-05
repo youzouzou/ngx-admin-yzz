@@ -30,4 +30,13 @@ const menuList: any = [
   }
 ];
 
-export default {menuList}
+const menu = {
+  title: '表格', path: 'table', icon: icon,
+  children: [
+    {
+      title: '基本表格', path: 'basic_table', icon: icon
+    }
+  ]
+};
+
+export default {menuList, menu}

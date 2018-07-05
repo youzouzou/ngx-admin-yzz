@@ -9,7 +9,7 @@ import menuConfig from '../menu.config';
 export class TopNavbarComponent {
   menuList = menuConfig.menuList;
   screenWidth = window.innerWidth;
-  curPathIndex: number;
+  curPathIndex: number = 0;
   prePathIndex: number = 0;
   render2: any;
   curParent: string;
@@ -21,7 +21,8 @@ export class TopNavbarComponent {
 
   ngOnInit() {
     let paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
-    if (paths.length > 1) {
+    console.log('paths', paths);
+    if (paths.length > 1 && paths[1]) {
       this.curParent = paths[1];
       if (paths.length > 2) {
         this.curChild = paths[2];
@@ -34,6 +35,11 @@ export class TopNavbarComponent {
           break;
         }
       }
+    } else {
+      this.curParent = menuConfig.menu.path;
+      if (menuConfig.menu.children && menuConfig.menu.children.length) {
+        this.curChild = menuConfig.menu.children[0].path;
+      }
     }
   }
 
@@ -43,6 +49,7 @@ export class TopNavbarComponent {
     let render2 = this.render2;
     // 设置移动动画
     let dom = render2.selectRootElement('.top-menu-item-active');
+    console.log('移动', dom, this.prePathIndex, this.curPathIndex);
     if (this.prePathIndex < this.curPathIndex) {
       for (let j = this.prePathIndex * 100; j <= this.curPathIndex * 100; j++) {
         setTimeout(function () {

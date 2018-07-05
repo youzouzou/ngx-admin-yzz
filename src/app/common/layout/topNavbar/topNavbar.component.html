@@ -24,8 +24,8 @@
             </div>
       </div>
       <div class="top-menu-item-active"
-           (mouseenter)="menuList[curPathIndex].showChildren=true"
-           (mouseleave)="menuList[curPathIndex].showChildren=false"
+           (mouseenter)="menuList[curPathIndex]?menuList[curPathIndex].showChildren=true:''"
+           (mouseleave)="menuList[curPathIndex]?menuList[curPathIndex].showChildren=false:''"
       ></div><!--[ngStyle]="{'left':100*curPathIndex+'px'}"-->
     </div>
   </div>

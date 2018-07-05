@@ -11,7 +11,7 @@
 }
 
 .top-menu-list {
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 0;
   margin: 0;
 }
