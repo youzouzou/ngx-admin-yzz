@@ -36,8 +36,8 @@ const routes: Routes = [
   {
     path: 'form', component: FormPage
   },
-  { path: '', redirectTo: 'table/basic_table', pathMatch: 'full' },
-  { path: '**', redirectTo: 'table/basic_table', pathMatch: 'full' }
+  { path: '', redirectTo: 'document', pathMatch: 'full' },
+  { path: '**', redirectTo: 'document', pathMatch: 'full' }
 ];
 
 @NgModule({
