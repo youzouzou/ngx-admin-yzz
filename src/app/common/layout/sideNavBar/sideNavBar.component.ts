@@ -1,6 +1,6 @@
 import {Component, Renderer2, OnInit} from '@angular/core';
 import menuConfig from '../menu.config';
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'side-navbar',
@@ -27,20 +27,31 @@ export class SideNavbarComponent {
   }
 
   ngOnInit() {
-    var paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
-    if (paths.length > 1) {
-      this.curParent = paths[1];
-      for (let i = 0; i < this.menuList.length; i++) {
-        if (this.menuList[i].path === paths[1]) {
-          console.log('当前路由是', this.menuList[i].path);
-          this.menuList[i].showChildren = true;
-          break;
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          let paths = event.url.split('/');
+          if (paths.length > 1 && paths[1]) {
+            this.curParent = paths[1];
+            if (paths.length > 2) {
+              this.curChild = paths[2];
+            }
+            for (let i = 0; i < this.menuList.length; i++) {
+              if (this.menuList[i].path === paths[1]) {
+                console.log('当前路由是', this.menuList[i].path);
+                this.menuList[i].showChildren = true;
+                break;
+              }
+            }
+          } else {
+            this.curParent = menuConfig.menu.path;
+            if (menuConfig.menu.children && menuConfig.menu.children.length) {
+              this.curChild = menuConfig.menu.children[0].path;
+            }
+            console.log('初始化默认菜单', this.curParent, this.curChild);
+          }
         }
-      }
-    }
-    if (paths.length > 2) {
-      this.curChild = paths[2];
-    }
+      });
   }
 
   changeMenu(menu, childMenu, index) {

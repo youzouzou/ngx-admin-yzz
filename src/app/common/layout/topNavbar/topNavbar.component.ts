@@ -1,5 +1,6 @@
 import {Component, Renderer2, OnInit} from '@angular/core';
 import menuConfig from '../menu.config';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'top-navbar',
@@ -15,33 +16,38 @@ export class TopNavbarComponent {
   curParent: string;
   curChild: string;
 
-  constructor(render2: Renderer2) {
+  constructor(render2: Renderer2, private router: Router) {
     this.render2 = render2;
   }
 
   ngOnInit() {
-    let paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
-    console.log('paths', paths);
-    if (paths.length > 1 && paths[1]) {
-      this.curParent = paths[1];
-      if (paths.length > 2) {
-        this.curChild = paths[2];
-      }
-      for (let i = 0; i < this.menuList.length; i++) {
-        if (this.menuList[i].path === paths[1]) {
-          this.prePathIndex = 0;
-          this.curPathIndex = i;
-          this.render2.selectRootElement('.top-menu-item-active').style.left = i * 100 + 'px';
-          break;
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          let paths = this.router.url.split('/');
+          console.log('paths', paths);
+          if (paths.length > 1 && paths[1]) {
+            this.curParent = paths[1];
+            if (paths.length > 2) {
+              this.curChild = paths[2];
+            }
+            for (let i = 0; i < this.menuList.length; i++) {
+              if (this.menuList[i].path === paths[1]) {
+                this.prePathIndex = 0;
+                this.curPathIndex = i;
+                this.render2.selectRootElement('.top-menu-item-active').style.left = i * 100 + 'px';
+                break;
+              }
+            }
+          } else {
+            this.curParent = menuConfig.menu.path;
+            if (menuConfig.menu.children && menuConfig.menu.children.length) {
+              this.curChild = menuConfig.menu.children[0].path;
+            }
+            // console.log('初始化默认菜单', this.curParent, this.curChild);
+          }
         }
-      }
-    } else {
-      this.curParent = menuConfig.menu.path;
-      if (menuConfig.menu.children && menuConfig.menu.children.length) {
-        this.curChild = menuConfig.menu.children[0].path;
-      }
-      console.log('初始化默认菜单', this.curParent, this.curChild);
-    }
+      });
   }
 
   setActive(i) {
@@ -63,7 +69,7 @@ export class TopNavbarComponent {
         }, 100);
       }
     }
-    let paths = location.href.split('//')[1].split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
+    let paths = this.router.url.split('/'); // todo 这一步初始化当前路由，这样取值可能会有问题
     if (paths.length > 1) {
       this.curParent = paths[1];
       if (paths.length > 2) {
