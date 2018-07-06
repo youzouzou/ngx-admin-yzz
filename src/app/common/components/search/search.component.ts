@@ -21,7 +21,7 @@ export class SearchComponent {
   }
 
   enetrKeyword(event) {
-    if (event.keyCode === '13') {
+    if (event.keyCode == 13) {
       this.search.emit(this.keyword);;
     }
   }

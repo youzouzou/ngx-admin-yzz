@@ -43,10 +43,18 @@
       <div class="form-group">
         <label>毕业院校</label>
         <div class="form-content">
-          <select-input [keyword]="user.school" [list]="schoolList" [label]="'name'"
+          <select-input [keyword]="user.school" [list]="schoolList" [label]="'name'" [placeholder]="'联想输入'"
                         (getInputValue)="selectSchool($event)"></select-input>
         </div>
       </div>
+
+      <div class="form-group">
+        <label>个性标签</label>
+        <div class="form-content">
+          <tag></tag>
+        </div>
+      </div>
+
       <div class="form-group">
         <label></label>
         <div class="form-content form-btn">
@@ -116,7 +124,9 @@
   <div class="form-part">
     <div class="form-box">
       <div>富文本内容：</div>
-      <div id="richContent" style="height: 660px;overflow-y: auto;"></div>
+      <div style="height: 639px;overflow-y: auto;">
+        <div id="richContent"></div>
+      </div>
     </div>
   </div>
   <div class="form-part">

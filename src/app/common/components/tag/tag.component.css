@@ -1,0 +1,79 @@
+.tag-component {
+  border: 1px solid #dfe3eb;
+  border-radius: 5px;
+  padding: 10px 10px 0 10px;
+  overflow: hidden;
+  clear: both;
+  font-size: 14px;
+  min-height: 30px;
+}
+
+.tag-component-focus {
+  border: 1px solid #40E0D0;
+  box-shadow: 0 0 5px #20B2AA;
+}
+
+.tag-item {
+  float: left;
+  background: #1FBF5B;
+  color: #fff;
+  margin-right: 8px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  height: 20px;
+}
+
+.tag-input {
+  border: 0;
+  line-height: 24px;
+  height: 30px;
+  width: 80px;
+  float: left;
+}
+
+.tag-input:focus {
+  border: 0;
+  outline: none;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.tag-delete-icon {
+  font-size: 12px;
+  color: #fff;
+  background: #ccc;
+  width: 10px;
+  height: 10px;
+  line-height: 6px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  cursor: pointer;
+}
+
+.tag-delete-icon:hover {
+  background: #ff893e;
+}
+
+.tag-add-icon-box {
+  line-height: 30px;
+  float: left;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.tag-add-icon {
+  color: #ccc;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px dashed #dfe3eb;
+  position: absolute;
+  z-index: 500;
+}

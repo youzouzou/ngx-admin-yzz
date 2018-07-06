@@ -1,5 +1,5 @@
 <div class="select-component" [ngStyle]="{'width':width+'px'}">
-  <input class="select-input" type="text" (change)="changeInput()" [(ngModel)]="keyword" (focus)="showStatus=true"
+  <input class="select-input" type="text" (change)="changeInput()" placeholder="{{placeholder}}" [(ngModel)]="keyword" (focus)="showStatus=true"
          (blur)="blurInput()">
   <div class="select-item-box" *ngIf="showStatus && keyword">
     <ng-container *ngFor="let item of list">

@@ -10,6 +10,7 @@ export class SelectInputComponent {
   @Input() keyword: string; // 初始化的默认值
   @Input() list: any; // 筛选列表
   @Input() label: string; // 展示的值
+  @Input() placeholder: string;
   @Output() getInputValue: EventEmitter<any> = new EventEmitter;
 
   showStatus = false;

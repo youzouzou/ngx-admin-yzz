@@ -32,6 +32,7 @@ import {RadioComponent} from "./common/components/radio/radio.component";
 import {SelectInputComponent} from "./common/components/selectInput/selectInput.component";
 import {multiSelectComponent} from "./common/components/multiSelect/multiSelect.component";
 import {SearchComponent} from "./common/components/search/search.component";
+import {TagComponent} from "./common/components/tag/tag.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
@@ -48,6 +49,7 @@ import {modalService} from "./common/service/modal.service";
     SideNavbarComponent,
     BreadcrumbComponent,
     SearchComponent,
+    TagComponent,
     Tooltip,
     Validate,
     Animation,

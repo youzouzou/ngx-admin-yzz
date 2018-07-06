@@ -1,0 +1,12 @@
+<div class="tag-component" [ngClass]="{'tag-component-focus':focusStatus}">
+  <div class="tag-item" *ngFor="let tag of tagList;let i=index">
+    {{tag}}
+    <div class="tag-delete-icon" (click)="deleteTag(i)">x</div>
+  </div>
+  <!--<div class="tag-add-icon-box">
+    <div class="tag-add-icon" *ngIf="!focusStatus" (click)="focusStatus=true">+</div>
+  </div> *ngIf="focusStatus" autofocus="autofocus" -->
+  <input type="text" class="tag-input"
+         (focus)="focusStatus=true" (keydown)="operateTag($event)" [(ngModel)]="tagInputValue"
+         (blur)="focusStatus=false;addTag()">
+</div>

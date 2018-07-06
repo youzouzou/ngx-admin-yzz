@@ -109,19 +109,48 @@ export class FormPage {
   // 充值表单
   resetForm() {
     this.user = {
-      name: '',
-      age: 0,
+      name: '游走走',
+      age: 24,
       sex: 'female'
     };
     this.hobbyList = [
       {
-        desc: '看书'
+        desc: '看书',
+        checkStatus: true
       },
       {
-        desc: '听歌'
+        desc: '听歌',
+        checkStatus: true
       },
       {
-        desc: '敲代码'
+        desc: '敲代码',
+        checkStatus: true
+      },
+      {
+        desc: '跑步',
+        checkStatus: true
+      },
+      {
+        desc: '骑行',
+        checkStatus: true
+      },
+      {
+        desc: '吃鸡'
+      },
+      {
+        desc: '诗词'
+      },
+      {
+        desc: '游泳'
+      },
+      {
+        desc: '做手工'
+      },
+      {
+        desc: '动漫'
+      },
+      {
+        desc: 'cosplay'
       }
     ];
   }

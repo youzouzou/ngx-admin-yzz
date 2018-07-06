@@ -6,7 +6,7 @@
 }
 
 .form-part {
-  width: 45%;
+  width: 47%;
   margin-left: 2%;
   margin-bottom: 30px;
   float: left;
@@ -18,7 +18,7 @@
   border-radius: 15px;
   background: #fff;
   clear: both;
-  min-height: 340px;
+  min-height: 500px;
   position: relative;
 }
 
@@ -60,6 +60,7 @@
 .form-btn {
   text-align: center;
   margin-left: -10%;
+  margin-top: 20px;
 }
 
 button, .default-btn {

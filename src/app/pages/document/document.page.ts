@@ -74,15 +74,15 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
+      title: '标签输入框',
+      checkStatus: true,
+    },
+    {
       title: '下拉框',
       checkStatus: false,
     },
     {
       title: '模态框',
-      checkStatus: false,
-    },
-    {
-      title: '标签输入框',
       checkStatus: false,
     },
     {
