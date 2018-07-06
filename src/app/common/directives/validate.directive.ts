@@ -25,8 +25,8 @@ export class Validate {
       this.newDiv.style.zIndex = 500;
       this.newDiv.style.fontSize = '12px';
       this.newDiv.style.display = 'none';
-      this.newDiv.style.top = this.el.nativeElement.clientHeight;
-      this.newDiv.style.left = this.el.nativeElement.offsetLeft;
+      this.newDiv.style.top = this.el.nativeElement.offsetHeight + 'px';
+      this.newDiv.style.left = this.el.nativeElement.offsetLeft + 'px';
       this.newDiv.style.color = 'red';
       this.el.nativeElement.parentElement.appendChild(this.newDiv);
       let vm = this;

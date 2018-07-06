@@ -173,4 +173,25 @@
   }
 }
 
+.thomas-show {
+  animation: thomas-show-func 1s linear;
+}
+
+@keyframes thomas-show-func {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0) translate(-30px, -30px);
+  }
+  100% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(360deg) translate(0, 0);
+  }
+}
+
+@-webkit-keyframes thomas-show-func {
+  0% {
+    transform: rotate(0) translate(-30px, -30px);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
 

@@ -143,7 +143,7 @@ export class FormPage {
     this.resetForm();
 
     this.changeEditor = function (event) {
-      console.log('富文本', event.editor.value);
+      // console.log('富文本', event.editor.value);
       this.richContent = event.editor.value;
       render2.selectRootElement('#richContent').innerHTML = event.editor.value;
     };

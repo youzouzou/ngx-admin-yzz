@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 })
 
 export class AnimationPage {
-  boxList = ['linear-show', 'bounce-show', 'rotate-x-show', 'rotate-y-show', 'rotate-z-show'];
+  boxList = ['linear-show', 'bounce-show', 'rotate-x-show', 'rotate-y-show', 'rotate-z-show', 'thomas-show'];
 
   showAgain(event, index) {
     let dom = event.target;
