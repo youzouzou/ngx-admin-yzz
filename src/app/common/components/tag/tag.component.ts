@@ -6,10 +6,8 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 
 export class TagComponent {
-  tagList = ['测试', 'asdas', '哈哈哈', 'asdkalshd'];
+  @Input() tagList = [];
   focusStatus = false;
-
-
   tagInputValue: string;
 
   deleteTag(index) {

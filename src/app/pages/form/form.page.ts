@@ -12,33 +12,9 @@ export class FormPage {
   // todo 按照表单顺序整理代码
   changeEditor: (event: any) => void;
   initEditor: (event) => any;
-  user: any = {
-    name: '',
-    age: 0,
-    sex: 'female',
-    school: ''
-  };
-  sexList: any = [
-    {
-      sex: 'female',
-      title: '女'
-    },
-    {
-      sex: 'male',
-      title: '男'
-    }
-  ];
-  hobbyList: any = [
-    {
-      desc: '看书'
-    },
-    {
-      desc: '听歌'
-    },
-    {
-      desc: '敲代码'
-    }
-  ];
+  user: any;
+  sexList: any = [];
+  hobbyList: any;
   schoolList = [
     {
       name: '蓝翔'
@@ -92,7 +68,7 @@ export class FormPage {
     console.log('表单校验结果', res);
     if (res) {
       console.log('提交数据', this.user, this.hobbyList);
-    }else{
+    } else {
       this.msgService.setMsg({
         content: '表单校验失败'
       });
@@ -111,7 +87,11 @@ export class FormPage {
     this.user = {
       name: '游走走',
       age: 24,
-      sex: 'female'
+      sex: 'female',
+      school: '',
+      tagList: [
+        '宇宙第一懒宅', '颜控', '很无聊'
+      ]
     };
     this.hobbyList = [
       {
