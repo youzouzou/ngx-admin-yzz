@@ -1,7 +1,6 @@
 <div class="table-page">
-
-  <div>
-    <search></search>
+  <div class="table-search-bar">
+    <search (search)="search($event)" [palceholder]="'请输入菜名'"></search>
   </div>
 
   <table animation="linear-show">

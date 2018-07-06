@@ -70,11 +70,11 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
-      title: '下拉框',
-      checkStatus: false,
+      title: '搜索框',
+      checkStatus: true,
     },
     {
-      title: '搜索框',
+      title: '下拉框',
       checkStatus: false,
     },
     {

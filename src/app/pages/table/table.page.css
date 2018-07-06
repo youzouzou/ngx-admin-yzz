@@ -19,10 +19,10 @@ tr:hover {
   background: #dfe3eb;
 }
 
-td{
-  padding:5px 10px;
+td {
+  padding: 5px 10px;
   line-height: 30px;
-  height:40px;
+  height: 40px;
 }
 
 .page-row {
@@ -35,4 +35,8 @@ td{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.table-search-bar {
+  padding: 5px 1% 10px 1%;
 }

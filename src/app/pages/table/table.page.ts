@@ -233,4 +233,9 @@ export class TablePage {
       content: 'open success.'
     });
   }
+
+  search(keyword) {
+    console.log('搜索', keyword);
+  }
+
 }
