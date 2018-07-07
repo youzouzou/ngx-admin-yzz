@@ -1,0 +1,47 @@
+.select {
+  width: 100%;
+  border: 1px solid #dfe3eb;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 5px 10px;
+  height: 30px;
+  background: #fff;
+}
+
+.select-box {
+  position: relative;
+  width: 370px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 28px;
+  background: #fff;
+}
+
+.data-list {
+  width: 120px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  float: left;
+}
+
+.data-list:nth-child(2), .data-list:nth-child(3) {
+  margin-left: -1px;
+}
+
+.data-list span {
+  cursor: pointer;
+  width: 100%;
+  display: inline-block;
+}
+
+.data-list span:hover {
+  background: #dfe3eb;
+  color: #333;
+}
+
+.selected {
+  background: #ff893e;
+  color: #fff;
+}

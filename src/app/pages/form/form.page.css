@@ -71,6 +71,7 @@ button, .default-btn {
   outline: none;
   border: 1px solid #dfe3eb;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-warning {

@@ -1,0 +1,19 @@
+<div class="select" (click)="showStatus=true">
+  {{firstSelectedShowName}}
+  {{secondSelectedShowName?('/ '+secondSelectedShowName):''}}
+  {{thirdSelectedShowName?('/ '+thirdSelectedShowName):''}}
+</div>
+<div class="select-box" *ngIf="showStatus">
+  <div class="data-list">
+    <span *ngFor="let first of data" (click)="selected(1,first)" [ngClass]="{'selected':firstValue==first[firstLabel]}">{{first[firstName]}}</span>
+  </div>
+  <div class="data-list" *ngIf="secondList && secondList.length">
+    <span *ngFor="let second of secondList" (click)="selected(2,second)"
+          [ngClass]="{'selected':secondValue==second[secondLabel]}">{{second[secondName]}}</span>
+  </div>
+  <div class="data-list" *ngIf="thirdList && thirdList.length">
+    <span *ngFor="let third of thirdList" (click)="selected(3,third)"
+          [ngClass]="{'selected':thirdValue==third[thirdLabel]}">{{third[thirdName]}}</span>
+  </div>
+</div>
+

@@ -83,7 +83,7 @@ export class DocumentPage {
     },
     {
       title: '下拉框',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: '模态框',
