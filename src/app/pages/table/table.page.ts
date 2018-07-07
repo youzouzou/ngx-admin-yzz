@@ -10,7 +10,7 @@ import {DragulaService} from "ng2-dragula";
 })
 
 export class TablePage {
-  pageConfig: any;
+  pageConfig:any;
   labelList = [
     '菜名',
     '价格',
@@ -230,35 +230,31 @@ export class TablePage {
     // do something
   }
 
-  constructor(public msgService: msgService, public modalService: modalService, private dragulaService: DragulaService) {
+  constructor(public msgService:msgService, public modalService:modalService, private dragulaService:DragulaService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
     };
-    let vm = this;
-    dragulaService.setOptions('table-bag', {
-      revertOnSpill: true,
-      // moves: function (el: any, container: any, handle: any): any {
-      //   return true;
-      // }
-    });
+  }
 
+  ngOnInit() {
+    let vm = this;
     // 拖拽事件
-    dragulaService.drag.subscribe((value) => {
+    vm.dragulaService.drag.subscribe((value) => {
       // console.log(`drag: ${value[0]}`, value);
-      this.onDrag(value.slice(1));
+      vm.onDrag(value.slice(1));
     });
-    dragulaService.drop.subscribe((value) => {
+    vm.dragulaService.drop.subscribe((value) => {
       console.log('当前排序', vm.data);
-      this.onDrop(value.slice(1));
+      vm.onDrop(value.slice(1));
     });
-    dragulaService.over.subscribe((value) => {
+    vm.dragulaService.over.subscribe((value) => {
       // console.log(`over: ${value[0]}`, value);
-      this.onOver(value.slice(1));
+      vm.onOver(value.slice(1));
     });
-    dragulaService.out.subscribe((value) => {
+    vm.dragulaService.out.subscribe((value) => {
       // console.log(`out: ${value[0]}`, value);
-      this.onOut(value.slice(1));
+      vm.onOut(value.slice(1));
     });
   }
 

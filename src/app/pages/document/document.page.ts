@@ -108,6 +108,14 @@ export class DocumentPage {
     {
       title: 'http',
       checkStatus: false,
+    },
+    {
+      title: '单元测试',
+      checkStatus: false,
+    },
+    {
+      title: 'json等文件压缩',
+      checkStatus: false,
     }
   ];
 

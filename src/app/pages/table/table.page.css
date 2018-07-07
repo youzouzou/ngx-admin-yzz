@@ -11,8 +11,9 @@ tr:nth-child(odd) {
   background: #eee;
 }
 
-tr:first-child {
+th {
   background: #dfe3eb;
+  height: 40px;
 }
 
 tr:hover {
@@ -41,7 +42,7 @@ td {
   padding: 5px 1% 10px 1%;
 }
 
-.grab:active{
+.grab:active {
   cursor: move;
   cursor: grab;
   cursor: -webkit-grab;
