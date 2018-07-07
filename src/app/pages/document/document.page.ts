@@ -104,6 +104,10 @@ export class DocumentPage {
     {
       title: 'message',
       checkStatus: false,
+    },
+    {
+      title: 'http',
+      checkStatus: false,
     }
   ];
 
