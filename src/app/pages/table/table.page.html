@@ -4,22 +4,29 @@
   </div>
 
   <table animation="linear-show">
+    <thead>
     <tr>
-      <td *ngFor="let label of labelList;let i=index">
+      <td></td>
+      <th *ngFor="let label of labelList;let i=index">
         {{ label }}
-      </td>
+      </th>
     </tr>
-    <tr *ngFor="let item of data;let i=index">
-      <td *ngFor="let key of getKeys(item);let i=index">
-        <div [tooltip]="item[key]" tooltip-type="black" class="item-length">
-          {{ item[key] }}
-        </div>
-      </td>
-      <td>
-        <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
-        <button routerLink="/table/table_detail" class="btn-default">详情</button>
-      </td>
-    </tr>
+    </thead>
+    <tbody dragula='table-bag' [dragulaModel]="data">
+      <tr *ngFor="let item of data;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.receiver}}</td>
+        <td>{{item.remark}}</td>
+        <td>
+          <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
+          <button routerLink="/table/table_detail" class="btn-default">详情</button>
+          <button class="btn-default grab">拖拽排序</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
   <div class="page-row">
     <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage"

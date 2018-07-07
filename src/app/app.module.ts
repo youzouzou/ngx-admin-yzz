@@ -41,6 +41,7 @@ import {Validate} from "./common/directives/validate.directive";
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {modalService} from "./common/service/modal.service";
+import {DragulaModule} from "ng2-dragula";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {modalService} from "./common/service/modal.service";
     FileUploadModule,
     FormsModule,
     ImageCropperModule,
-    JoditAngularModule
+    JoditAngularModule,
+    DragulaModule
   ],
   providers: [globalService, msgService, modalService],
   bootstrap: [AppComponent]

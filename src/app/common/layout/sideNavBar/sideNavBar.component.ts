@@ -13,7 +13,7 @@ export class SideNavbarComponent {
   curParent: string;
   curChild: string;
   render2: any;
-  foldStatus = false;
+  foldStatus = window.innerWidth < 1200;
   showChildBoxIndex: number;
 
   constructor(render2: Renderer2, private router: Router) {
@@ -22,7 +22,7 @@ export class SideNavbarComponent {
     document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
     var vm = this;
     window.onresize = function () {
-      document.body.style.width = vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
+      document.body.style.width = (vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px'));
     }
   }
 

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {msgService} from "../../common/service/msg.service";
 import {modalService} from "../../common/service/modal.service";
+import {DragulaService} from "ng2-dragula";
 
 @Component({
   selector: 'table-page',
@@ -204,15 +205,61 @@ export class TablePage {
     }
   ];
 
-  getKeys(item) {
-    return Object.keys(item);
+  // getKeys(item) {
+  //   return Object.keys(item);
+  // }
+
+
+  private onDrag(args) {
+    let [e, el] = args;
+    // do something
   }
 
-  constructor(public msgService: msgService, public modalService: modalService) {
+  private onDrop(args) {
+    let [e, el] = args;
+    // do something
+  }
+
+  private onOver(args) {
+    let [e, el, container] = args;
+    // do something
+  }
+
+  private onOut(args) {
+    let [e, el, container] = args;
+    // do something
+  }
+
+  constructor(public msgService: msgService, public modalService: modalService, private dragulaService: DragulaService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
     };
+    let vm = this;
+    // dragulaService.setOptions('table-bag', {
+    //   revertOnSpill: true,
+    //   moves: function (el: any, container: any, handle: any): any {
+    //     return true;
+    //   }
+    // });
+
+    // 拖拽事件
+    dragulaService.drag.subscribe((value) => {
+      // console.log(`drag: ${value[0]}`, value);
+      this.onDrag(value.slice(1));
+    });
+    dragulaService.drop.subscribe((value) => {
+      console.log('当前排序', vm.data);
+      this.onDrop(value.slice(1));
+    });
+    dragulaService.over.subscribe((value) => {
+      // console.log(`over: ${value[0]}`, value);
+      this.onOver(value.slice(1));
+    });
+    dragulaService.out.subscribe((value) => {
+      // console.log(`out: ${value[0]}`, value);
+      this.onOut(value.slice(1));
+    });
   }
 
   alertMsg(item, index) {

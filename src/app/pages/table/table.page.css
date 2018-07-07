@@ -40,3 +40,9 @@ td {
 .table-search-bar {
   padding: 5px 1% 10px 1%;
 }
+
+.grab{
+  cursor: move;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
