@@ -78,6 +78,10 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
+      title: '拖拽排序',
+      checkStatus: true,
+    },
+    {
       title: '下拉框',
       checkStatus: false,
     },
@@ -99,10 +103,6 @@ export class DocumentPage {
     },
     {
       title: 'message',
-      checkStatus: false,
-    },
-    {
-      title: '拖拽排序',
       checkStatus: false,
     }
   ];
