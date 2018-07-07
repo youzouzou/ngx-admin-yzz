@@ -245,7 +245,7 @@ export class TablePage {
       vm.onDrag(value.slice(1));
     });
     vm.dragulaService.drop.subscribe((value) => {
-      console.log('当前排序', vm.data);
+      // console.log('当前排序', vm.data);
       vm.onDrop(value.slice(1));
     });
     vm.dragulaService.over.subscribe((value) => {
