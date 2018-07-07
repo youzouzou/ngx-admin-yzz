@@ -41,7 +41,7 @@ td {
   padding: 5px 1% 10px 1%;
 }
 
-.grab{
+.grab:active{
   cursor: move;
   cursor: grab;
   cursor: -webkit-grab;

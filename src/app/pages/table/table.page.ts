@@ -236,12 +236,12 @@ export class TablePage {
       curPage: 3
     };
     let vm = this;
-    // dragulaService.setOptions('table-bag', {
-    //   revertOnSpill: true,
-    //   moves: function (el: any, container: any, handle: any): any {
-    //     return true;
-    //   }
-    // });
+    dragulaService.setOptions('table-bag', {
+      revertOnSpill: true,
+      // moves: function (el: any, container: any, handle: any): any {
+      //   return true;
+      // }
+    });
 
     // 拖拽事件
     dragulaService.drag.subscribe((value) => {
