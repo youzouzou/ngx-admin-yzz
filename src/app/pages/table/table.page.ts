@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {msgService} from "../../common/service/msg.service";
-import {modalService} from "../../common/service/modal.service";
 import {DragulaService} from "ng2-dragula";
 
 @Component({
@@ -230,7 +229,7 @@ export class TablePage {
     // do something
   }
 
-  constructor(public msgService:msgService, public modalService:modalService, private dragulaService:DragulaService) {
+  constructor(public msgService:msgService, private dragulaService:DragulaService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
@@ -268,13 +267,6 @@ export class TablePage {
 
   getPageData(curPageNo) {
     console.log('触发', curPageNo);
-  }
-
-  openModal() {
-    var setModal = this.modalService.setModal;
-    setModal({
-      content: 'open success.'
-    });
   }
 
   search(keyword) {

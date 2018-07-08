@@ -87,7 +87,7 @@ export class DocumentPage {
     },
     {
       title: '模态框',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: 'filter',

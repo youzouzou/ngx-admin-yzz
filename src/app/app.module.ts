@@ -40,7 +40,6 @@ import {Validate} from "./common/directives/validate.directive";
 // service
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
-import {modalService} from "./common/service/modal.service";
 import {DragulaModule} from "ng2-dragula";
 
 @NgModule({
@@ -80,7 +79,7 @@ import {DragulaModule} from "ng2-dragula";
     JoditAngularModule,
     DragulaModule
   ],
-  providers: [globalService, msgService, modalService],
+  providers: [globalService, msgService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

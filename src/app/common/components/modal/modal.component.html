@@ -1,4 +1,10 @@
-<div class="modal-screen" id="modalScreen" (click)="closeModal()"></div>
-<div class="modal-box" id="modalBox" [style.left]="screenWidth/2-250+'px'">
-  modal
+<div class="modal-screen"
+     [ngStyle]="{'width':screenWidth+'px', 'display':modalStatus?'block':'none'}"
+     (click)="closeModal()">
+</div>
+<div class="modal-box"
+     [ngStyle]="{
+     'left':screenWidth/2-250+'px',
+     'display':modalStatus?'block':'none'}">
+  <ng-content></ng-content>
 </div>

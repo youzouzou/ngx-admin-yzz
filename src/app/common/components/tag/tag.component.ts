@@ -7,8 +7,9 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 export class TagComponent {
   @Input() tagList = [];
+  @Input() placeholder:string;
   focusStatus = false;
-  tagInputValue: string;
+  tagInputValue:string;
 
   deleteTag(index) {
     this.tagList.splice(index, 1);

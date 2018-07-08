@@ -6,7 +6,7 @@
   <!--<div class="tag-add-icon-box">
     <div class="tag-add-icon" *ngIf="!focusStatus" (click)="focusStatus=true">+</div>
   </div> *ngIf="focusStatus" autofocus="autofocus" -->
-  <input type="text" class="tag-input"
+  <input type="text" class="tag-input" placeholder="{{placeholder}}"
          (focus)="focusStatus=true" (keydown)="operateTag($event)" [(ngModel)]="tagInputValue"
          (blur)="focusStatus=false;addTag()">
 </div>

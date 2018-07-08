@@ -5,16 +5,17 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 2000;
+  z-index: 4000;
 }
 
 .modal-box {
   width: 500px;
   height: 300px;
   position: fixed;
-  z-index: 2001;
+  z-index: 4001;
   top: 80px;
   background: #fff;
   border-radius: 15px;
   padding: 15px;
+  overflow: auto;
 }

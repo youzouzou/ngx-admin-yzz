@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
+@Component({
+  selector: 'modal-body',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css']
+})
+
 export class ModalComponent {
   screenWidth:number = window.innerWidth;
+  @Input() modalStatus:boolean;
+  @Output() close:EventEmitter<any> = new EventEmitter;
 
-  //constructor() {
-  //  //document.body.style.overflow = 'hidden';
-  //  console.log('modal');
-  //}
+  constructor(el:ElementRef) {
+    console.log('el', el);
+    if (this.modalStatus) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
 
   closeModal() {
-    //document.body.style.overflow = 'auto';
-    //document.getElementById('modalScreen').style.display = 'none';
-    //document.body.remove(document.getElementById('modalScreen'));
+    document.body.style.overflow = 'auto';
+    this.modalStatus = false;
+    this.close.emit(false);
   }
 }

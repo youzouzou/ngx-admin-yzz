@@ -5,7 +5,7 @@
   top: 0;
   background: #000;
   overflow-y: auto;
-  z-index: 9999;
+  z-index: 3000;
   color: #fff;
   font-size: 14px;
 }
@@ -187,7 +187,7 @@
   line-height: 50px;
   text-align: center;
   cursor: pointer;
-  z-index: 10001;
+  z-index: 3000;
   outline: none;
 }
 
@@ -203,7 +203,7 @@
   left: 49px;
   width: 100px;
   cursor: pointer;
-  z-index: 20000;
+  z-index: 3000;
   outline: none;
   border: 0;
   animation: scroll-show-x 0.2s linear;

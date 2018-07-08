@@ -3,7 +3,15 @@
   <div class="tab-content-box">
     <div class="tab-content">
       选中第{{curTabIndex+1}}个标签
+      <button class="btn-default" (click)="openModal(i)">open</button>
+      <modal [modalStatus]="showStatus" (close)="closeModal()">
+        这是第{{curTabIndex+1}}个标签的模态框
+        <div>
+          <button (click)="closeModal()">
+            close
+          </button>
+        </div>
+      </modal>
     </div>
   </div>
 </div>
-<!--todo 另一种tab情况，底部的内容只是展示，无自定义交互，可以封装到组件-->

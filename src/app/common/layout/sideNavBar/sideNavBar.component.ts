@@ -10,18 +10,19 @@ import {NavigationEnd, Router} from "@angular/router";
 export class SideNavbarComponent {
   menuList = menuConfig.menuList;
   screenHeight = window.innerHeight;
-  curParent: string;
-  curChild: string;
-  render2: any;
+  curParent:string;
+  curChild:string;
+  render2:any;
   foldStatus = window.innerWidth < 1200;
-  showChildBoxIndex: number;
+  showChildBoxIndex:number;
 
-  constructor(render2: Renderer2, private router: Router) {
+  constructor(render2:Renderer2, private router:Router) {
     this.render2 = render2;
     document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
     document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
     var vm = this;
     window.onresize = function () {
+      vm.screenHeight = window.innerHeight;
       document.body.style.width = (vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px'));
     }
   }

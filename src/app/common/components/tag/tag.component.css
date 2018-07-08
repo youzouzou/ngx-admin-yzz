@@ -75,5 +75,5 @@
   text-align: center;
   border: 1px dashed #dfe3eb;
   position: absolute;
-  z-index: 500;
+  z-index: 5000;
 }
