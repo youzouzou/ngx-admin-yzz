@@ -238,7 +238,7 @@ export class FormPage {
     let vm = this;
     if (this.cropperFile) {
       this.cropUploader = new FileUploader({
-        url: vm.api.url,
+        url: vm.api.upload,
         method: "POST",
         itemAlias: "file" // 后端设定的字段名成
       });
