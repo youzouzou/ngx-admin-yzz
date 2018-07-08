@@ -5,11 +5,6 @@ import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/cor
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-@Component({
-  selector: 'modal-body',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
-})
 
 export class ModalComponent {
   screenWidth:number = window.innerWidth;

@@ -33,6 +33,7 @@ import {SelectInputComponent} from "./common/components/selectInput/selectInput.
 import {multiSelectComponent} from "./common/components/multiSelect/multiSelect.component";
 import {SearchComponent} from "./common/components/search/search.component";
 import {TagComponent} from "./common/components/tag/tag.component";
+import {LoaderComponent} from "./common/components/loader/loader.component";
 // directives
 import {Tooltip} from "./common/directives/tooltip.directive";
 import {Animation} from "./common/directives/animation.directive";
@@ -44,6 +45,8 @@ import {DragulaModule} from "ng2-dragula";
 import {apiService} from "./common/service/api.service";
 // pipe
 import {NumberPipe} from "./common/pipe/pipe";
+// injector
+import {httpInterceptorProviders} from "./common/interceptor/index";
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import {NumberPipe} from "./common/pipe/pipe";
     BreadcrumbComponent,
     SearchComponent,
     TagComponent,
+    LoaderComponent,
     Tooltip,
     Validate,
     Animation,
@@ -83,7 +87,7 @@ import {NumberPipe} from "./common/pipe/pipe";
     JoditAngularModule,
     DragulaModule
   ],
-  providers: [globalService, msgService, apiService],
+  providers: [globalService, msgService, apiService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

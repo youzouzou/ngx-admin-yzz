@@ -100,7 +100,7 @@ export class DocumentPage {
 
     {
       title: 'loading',
-      checkStatus: false,
+      checkStatus: true,
     },
     {
       title: 'message',

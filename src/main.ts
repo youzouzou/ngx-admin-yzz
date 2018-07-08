@@ -8,7 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-let status = false; // 是否开启控制台打印日志
+let status = false; // todo 是否开启控制台打印日志
 if (status) {
   window.console.log = () => {};
   window.console.info = () => {};
