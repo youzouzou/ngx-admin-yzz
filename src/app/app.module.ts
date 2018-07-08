@@ -44,9 +44,10 @@ import {msgService} from "./common/service/msg.service";
 import {DragulaModule} from "ng2-dragula";
 import {apiService} from "./common/service/api.service";
 // pipe
-import {NumberPipe} from "./common/pipe/pipe";
+import {NumberPipe} from "./common/pipe/numberPipe";
 // injector
 import {httpInterceptorProviders} from "./common/interceptor/index";
+import {LengthPipe} from "./common/pipe/lengthPipe";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import {httpInterceptorProviders} from "./common/interceptor/index";
     AnimationPage,
     DocumentPage,
     FormPage,
-    NumberPipe
+    NumberPipe,
+    LengthPipe
   ],
   imports: [
     BrowserModule,

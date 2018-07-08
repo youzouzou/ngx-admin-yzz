@@ -43,3 +43,13 @@
   line-height: 20px;
   display: inline-block;
 }
+
+.html-section-title {
+  margin: 10px 0;
+}
+
+.html-section {
+  padding: 15px;
+  background: #eee;
+  margin: 10px 0;
+}

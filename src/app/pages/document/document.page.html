@@ -19,26 +19,52 @@
 
     <!--文档详细说明-->
 
-    <!---->
     <div *ngIf="apiList[index].title=='图表'">
-      Chart.js
+      使用插件 <a href="https://github.com/emn178/angular2-chartjs">angular2-chartjs</a>，依赖于
+      <a href="http://www.chartjs.org/docs/latest/" target="_blank">chart.js</a>
+      ，详细参数配置可点击链接查看github文档
+      <p>示例：</p>
+      <div class="html-section-title">
+        HTML
+      </div>
+      <div class="html-section">
+        {{html.chart}}
+      </div>
+      <div class="html-section-title">
+        JS
+      </div>
+      <div class="html-section">
+        <pre>type = 'line';
+data = [
+labels: ["January", "February", "March", "April", "May", "June", "July"],
+datasets: [
+    {{'{'}}
+      label: "My First dataset",
+      data: {{'['}}65, 59, 80, 81, 56, 55, 40{{']'}}
+    {{'}'}}
+]
+  {{'}'}};
+options = {{'{'}}
+   responsive: true,
+   maintainAspectRatio: false
+{{'}'}};</pre>
+      </div>
     </div>
 
     <div *ngIf="apiList[index].title=='上传文件'">
-      <a href="https://github.com/valor-software/ng2-file-upload" target="_blank">文件上传插件ng2-file-upload</a>
-      再看看这个回答，待优化：https://github.com/valor-software/ng2-file-upload/issues/718
+      <a href="https://github.com/valor-software/ng2-file-upload" target="_blank">ng2-file-upload</a>
+      <br>
+      Todo：再看看这个回答，待优化：https://github.com/valor-software/ng2-file-upload/issues/718
     </div>
 
     <div *ngIf="apiList[index].title=='富文本'">
       Todo：需要做成组件，将自定义的上传图片加入进去，要考虑宽度和高度的自定义样式
     </div>
 
-    <div *ngIf="apiList[index].title=='上传文件'">
-      ng2-file-upload
-    </div>
-
     <div *ngIf="apiList[index].title=='图片裁剪'">
-      ngx-image-cropper
+      裁剪插件：<a href="https://github.com/Mawi137/ngx-image-cropper" target="_blank">
+        ngx-image-cropper
+      </a>
     </div>
 
     <div *ngIf="apiList[index].title=='导航栏'">
@@ -60,9 +86,11 @@
     </div>
 
     <div *ngIf="apiList[index].title=='filter'">
-      fixed:n,(n>=0) 保留小数点后n位
-      <br>
-      Todo：字符串长度，最大值，最小值
+      <div class="html-section">
+        fixed:n,(n>=0) 保留小数点后n位；
+        <br>
+        length:n，s.slice(0,n) 截取字符串前n位，若未负数则为后-n位
+      </div>
     </div>
 
     <div *ngIf="apiList[index].title=='http'">
@@ -74,7 +102,36 @@
     </div>
 
     <div *ngIf="apiList[index].title=='loading'">
-      这个感觉有点问题，但是暂时没测出来
+      耦合性太高，需要借助global对象赋值以监测变化，重新对组件进行赋值
+    </div>
+
+    <div *ngIf="apiList[index].title=='tag'">
+      标签输入框
+      <br>
+      <div class="html-section-title">HTML</div>
+      <div class="html-section">
+        {{html.tag}}
+      </div>
+      输入参数：
+      <div class="html-section">
+<pre>tagList：数组，如：['a', 'b', 'c']
+placeholder：占位符，如：添加标签
+</pre>
+      </div>
+    </div>
+
+    <div *ngIf="apiList[index].title=='tab'">
+      <div class="html-section-title">HTML</div>
+      <div class="html-section">
+        {{html.tab}}
+      </div>
+
+      <div class="html-section-title">JS</div>
+      <div class="html-section">
+<pre>getTabData(index) {{'{'}}
+    this.curTabIndex = index;
+  {{'}'}}</pre>
+      </div>
     </div>
 
   </div>

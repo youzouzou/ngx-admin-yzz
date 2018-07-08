@@ -10,19 +10,11 @@ export class DocumentPage {
   index = 0;
   apiList = [
     {
-      title: '表格',
-      checkStatus: true
-    },
-    {
       title: '图表',
       checkStatus: true,
     },
     {
-      title: '表单',
-      checkStatus: true,
-    },
-    {
-      title: '标签页',
+      title: 'tab',
       checkStatus: true,
     },
     {
@@ -74,7 +66,7 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
-      title: '标签输入框',
+      title: 'tag',
       checkStatus: true,
     },
     {
@@ -115,6 +107,12 @@ export class DocumentPage {
       checkStatus: false,
     }
   ];
+
+  html = {
+    chart: '<chart [type]="type" [data]="data" [options]="options"></chart>',
+    tag: '<tag [tagList]="tagList" placeholder="添加标签"></tag>',
+    tab: '<tab [curIndex]="curTabIndex" (changeTab)="getTabData($event)"></tab>'
+  };
 
   changeStatus(value, index) {
     // todo 这样还是不太方便，想办法能不能换成双向数据绑定，或者就直接能获取到值
