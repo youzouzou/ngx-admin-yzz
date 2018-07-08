@@ -111,7 +111,7 @@ export class DocumentPage {
       checkStatus: false,
     },
     {
-      title: 'json等文件压缩',
+      title: 'webpack打包压缩',
       checkStatus: false,
     }
   ];
