@@ -39,6 +39,7 @@
           </div>
 
           <!--悬浮子菜单-->
+          <!--todo bug：当左边菜单滚动时会错位-->
           <div (mouseenter)="showChildBox(i)" (mouseleave)="hideChildBox()" *ngIf="foldStatus">
             <div class="side-menu-item-fold" [ngStyle]="{'top':i*50+50+'px'}" *ngIf="showChildBoxIndex==i">
               <div *ngFor="let childMenu of menu.children;let j=index"
