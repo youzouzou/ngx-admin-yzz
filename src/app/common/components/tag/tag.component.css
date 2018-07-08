@@ -5,7 +5,7 @@
   overflow: hidden;
   clear: both;
   font-size: 14px;
-  min-height: 30px;
+  min-height: 42px;
 }
 
 .tag-component-focus {
@@ -46,7 +46,7 @@
   background: #ccc;
   width: 10px;
   height: 10px;
-  line-height: 6px;
+  line-height: 7px;
   text-align: center;
   border-radius: 50%;
   position: absolute;

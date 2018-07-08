@@ -91,22 +91,19 @@ export class DocumentPage {
     },
     {
       title: 'filter',
-      checkStatus: false,
+      checkStatus: true,
     },
+    {
+      title: 'http',
+      checkStatus: true,
+    },
+
     {
       title: 'loading',
       checkStatus: false,
     },
     {
-      title: '小数点精度问题',
-      checkStatus: false,
-    },
-    {
       title: 'message',
-      checkStatus: false,
-    },
-    {
-      title: 'http',
       checkStatus: false,
     },
     {

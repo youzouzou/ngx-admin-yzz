@@ -2,6 +2,7 @@ import {Component, Renderer2} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
 import {msgService} from "../../common/service/msg.service";
+import {apiService} from "../../common/service/api.service";
 
 @Component({
   selector: 'form-page',
@@ -14,7 +15,16 @@ export class FormPage {
   changeEditor:(event:any) => void;
   initEditor:(event) => any;
   user:any;
-  sexList:any = [];
+  sexList:any = [
+    {
+      sex: 'female',
+      title: '女'
+    },
+    {
+      sex: 'male',
+      title: '男'
+    }
+  ];
   hobbyList:any;
   schoolList = [
     {
@@ -62,7 +72,6 @@ export class FormPage {
   // 文件上传操作
   uploader:any;
   editor:any;
-  url = 'http://upload/picture'; // 这里是后端的接口url
 
   // 省市区列表
   cityList = [];
@@ -146,10 +155,10 @@ export class FormPage {
     this.hobbyList[i].checkStatus = data;
   }
 
-  constructor(private http:HttpClient, render2:Renderer2, public msgService:msgService) {
+  constructor(private http:HttpClient, render2:Renderer2, public msgService:msgService, public  api:apiService) {
     let vm = this;
     this.uploader = new FileUploader({
-      url: vm.url,
+      url: api.upload,
       method: "POST",
       itemAlias: "file" // 后端设定的字段名成
     });
@@ -170,7 +179,7 @@ export class FormPage {
     };
 
     // 获取省市区json数据
-    this.http.get('assets/data/city.json').subscribe(res => {
+    this.http.get(api.cities).subscribe(res => {
       let result:any = res;
       if (result.country) {
         for (let i = 0; i < result.country.length; i++) {
@@ -229,7 +238,7 @@ export class FormPage {
     let vm = this;
     if (this.cropperFile) {
       this.cropUploader = new FileUploader({
-        url: vm.url,
+        url: vm.api.url,
         method: "POST",
         itemAlias: "file" // 后端设定的字段名成
       });

@@ -58,5 +58,20 @@
     <div *ngIf="apiList[index].title=='模态框'">
       Todo：支持定制大小；点击遮罩层关闭应为可选；去掉手动设置状态值；可选两个默认按钮以及对应回调事件
     </div>
+
+    <div *ngIf="apiList[index].title=='filter'">
+      fixed:n,(n>=0) 保留小数点后n位
+      <br>
+      Todo：字符串长度，最大值，最小值
+    </div>
+
+    <div *ngIf="apiList[index].title=='http'">
+      请求的url都放在apiService中
+    </div>
+
+    <div *ngIf="apiList[index].title=='message'">
+      顶部自动消失小提示，底部的横条提示，alert（确认和取消两种可选按钮，warning,dander,success,default四种默认类型，自定义颜色和可选的自动消失时长）
+    </div>
+
   </div>
 </div>

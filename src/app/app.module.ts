@@ -41,6 +41,9 @@ import {Validate} from "./common/directives/validate.directive";
 import {globalService} from "./common/service/global.service";
 import {msgService} from "./common/service/msg.service";
 import {DragulaModule} from "ng2-dragula";
+import {apiService} from "./common/service/api.service";
+// pipe
+import {NumberPipe} from "./common/pipe/pipe";
 
 @NgModule({
   declarations: [
@@ -66,7 +69,8 @@ import {DragulaModule} from "ng2-dragula";
     TabPage,
     AnimationPage,
     DocumentPage,
-    FormPage
+    FormPage,
+    NumberPipe
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,7 @@ import {DragulaModule} from "ng2-dragula";
     JoditAngularModule,
     DragulaModule
   ],
-  providers: [globalService, msgService],
+  providers: [globalService, msgService, apiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

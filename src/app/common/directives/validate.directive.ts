@@ -4,15 +4,15 @@ import {Directive, ElementRef, Input, Output, EventEmitter} from '@angular/core'
   selector: '[validate]'
 })
 export class Validate {
-  @Input() rule: any;
-  @Input() validateValue: any;
-  @Input() validated: string;// 验证的类型，input，submit
-  @Input() validateRules: any;
-  @Output() submit: EventEmitter<Boolean> = new EventEmitter;
-  el: any;
-  newDiv: any;
+  @Input() rule:any;
+  @Input() validateValue:any;
+  @Input() validated:string;// 验证的类型，input，submit
+  @Input() validateRules:any;
+  @Output() submit:EventEmitter<Boolean> = new EventEmitter;
+  el:any;
+  newDiv:any;
 
-  constructor(el: ElementRef) {
+  constructor(el:ElementRef) {
     this.el = el;
   }
 
@@ -30,24 +30,11 @@ export class Validate {
       this.newDiv.style.color = 'red';
       this.el.nativeElement.parentElement.appendChild(this.newDiv);
       let vm = this;
+      if (this.validateValue) {
+        vm.checkData();
+      }
       this.el.nativeElement.onchange = function () {
-        vm.newDiv.style.display = 'none';
-        for (let i = 0; i < vm.rule.length; i++) {
-          vm.rule[i].validateResult = true;
-          if (vm.rule[i].required) {
-            if ((typeof vm.validateValue === 'number' && vm.validateValue == null) || (typeof vm.validateValue !== 'number' && !vm.validateValue)) {
-              vm.newDiv.innerText = vm.rule[i].message;
-              vm.newDiv.style.display = 'inline-block';
-              vm.rule[i].validateResult = false;
-              break;
-            }
-          } else if (vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)) {
-            vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
-            vm.newDiv.style.display = 'inline-block';
-            vm.rule[i].validateResult = false;
-            break;
-          }
-        }
+        vm.checkData();
       }
     } else {
       let vm = this;
@@ -58,7 +45,9 @@ export class Validate {
         let keys = vm.getKeys(vm.validateRules);
         for (let i = 0; vm.validateRules && i < keys.length; i++) {
           for (let j = 0; j < vm.validateRules[keys[i]].length; j++) {
+            // 如果有默认值，并且始终没改直接提交，有问题
             if (vm.validateRules[keys[i]][j].validateResult === false || (vm.validateRules[keys[i]][j].required && !vm.validateRules[keys[i]][j].validateResult)) {
+              console.log(vm.validateRules[keys[i]][j]);
               res = false;
               break;
             }
@@ -75,4 +64,26 @@ export class Validate {
   getKeys(item) {
     return Object.keys(item);
   }
+
+  checkData() {
+    let vm = this;
+    vm.newDiv.style.display = 'none';
+    for (let i = 0; i < vm.rule.length; i++) {
+      vm.rule[i].validateResult = true;
+      if (vm.rule[i].required) {
+        if ((typeof vm.validateValue === 'number' && vm.validateValue == null) || (typeof vm.validateValue !== 'number' && !vm.validateValue)) {
+          vm.newDiv.innerText = vm.rule[i].message;
+          vm.newDiv.style.display = 'inline-block';
+          vm.rule[i].validateResult = false;
+          break;
+        }
+      } else if (vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)) {
+        vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
+        vm.newDiv.style.display = 'inline-block';
+        vm.rule[i].validateResult = false;
+        break;
+      }
+    }
+  }
+
 }
