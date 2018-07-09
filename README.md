@@ -30,3 +30,5 @@ Services
 - [ ] http（get、put、delete、post）
 
 // Others（还没想好de）
+bug记录：
+validate：当表单重置时，错误提示没有清除
