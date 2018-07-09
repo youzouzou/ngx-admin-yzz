@@ -1,3 +1,4 @@
+import {HashLocationStrategy , LocationStrategy} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
@@ -89,7 +90,7 @@ import {LengthPipe} from "./common/pipe/lengthPipe";
     JoditAngularModule,
     DragulaModule
   ],
-  providers: [globalService, msgService, apiService, httpInterceptorProviders],
+  providers: [globalService, msgService, apiService, httpInterceptorProviders, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
