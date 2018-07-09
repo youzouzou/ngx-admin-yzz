@@ -15,7 +15,7 @@
     <tbody dragula='table-bag' [dragulaModel]="data">
     <tr *ngFor="let item of data;let i=index" class="grab">
       <td>{{i+1}}</td>
-      <td [tooltip]="item.name" tooltip-type="black">{{item.name}}</td>
+      <td [tooltip]="item.name" [color]="'black'">{{item.name}}</td>
       <td>{{item.price | fixed:2}}</td>
       <td>{{item.address}}</td>
       <td>{{item.receiver}}</td>

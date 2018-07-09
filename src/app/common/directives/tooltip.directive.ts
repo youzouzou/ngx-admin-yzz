@@ -5,6 +5,9 @@ import {Directive, ElementRef, Input, HostListener} from '@angular/core';
 })
 export class Tooltip {
   @Input() tooltip: string;
+  @Input() color: string = 'black'; // black,white背景色
+  @Input() direction: string = 'bottom';// top,left,right,bottom
+  @Input() showAnyway: boolean = false; // 若为true，则不管是否超出设定长度都显示
   newDiv: any;
   ELDOM: any;
 
@@ -21,7 +24,7 @@ export class Tooltip {
     vm.newDiv.style.fontSize = '12px';
     vm.newDiv.style.display = 'none';
     // 配置颜色
-    if(el.nativeElement.getAttribute('tooltip-type') === 'black'){
+    if (vm.color === 'black') {
       vm.newDiv.style.background = '#000';
       vm.newDiv.style.color = '#fff';
     } else {
@@ -40,11 +43,26 @@ export class Tooltip {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    if (this.tooltip && this.ELDOM.nativeElement.clientWidth < this.ELDOM.nativeElement.scrollWidth) {
+    if (this.tooltip && this.ELDOM.nativeElement.clientWidth < this.ELDOM.nativeElement.scrollWidth || this.showAnyway) {
       this.newDiv.style.display = 'block';
       this.newDiv.innerText = this.tooltip;
-      this.newDiv.style.top = this.ELDOM.nativeElement.offsetTop + this.ELDOM.nativeElement.clientHeight * 0.8 + 'px';
-      this.newDiv.style.left = this.ELDOM.nativeElement.offsetLeft + this.ELDOM.nativeElement.clientWidth * 0.5 + 'px';
+      let left = 0, top = 0;
+      if (this.direction == 'bottom') {
+        top = this.ELDOM.nativeElement.offsetTop + this.ELDOM.nativeElement.clientHeight;
+        left = this.ELDOM.nativeElement.offsetLeft;
+      } else if (this.direction == 'top') {
+        top = (this.ELDOM.nativeElement.offsetTop - this.ELDOM.nativeElement.clientHeight + 15 > 0 ? this.ELDOM.nativeElement.offsetTop - this.ELDOM.nativeElement.clientHeight + 15 : 0);
+        left = this.ELDOM.nativeElement.offsetLeft;
+      } else if (this.direction == 'left') {
+        top = this.ELDOM.nativeElement.offsetTop + this.ELDOM.nativeElement.clientHeight/2-16;
+        left = (this.ELDOM.nativeElement.offsetLeft - this.ELDOM.nativeElement.clientWidth + 50 > 0 ? this.ELDOM.nativeElement.offsetLeft - this.ELDOM.nativeElement.clientWidth + 50 : 0);
+      } else if (this.direction == 'right') {
+        top = this.ELDOM.nativeElement.offsetTop + this.ELDOM.nativeElement.clientHeight/2-16;
+        left = this.ELDOM.nativeElement.offsetLeft + this.ELDOM.nativeElement.clientWidth;
+      }
+
+      this.newDiv.style.top = top + 'px';
+      this.newDiv.style.left = left + 'px'//+ this.ELDOM.nativeElement.clientWidth * 0.5
     }
   }
 

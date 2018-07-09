@@ -98,7 +98,16 @@
     </div>
 
     <div *ngIf="apiList[index].title=='tooltip'">
-      Todo：不一定根据长度判断是否显示；需要设置显示的位置，不一定是底部，可以自定义，有四个方向
+      <div class="html-section">
+        <pre>{{html.tooltip}}</pre>
+      </div>
+      tooltip：要在浮框中显示的文本内容
+      <br>
+      color：背景颜色，可选值为black（黑底白字）和white（白底黑字），默认black
+      <br>
+      direction：浮框出现的位置，可选值为四个方向：top,bottom,left,right，默认bottom
+      <br>
+      showAnyway： 若为true，则不管是否超出设定长度都显示，默认false
     </div>
 
     <div *ngIf="apiList[index].title=='模态框'">

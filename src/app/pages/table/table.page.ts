@@ -42,7 +42,7 @@ export class TablePage {
       receiver: '王小二'
     },
     {
-      name: '黄焖鸡',
+      name: '黄焖鸡+茄子+千张豆腐+火腿+鸡蛋+茄子+千张豆腐+火腿+鸡蛋+茄子+千张豆腐+火腿+鸡蛋',
       price: 16,
       remark: '不要辣',
       address: 'xx区xx街道xx楼xx层xx号',

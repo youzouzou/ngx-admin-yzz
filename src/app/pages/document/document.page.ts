@@ -350,7 +350,8 @@ options = {
   }
   closeModal(){
     this.showStatus =false;// 将显示状态值设为false即可手动关闭模态框
-  }`
+  }`,
+    tooltip:`<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`
   };
 
   changeStatus(value, index) {
