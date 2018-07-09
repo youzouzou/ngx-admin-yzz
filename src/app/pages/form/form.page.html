@@ -20,7 +20,7 @@
         <div class="form-content">
           <div class="form-radio">
             <radio [radioData]="sexList" (changeRadio)="changeSex($event)" [radioColor]="'#20B2AA'"
-                   [selectedValue]="user.sex" [selectedName]="'sex'" [radioLable]="'title'"></radio>
+                   [selectedValue]="user.sex" [selectedName]="'sex'" [radioLabel]="'title'"></radio>
           </div>
         </div>
       </div>
@@ -30,13 +30,11 @@
           <div class="form-checkbox" *ngFor="let hobby of hobbyList;let i=index">
             <checkbox (changeCheckStatus)="changeStatus($event, i)" [checkboxSize]="20"
                       [checkStatus]="hobby.checkStatus"
+                      [checkLabel]="hobby.desc"
                       [checkDisabled]="false"
                       [checkboxColor]="'black'"
                       [checkboxBorderColor]="'#20B2AA'"
                       [checkboxBg]="'#fff'"></checkbox>
-            <span class="form-checkbox-desc">
-              {{hobby.desc}}
-            </span>
           </div>
         </div>
       </div>
@@ -59,8 +57,7 @@
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button class="confirm-btn" validate [validated]="'submit'" (submit)="submitForm($event)"
-                  [validateRules]="rules">
+          <button class="confirm-btn" validate [validateType]="'submit'" (submit)="submitForm($event)" [validateRules]="rules">
             确认
           </button>
         </div>
@@ -103,11 +100,11 @@
         (onResize)="initEditor($event)"
         (onChange)="changeEditor($event)"
         [config]="{
-        zIndex:99999,
-        buttons: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
-        buttonsMD: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
-        buttonsSM: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
-        buttonsXS: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall',
+        zIndex:1000,
+        buttons: editorConfig.buttons,
+        buttonsMD: editorConfig.buttons,
+        buttonsSM: editorConfig.buttons,
+        buttonsXS: editorConfig.buttons,
         askBeforePasteHTML: false,
         askBeforePasteFromWord: true,
         language: 'zh_cn',

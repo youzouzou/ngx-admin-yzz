@@ -20,7 +20,7 @@
     <!--文档详细说明-->
 
     <div *ngIf="apiList[index].title=='图表'">
-      使用插件 <a href="https://github.com/emn178/angular2-chartjs">angular2-chartjs</a>，依赖于
+      第三方组件 <a href="https://github.com/emn178/angular2-chartjs">angular2-chartjs</a>，依赖于
       <a href="http://www.chartjs.org/docs/latest/" target="_blank">chart.js</a>
       ，详细参数配置可点击链接查看github文档
       <p>示例：</p>
@@ -34,37 +34,51 @@
         JS
       </div>
       <div class="html-section">
-        <pre>type = 'line';
-data = [
-labels: ["January", "February", "March", "April", "May", "June", "July"],
-datasets: [
-    {{'{'}}
-      label: "My First dataset",
-      data: {{'['}}65, 59, 80, 81, 56, 55, 40{{']'}}
-    {{'}'}}
-]
-  {{'}'}};
-options = {{'{'}}
-   responsive: true,
-   maintainAspectRatio: false
-{{'}'}};</pre>
+        <pre>{{html.chartJS}}</pre>
       </div>
     </div>
 
     <div *ngIf="apiList[index].title=='上传文件'">
-      <a href="https://github.com/valor-software/ng2-file-upload" target="_blank">ng2-file-upload</a>
+      第三方组件：<a href="https://github.com/valor-software/ng2-file-upload" target="_blank">ng2-file-upload</a>
       <br>
       Todo：再看看这个回答，待优化：https://github.com/valor-software/ng2-file-upload/issues/718
     </div>
 
     <div *ngIf="apiList[index].title=='富文本'">
-      Todo：需要做成组件，将自定义的上传图片加入进去，要考虑宽度和高度的自定义样式
+      第三方组件：<a href="https://github.com/jodit/jodit-angular" target="_blank">jodit-angular</a>
+      <div class="html-section">
+        <pre>{{html.rich}}</pre>
+      </div>
+      <div>
+        注意：input是自定义的上传图片，用绝对定位添加到富文本上的，所以在使用的时候，若需要用到本地上传图片，需要将富文本组件的父级div设为相对定位。
+        <br>
+        上传图片JS：
+        <div class="html-section">
+          <pre>{{html.richJS}}</pre>
+        </div>
+        <br>
+        目前我将富文本初始化写在onResize接口中，可以实现，感觉不是很合理，但暂时没有找到更适合初始化的接口。
+      </div>
     </div>
 
     <div *ngIf="apiList[index].title=='图片裁剪'">
-      裁剪插件：<a href="https://github.com/Mawi137/ngx-image-cropper" target="_blank">
-        ngx-image-cropper
-      </a>
+      第三方组件：<a href="https://github.com/Mawi137/ngx-image-cropper" target="_blank">
+      ngx-image-cropper
+    </a>
+      <div>
+        打开本地文件后裁剪后得到的是base64数据，转换成blob可以像普通上传文件那样传给后台
+      </div>
+      监测本地文件的上传：
+      <div class="html-section">
+        <pre>{{html.upload}}</pre>
+      </div>
+      使用裁剪组件：
+      <div class="html-section">
+        <pre>{{html.crop}}</pre>
+      </div>
+      <div class="html-section">
+        <pre>{{html.cropJS}}</pre>
+      </div>
     </div>
 
     <div *ngIf="apiList[index].title=='导航栏'">
@@ -74,7 +88,13 @@ options = {{'{'}}
     </div>
 
     <div *ngIf="apiList[index].title=='拖拽排序'">
-      <a href="https://github.com/valor-software/ng2-dragula" target="_blank">ng2-dragula</a>
+      第三方组件：<a href="https://github.com/valor-software/ng2-dragula" target="_blank">ng2-dragula</a>
+      <div class="html-section">
+        <pre>{{html.drag}}</pre>
+      </div>
+      <div class="html-section">
+        <pre>{{html.dragJS}}</pre>
+      </div>
     </div>
 
     <div *ngIf="apiList[index].title=='tooltip'">
@@ -82,7 +102,18 @@ options = {{'{'}}
     </div>
 
     <div *ngIf="apiList[index].title=='模态框'">
-      Todo：支持定制大小；点击遮罩层关闭应为可选；去掉手动设置状态值；可选两个默认按钮以及对应回调事件
+      <div class="html-section">
+        <pre>{{html.modal}}</pre>
+      </div>
+      <div class="html-section">
+        <pre>{{html.modalJS}}</pre>
+      </div>
+      <pre>width：number，模态框宽度，默认500px
+height：number，模态框高度，默认300px
+modalStatus：模态框显示状态，根据这个状态值，判断是否显示模态框组件
+bgClose：boolean，当点击遮罩层是否自动关闭
+close：当bgClose为true时，需要添加这个函数，以便及时改变当前modalStatus的值（否则可能会出现第二次点击打不开的问题）
+      </pre>
     </div>
 
     <div *ngIf="apiList[index].title=='filter'">
@@ -94,15 +125,15 @@ options = {{'{'}}
     </div>
 
     <div *ngIf="apiList[index].title=='http'">
-      请求的url都放在apiService中；添加全局请求的loading
+      请求的url都放在apiService中；已添加全局请求的loading（拦截器）
     </div>
 
     <div *ngIf="apiList[index].title=='message'">
-      顶部自动消失小提示，底部的横条提示，alert（确认和取消两种可选按钮，warning,dander,success,default四种默认类型，自定义颜色和可选的自动消失时长）
+      顶部自动消失小提示；Todo：底部的横条提示，alert（确认和取消两种可选按钮，warning,dander,success,default四种默认类型，自定义颜色和可选的自动消失时长）
     </div>
 
     <div *ngIf="apiList[index].title=='loading'">
-      耦合性太高，需要借助global对象赋值以监测变化，重新对组件进行赋值
+      Todo：耦合性太高，目前需要借助global对象赋值以监测变化，从而重新对组件进行赋值——待改进
     </div>
 
     <div *ngIf="apiList[index].title=='tag'">
@@ -121,17 +152,100 @@ placeholder：占位符，如：添加标签
     </div>
 
     <div *ngIf="apiList[index].title=='tab'">
-      <div class="html-section-title">HTML</div>
+      <div>只封装了tab顶部的切换栏，下面的内容部分不作封装</div>
       <div class="html-section">
         {{html.tab}}
       </div>
-
-      <div class="html-section-title">JS</div>
       <div class="html-section">
-<pre>getTabData(index) {{'{'}}
-    this.curTabIndex = index;
-  {{'}'}}</pre>
+          <pre>{{html.tabJS}}</pre>
       </div>
+    </div>
+
+    <div *ngIf="apiList[index].title=='联想输入'">
+      <div class="html-section">
+        <pre>{{html.selectInput}}</pre>
+      </div>
+      <div>
+        keyword：关键词，组件根据输入的值在list中筛选
+        <br>
+        list：用于筛选的下拉列表，数组元素为对象
+        <br>
+        name：下拉列表数组中对象的字段名，用于展示给用户的字段
+        <br>
+        placeholder：占位符
+        <br>
+        getInputValue：获取联想输入框中的值，返回值为一个对象，其中value为输入框的值，selected为选中的对象
+      </div>
+    </div>
+
+    <div *ngIf="apiList[index].title=='单/复选框'">
+      <div>
+        单选框：
+      </div>
+      <div class="html-section">
+        <pre>{{html.radio}}</pre>
+      </div>
+      <pre>radioData：对象数组
+radioLabel：对象字段名，用于展示给用户
+selectedValue：初始化默认选中值，若要生效，必须设置用于判断的字段名selectedName
+selectedName：string，初始化默认选中值的字段名
+selectedIndex：number，初始化默认选中值的下标，可为空
+radioSize：number，单选框的直径大小，单位px
+radioBg：背景色，不设置默认为#fff
+radioColor：中间选中点和边框的颜色，不设置则默认为#333
+changeRadio：改变选项时通过这个函数获取当前选中的值，返回值为一个对象，item为选中的对象，index为选中的对象在radioData的序号</pre>
+
+      <div>复选框：</div>
+      <div class="html-section">
+        <pre>{{html.checkbox}}</pre>
+      </div>
+      <div>复选框组件是单个的，若要和列表联用需要自行使用*ngFor</div>
+      <pre>checkStatus：boolean | number | string， 初始化默认选中状态
+checkLabel：描述文本
+checkboxColor：'white' | 'black'，复选框选中时√的颜色，可选黑色或白色，当有自定义checkIcon这个字段不生效
+checkIcon：自定义选中图标，参数值为图标url链接
+checkboxBorderColor：复选框边框颜色，默认#fff
+checkboxBg：复选框边框颜色，默认#fff
+checkboxSize：number，复选框大小，默认20px
+checkDisabled：是否可选，当这个值为true为不可选，默认为true
+changeCheckStatus：当点击复选框的值时触发函数，返回值为当前复选框的状态值（这个必须添加，手动去改一把状态值，否则只是改变样式，值还是不变）</pre>
+
+    </div>
+
+    <div *ngIf="apiList[index].title=='animation'">
+      动画指令：
+      <div class="html-section">
+        <pre>{{html.animation}}</pre>
+      </div>
+      当前可选值有：'linear-show', 'bounce-show', 'rotate-x-show', 'rotate-y-show', 'rotate-z-show', 'thomas-show'，可在指令源码中的styleNode.innerHTML继续添加动画效果，该字段值为CSS样式代码的压缩
+    </div>
+
+
+    <div *ngIf="apiList[index].title=='validate'">
+      数据验证指令：
+      <div class="html-section">
+        <pre>{{html.validate}}</pre>
+      </div>
+      rules：
+      <div class="html-section">
+        <pre>{{html.rules}}</pre>
+      </div>
+      分为两种类型的验证，一种是输入时对单个字段进行校验，另一种是在提交时进行校验
+      <pre>validate：在标签上添加该指令
+rule：对象数组，每个对象为一条规则；对象有两种类型，一种是根据字段required用于判断是否必填，错误提示语句写在message中；另一种是根据字段validator（函数）自定义规则，函数需要return一个字符串作为错误提示
+validateValue：待验证的值
+validateType：验证类型，input或submit，默认为input
+submit：若验证类型为submit，则可在这个函数中获取到验证结果，返回值为验证结果状态值
+validateRules：若验证类型为submit，则需要传入这个验证规则对象，这个对象中的每个属性是对单个字段的校验数组</pre>
+    </div>
+
+    <div *ngIf="apiList[index].title=='搜索框'">
+      <div class="html-section">
+        <pre>{{html.search}}</pre>
+      </div>
+      <pre>keyword：默认输入的关键词，初始化时不会触发search
+search：当输入框内容改变时触发，包括点击右侧清空按钮时也会触发，返回值为当前的输入框的值（清空时值为空字符串）
+palceholder：占位符</pre>
     </div>
 
   </div>

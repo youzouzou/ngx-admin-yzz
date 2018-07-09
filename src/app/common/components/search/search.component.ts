@@ -6,7 +6,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 
 export class SearchComponent {
-  @Input() keyword: string;
+  @Input() keyword: string = '';
   @Input() palceholder: string;
   @Output() search: EventEmitter<string> = new EventEmitter;
 
@@ -22,7 +22,7 @@ export class SearchComponent {
 
   enetrKeyword(event) {
     if (event.keyCode == 13) {
-      this.search.emit(this.keyword);;
+      this.search.emit(this.keyword);
     }
   }
 }

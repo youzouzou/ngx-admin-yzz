@@ -49,7 +49,11 @@
 }
 
 .html-section {
-  padding: 15px;
-  background: #eee;
+  padding: 5px 15px;
+  background: #F4F4F4;
   margin: 10px 0;
+}
+
+pre {
+  font-family: '微软雅黑', Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
 }

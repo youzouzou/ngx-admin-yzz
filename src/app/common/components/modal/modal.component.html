@@ -4,7 +4,10 @@
 </div>
 <div class="modal-box"
      [ngStyle]="{
-     'left':screenWidth/2-250+'px',
+     'width':width+'px',
+     'height':height+'px',
+     'top': (screenHeight)/2.0-height/1.5-15+'px',
+     'left':(screenWidth-width)/2.0+'px',
      'display':modalStatus?'block':'none'}">
   <ng-content></ng-content>
 </div>

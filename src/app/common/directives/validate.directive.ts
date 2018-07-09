@@ -6,7 +6,7 @@ import {Directive, ElementRef, Input, Output, EventEmitter} from '@angular/core'
 export class Validate {
   @Input() rule:any;
   @Input() validateValue:any;
-  @Input() validated:string;// 验证的类型，input，submit
+  @Input() validateType:string;// 验证的类型，input，submit
   @Input() validateRules:any;
   @Output() submit:EventEmitter<Boolean> = new EventEmitter;
   el:any;
@@ -17,7 +17,7 @@ export class Validate {
   }
 
   ngOnInit() {
-    if (this.validated !== 'submit') {
+    if (this.validateType !== 'submit') {
       this.el.nativeElement.parentElement.style.position = 'relative';
       this.el.nativeElement.parentElement.style.height = this.el.nativeElement.parentElement.clientHeight + 10;
       this.newDiv = document.createElement('div');

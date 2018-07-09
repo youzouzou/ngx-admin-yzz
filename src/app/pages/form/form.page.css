@@ -196,9 +196,9 @@ button, .default-btn {
   left: 138px;
   z-index: 2000;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .jodit-editor-upload input {
   opacity: 0;
-
 }

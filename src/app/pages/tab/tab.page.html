@@ -3,14 +3,20 @@
   <div class="tab-content-box">
     <div class="tab-content">
       选中第{{curTabIndex+1}}个标签
-      <button class="btn-default" (click)="openModal(i)">open</button>
-      <modal [modalStatus]="showStatus" (close)="closeModal()">
+      <button class="btn-default" (click)="openModal()">open</button>
+      <modal [modalStatus]="showStatus" [bgClose]="true" (close)="closeModal()">
         这是第{{curTabIndex+1}}个标签的模态框
         <div>
+          <button (click)="openModal2()">open2</button>
           <button (click)="closeModal()">
             close
           </button>
         </div>
+      </modal>
+
+
+      <modal [modalStatus]="showStatus2" [bgClose]="true" (close)="closeModal2()">
+        第二层模态框
       </modal>
     </div>
   </div>

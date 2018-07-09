@@ -1,8 +1,14 @@
+.checkbox-component {
+  position: relative;
+  overflow: hidden;
+}
+
 .checkbox-box {
   overflow: hidden;
   position: relative;
   background: #fff;
   display: inline-block;
+  float: left;
 }
 
 .checkbox-icon-black {
@@ -11,4 +17,10 @@
 
 .checkbox-icon-white {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAYFBMVEUAAADR2trt9PWswcKXsbGUqauAn5/1+Pj5+/v1+Pn////p7e3i6+vk6end6enP1tnU2tzT397N2dri6+vK09K3w8Oevb+80tDM39+vw8Oxxsl/o6Rbj4/////8/Pz1+fnll148AAAAHXRSTlMApIBeVjAh9+zo5drXy8C3p4+JgXtmRDkzLScWDleb5DoAAABVSURBVBjTtcg3EoAwEATBBRm892bF/39JEanExepggkF86QRhJcW7Ms5iNuzEG1jC27evmjT+qccdgCUXeGfPAqiZINAyGVkhdOeks/gxjhqCShHXCyt9A/Xsc7rXAAAAAElFTkSuQmCC');
+}
+
+.checkbox-desc {
+  font-size: 14px;
+  float: left;
+  margin-left: 3px;
 }

@@ -12,10 +12,10 @@ import {apiService} from "../../common/service/api.service";
 
 export class FormPage {
   // todo 按照表单顺序整理代码
-  changeEditor:(event:any) => void;
-  initEditor:(event) => any;
-  user:any;
-  sexList:any = [
+  changeEditor: (event: any) => void;
+  initEditor: (event) => any;
+  user: any;
+  sexList: any = [
     {
       sex: 'female',
       title: '女'
@@ -25,7 +25,7 @@ export class FormPage {
       title: '男'
     }
   ];
-  hobbyList:any;
+  hobbyList: any;
   schoolList = [
     {
       name: '蓝翔'
@@ -34,7 +34,7 @@ export class FormPage {
       name: '新东方'
     }
   ];
-  rules:any = {
+  rules: any = {
     name: [
       {
         required: true,
@@ -63,15 +63,18 @@ export class FormPage {
     ]
   };
   richContent = '';
-  cropUploader:any;
+  editor: any;
+  editorConfig: any = {
+    buttons: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall'
+  };
+  cropUploader: any;
 // 图片裁剪
-  imageChangedEvent:any = '';
-  croppedImage:any = '';
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   cropperReady = false;
-  cropperFile:any;
+  cropperFile: any;
   // 文件上传操作
-  uploader:any;
-  editor:any;
+  uploader: any;
 
   // 省市区列表
   cityList = [];
@@ -155,7 +158,7 @@ export class FormPage {
     this.hobbyList[i].checkStatus = data;
   }
 
-  constructor(private http:HttpClient, render2:Renderer2, public msgService:msgService, public  api:apiService) {
+  constructor(private http: HttpClient, render2: Renderer2, public msgService: msgService, public  api: apiService) {
     let vm = this;
     this.uploader = new FileUploader({
       url: api.upload,
@@ -180,7 +183,7 @@ export class FormPage {
 
     // 获取省市区json数据
     this.http.get(api.cities).subscribe(res => {
-      let result:any = res;
+      let result: any = res;
       if (result.country) {
         for (let i = 0; i < result.country.length; i++) {
           vm.cityList.push(result.country[i].province);
@@ -189,7 +192,7 @@ export class FormPage {
     });
   }
 
-  imageCropped(image:string) {
+  imageCropped(image: string) {
     this.croppedImage = image;
     // 将文件格式转换成file
     let formData = new FormData();   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
@@ -209,7 +212,7 @@ export class FormPage {
     console.log('Load failed');
   }
 
-  selectedFileOnChanged(event?:any) {
+  selectedFileOnChanged(event?: any) {
     if (event) {
       this.imageChangedEvent = event; // 通知裁剪插件
     }

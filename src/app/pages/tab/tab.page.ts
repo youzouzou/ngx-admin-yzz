@@ -7,17 +7,27 @@ import {Component} from '@angular/core';
 })
 
 export class TabPage {
-  curTabIndex:number = 0;
+  curTabIndex: number = 0;
   showStatus = false;
+  showStatus2 = false;
 
   getTabData(index) {
     this.curTabIndex = index;
   }
 
-  openModal(index) {
-    this.showStatus = true;// todo 这个要改成自动的，不要出现这个状态值
+  openModal2() {
+    this.showStatus2 = true;
   }
-  closeModal(){
-    this.showStatus =false;
+
+  openModal() {
+    this.showStatus = true;
+  }
+
+  closeModal() {
+    this.showStatus = false;
+  }
+
+  closeModal2() {
+    this.showStatus2 = false;
   }
 }
