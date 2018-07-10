@@ -7,12 +7,12 @@
         <div *ngFor="let menu of menuList;let i=index" class="side-menu-item-box">
           <div class="side-menu-item" (click)="changeMenu(menu,null,i)" *ngIf="!foldStatus"
                [ngClass]="{'side-menu-item-active':menu.path==curParent}"
-               routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.children[0].path):menu.path}}">
+               routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.defaultChildPath):menu.path}}">
             {{menu.title}}
           </div>
           <!--菜单图标-->
           <div class="side-menu-item-icon-box"
-               routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.children[0].path):menu.path}}"
+               routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.defaultChildPath):menu.path}}"
                [ngStyle]="{'left':(foldStatus?barWidth-30+'px':'28px'),'width':foldStatus?'50px':'15px'}"
                (mouseenter)="showChildBox(i)" (mouseleave)="hideChildBox()">
             <div (click)="changeMenu(menu,null,i)"

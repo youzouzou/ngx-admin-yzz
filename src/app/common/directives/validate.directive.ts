@@ -42,6 +42,9 @@ export class Validate implements DoCheck {
       // this.el.nativeElement.onchange = function () {
       //   vm.checkData();
       // }
+      this.el.nativeElement.onblur = function () {
+        vm.checkData();
+      }
     } else {
       let vm = this;
       vm.el.nativeElement.onclick = function () {

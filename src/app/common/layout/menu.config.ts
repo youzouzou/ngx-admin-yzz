@@ -4,7 +4,7 @@ const menuList: any = [
     path: 'document', title: '文档', icon: icon
   },
   {
-    title: '表格', path: 'table', icon: icon,
+    title: '表格', path: 'table', icon: icon, defaultChildPath: 'basic_table',
     children: [
       {
         title: '基本表格', path: 'basic_table', icon: icon,
@@ -30,7 +30,7 @@ const menuList: any = [
   }
 ];
 
-const menu:any = {
+const menu: any = {
   path: 'document', title: '文档', icon: icon
 };
 

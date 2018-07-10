@@ -9,7 +9,7 @@
             <!--[ngClass]="{'top-menu-item-active':curPath==menu.path}"-->
             <div class="top-menu-item" routerLink="{{
             (menu.children && menu.children.length)?
-            (menu.path+'/'+menu.children[0].path):menu.path
+            (menu.path+'/'+menu.defaultChildPath):menu.path
             }}">{{menu.title}}
             </div>
             <div class="top-child-box"
