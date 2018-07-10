@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.tab-title:first-child, .tab-title:last-child{
+.tab-title:first-child, .tab-title:last-child {
   border-radius: 8px 8px 0 0;
 }
 
@@ -28,11 +28,11 @@
   border-radius: 8px 8px 0 0;
   moz-user-select: -moz-none;
   -moz-user-select: none;
-  -o-user-select:none;
-  -khtml-user-select:none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .tab-title-active > div {
@@ -58,5 +58,54 @@
   }
   100% {
     background: #fff;
+  }
+}
+
+.tab-title-flat {
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  height: 40px;
+  line-height: 24px;
+  background: #dfe3eb;
+  margin-right: 5px;
+}
+
+.tab-title-flat > div {
+  padding: 8px 0;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tab-title-active-flat > div {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  background: #57cdff;
+  color: #fff;
+  overflow: hidden;
+  animation: tab-flat-show-func 0.3s linear
+}
+
+@keyframes tab-flat-show-func {
+  0% {
+    background: #dfe3eb;
+  }
+  100% {
+    background: #57cdff;
+  }
+}
+
+@-webkit-keyframes tab-flat-show-func {
+  0% {
+    background: #dfe3eb;
+  }
+  100% {
+    background: #57cdff;
   }
 }
