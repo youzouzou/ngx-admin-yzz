@@ -34,6 +34,7 @@ export class multiSelectComponent {
   @Input() secondValue = '';// 初始化第二个数组选中的值
   @Input() thirdLabel = '';// 第三个数组的值的字段名，如 areaCode
   @Input() thirdValue = '';// 初始化第三个数组选中的值
+  @Input() mouseHide = false; // 鼠标离开立即消失
   @Output() getValue: EventEmitter<any> = new EventEmitter;
 
   secondList = [];

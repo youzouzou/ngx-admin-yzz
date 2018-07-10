@@ -1,4 +1,4 @@
-<div class="select-component">
+<div class="select-component" (mouseleave)="mouseHide?showStatus=false:''">
   <div class="select" (click)="showStatus=true">
     {{firstSelectedShowName}}
     {{secondSelectedShowName?('/ '+secondSelectedShowName):''}}
