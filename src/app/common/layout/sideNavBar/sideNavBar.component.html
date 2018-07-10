@@ -1,4 +1,5 @@
-<div [ngStyle]="{'height': screenHeight+'px', 'width': barWidth+'px'}" class="left-navbar" [ngClass]="{'left-navbar-hide':foldStatus}">
+<div [ngStyle]="{'height': screenHeight+'px', 'width': barWidth+'px', 'left': foldStatus?50-barWidth+'px':0}"
+     class="left-navbar">
   <div>
     <div class="side-menu-list">
       <div class="side-folder" (click)="flod()"></div>
@@ -12,7 +13,7 @@
           <!--菜单图标-->
           <div class="side-menu-item-icon-box"
                routerLink="{{(menu.children && menu.children.length)?(menu.path+'/'+menu.children[0].path):menu.path}}"
-               [ngStyle]="{'left':(foldStatus?'120px':'28px'),'width':foldStatus?'50px':'15px'}"
+               [ngStyle]="{'left':(foldStatus?barWidth-30+'px':'28px'),'width':foldStatus?'50px':'15px'}"
                (mouseenter)="showChildBox(i)" (mouseleave)="hideChildBox()">
             <div (click)="changeMenu(menu,null,i)"
                  [ngStyle]="{

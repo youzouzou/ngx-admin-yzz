@@ -174,10 +174,6 @@
   background-size: cover;
 }
 
-.left-navbar-hide {
-  left: -100px;
-}
-
 .side-menu-item-icon-box {
   position: absolute;
   padding-top: 18px;
