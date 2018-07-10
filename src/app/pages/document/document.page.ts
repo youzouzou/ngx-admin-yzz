@@ -154,7 +154,13 @@ options = {
   <input type="file" accept="image/*" (change)="selectedFileOnChanged($event)"/>
     打开本地图片
 </div>`,
-    richJS:`jodiEditorUpload() { // 富文本的上传图片操作
+    richJS:`richContent = '';
+editor: any;
+editorConfig: any = {
+    buttons: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall'
+};
+  
+jodiEditorUpload() { // 富文本的上传图片操作
     // 这里是文件选择完成后的操作处理
     let vm = this;
     for (let i = 0; i < vm.uploader.queue.length; i++) {
