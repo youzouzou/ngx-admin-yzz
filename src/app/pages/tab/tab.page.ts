@@ -10,6 +10,31 @@ export class TabPage {
   curTabIndex: number = 0;
   showStatus = false;
   showStatus2 = false;
+  tabList = [];
+  constructor() {
+    this.tabList = [
+      {
+        title: '标签页',
+        hidden: false
+      },
+      {
+        title: '标签页',
+        hidden: false
+      },
+      {
+        title: '标签页',
+        hidden: false
+      },
+      {
+        title: '标签页',
+        hidden: false
+      },
+      {
+        title: '标签页',
+        hidden: false
+      }
+    ]
+  }
 
   getTabData(index) {
     this.curTabIndex = index;

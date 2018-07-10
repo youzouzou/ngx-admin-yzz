@@ -281,4 +281,8 @@ export class FormPage {
     console.log('选择地址', data);
   }
 
+  selectHobby(data) {
+    console.log('选择兴趣', data);
+  }
+
 }

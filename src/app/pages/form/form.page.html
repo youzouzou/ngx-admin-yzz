@@ -183,6 +183,16 @@
                     [secondValue]="'110100'"
                     [thirdValue]="'110102'"
       ></multi-select>
+
+     <div style="width:100px;">
+       <multi-select [data]="hobbyList"
+                     [firstName]="'desc'"
+                     [firstLabel]="'desc'"
+                     (getValue)="selectHobby($event)"
+                     [firstValue]="'看书'"
+                     [mouseHide]="true"
+       ></multi-select>
+     </div>
     </div>
   </div>
 
