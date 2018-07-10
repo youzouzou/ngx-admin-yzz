@@ -280,4 +280,5 @@ export class FormPage {
   selectCity(data) {
     console.log('选择地址', data);
   }
+
 }

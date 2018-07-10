@@ -257,5 +257,15 @@ search：当输入框内容改变时触发，包括点击右侧清空按钮时�
 palceholder：占位符</pre>
     </div>
 
+
+    <div *ngIf="apiList[index].title=='下拉框'">
+      <div class="html-section">
+        <pre>{{html.multiSelect}}</pre>
+      </div>
+      <div class="html-section">
+        <pre>{{html.multiSelectJS}}</pre>
+      </div>
+    </div>
+
   </div>
 </div>

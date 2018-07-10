@@ -357,7 +357,41 @@ jodiEditorUpload() { // 富文本的上传图片操作
   closeModal(){
     this.showStatus =false;// 将显示状态值设为false即可手动关闭模态框
   }`,
-    tooltip:`<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`
+    tooltip:`<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`,
+    multiSelect: `<multi-select [data]="cityList"
+                    [firstName]="'provinceName'"
+                    [secondName]="'cityName'"
+                    [thirdName]="'areaName'"
+                    [secondChild]="'cities'"
+                    [thirdChild]="'areas'"
+                    [firstLabel]="'provinceCode'"
+                    [secondLabel]="'cityCode'"
+                    [thirdLabel]="'areaCode'"
+                    (getValue)="selectCity($event)"
+                    [firstValue]="'110000'"
+                    [secondValue]="'110100'"
+                    [thirdValue]="'110102'"
+      ></multi-select>`,
+    multiSelectJS: `cityList = [{
+    provinceName: '北京',
+    provinceCode: 110000,
+    cities: [
+      {
+        cityName: '北京市',
+        cityCode: 110100,
+        areas: [
+          {
+            areaName: '东城区',
+            areaCode: 110102
+          }
+        ]
+      }
+    ]
+  }];
+  
+selectCity(data) {
+    console.log('选择地址', data); // 选中的值，数组格式：[this.firstValue, this.secondValue, this.thirdValue]
+}`
   };
 
   changeStatus(value, index) {
