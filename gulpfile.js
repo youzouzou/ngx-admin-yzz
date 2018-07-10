@@ -10,7 +10,7 @@ gulp.task('minifyHTML', function () {
   gulp.src('dist/*.html').pipe(minifyHTML({collapseWhitespace: true})).pipe(gulp.dest('gulp-dist'));
 });
 gulp.task('script', function () {
-  gulp.src('dist/*.js').pipe(uglify())
+  gulp.src('dist/*.js')//.pipe(uglify())
     .pipe(gulp.dest('gulp-dist/'))
 });
 gulp.task('images', function () {
