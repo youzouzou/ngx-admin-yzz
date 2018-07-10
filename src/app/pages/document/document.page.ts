@@ -358,7 +358,8 @@ jodiEditorUpload() { // 富文本的上传图片操作
     this.showStatus =false;// 将显示状态值设为false即可手动关闭模态框
   }`,
     tooltip: `<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`,
-    multiSelect: `<multi-select [data]="cityList"
+    multiSelect: `<!--联动下拉框-->
+<multi-select [data]="cityList"
                     [firstName]="'provinceName'"
                     [secondName]="'cityName'"
                     [thirdName]="'areaName'"
@@ -371,7 +372,17 @@ jodiEditorUpload() { // 富文本的上传图片操作
                     [firstValue]="'110000'"
                     [secondValue]="'110100'"
                     [thirdValue]="'110102'"
-      ></multi-select>`,
+      ></multi-select>
+      
+<!--非联动下拉框-->
+<div style="width:100px;">
+       <multi-select [data]="hobbyList"
+                     [firstName]="'desc'"
+                     [firstLabel]="'desc'"
+                     (getValue)="selectHobby($event)"
+                     [firstValue]="'看书'"
+                     [mouseHide]="true"
+       ></multi-select>`,
     multiSelectJS: `cityList = [{
     provinceName: '北京',
     provinceCode: 110000,
