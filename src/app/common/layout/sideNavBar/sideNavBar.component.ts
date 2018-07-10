@@ -1,4 +1,4 @@
-import {Component, Renderer2, OnInit} from '@angular/core';
+import {Component, Renderer2, OnInit, Input} from '@angular/core';
 import menuConfig from '../menu.config';
 import {NavigationEnd, Router} from "@angular/router";
 
@@ -8,26 +8,25 @@ import {NavigationEnd, Router} from "@angular/router";
   styleUrls: ['./sideNavbar.component.css']
 })
 export class SideNavbarComponent {
+  @Input() barWidth: number = 150;
   menuList = menuConfig.menuList;
   screenHeight = window.innerHeight;
-  curParent:string;
-  curChild:string;
-  render2:any;
+  curParent: string;
+  curChild: string;
   foldStatus = window.innerWidth < 1200;
-  showChildBoxIndex:number;
+  showChildBoxIndex: number;
 
-  constructor(render2:Renderer2, private router:Router) {
-    this.render2 = render2;
-    document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
-    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
-    var vm = this;
-    window.onresize = function () {
-      vm.screenHeight = window.innerHeight;
-      document.body.style.width = (vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px'));
-    }
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
+    document.body.style.paddingLeft = this.foldStatus ? '50px' : (this.barWidth + 'px');
+    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - this.barWidth + 'px');
+    var vm = this;
+    window.onresize = function () {
+      vm.screenHeight = window.innerHeight;
+      document.body.style.width = (vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - vm.barWidth + 'px'));
+    }
     this.router.events
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
@@ -69,8 +68,8 @@ export class SideNavbarComponent {
 
   flod() {
     this.foldStatus = !this.foldStatus;
-    document.body.style.paddingLeft = this.foldStatus ? '50px' : '150px';
-    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - 150 + 'px');
+    document.body.style.paddingLeft = this.foldStatus ? '50px' : this.barWidth + 'px';
+    document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - this.barWidth + 'px');
   }
 
   showChildBox(i) {

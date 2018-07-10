@@ -1,4 +1,4 @@
-<div [style.height]="screenHeight+'px'" class="left-navbar" [ngClass]="{'left-navbar-hide':foldStatus}">
+<div [ngStyle]="{'height': screenHeight+'px', 'width': barWidth+'px'}" class="left-navbar" [ngClass]="{'left-navbar-hide':foldStatus}">
   <div>
     <div class="side-menu-list">
       <div class="side-folder" (click)="flod()"></div>
