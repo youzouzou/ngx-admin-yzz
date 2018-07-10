@@ -30,5 +30,4 @@ Services
 - [ ] http（get、put、delete、post）
 
 // Others（还没想好de）
-bug记录：
-validate：当表单重置时，错误提示没有清除;
+bug记录：侧边菜单栏折叠时，鼠标移动展开子菜单时，子菜单会缩一下再出现

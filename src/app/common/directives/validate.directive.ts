@@ -1,19 +1,25 @@
-import {Directive, ElementRef, Input, Output, EventEmitter} from '@angular/core';
+import {Directive, ElementRef, Input, Output, EventEmitter, DoCheck} from '@angular/core';
 
 @Directive({
   selector: '[validate]'
 })
-export class Validate {
-  @Input() rule:any;
-  @Input() validateValue:any;
-  @Input() validateType:string;// 验证的类型，input，submit
-  @Input() validateRules:any;
-  @Output() submit:EventEmitter<Boolean> = new EventEmitter;
-  el:any;
-  newDiv:any;
+export class Validate implements DoCheck {
+  @Input() rule: any;
+  @Input() validateValue: any;
+  @Input() validateType: string;// 验证的类型，input，submit
+  @Input() validateRules: any;
+  @Output() submit: EventEmitter<Boolean> = new EventEmitter;
+  el: any;
+  newDiv: any;
 
-  constructor(el:ElementRef) {
+  constructor(el: ElementRef) {
     this.el = el;
+  }
+
+  ngDoCheck() { // 用这个方式监听，感觉不太美好
+    if (this.validateValue && this.rule) {
+      this.checkData();
+    }
   }
 
   ngOnInit() {
@@ -33,9 +39,9 @@ export class Validate {
       if (this.validateValue) {
         vm.checkData();
       }
-      this.el.nativeElement.onchange = function () {
-        vm.checkData();
-      }
+      // this.el.nativeElement.onchange = function () {
+      //   vm.checkData();
+      // }
     } else {
       let vm = this;
       vm.el.nativeElement.onclick = function () {
@@ -78,6 +84,7 @@ export class Validate {
           break;
         }
       } else if (vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)) {
+        // console.log('校验', vm.rule[i].validator(vm.validateValue));
         vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
         vm.newDiv.style.display = 'inline-block';
         vm.rule[i].validateResult = false;

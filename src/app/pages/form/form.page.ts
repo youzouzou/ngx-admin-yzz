@@ -101,7 +101,7 @@ export class FormPage {
   // 充值表单
   resetForm() {
     this.user = {
-      name: '游走走',
+      name: '游走走94',
       age: 24,
       sex: 'female',
       school: '',
