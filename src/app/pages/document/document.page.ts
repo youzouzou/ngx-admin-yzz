@@ -95,22 +95,22 @@ export class DocumentPage {
       checkStatus: true,
     },
     {
+      title: 'gulp压缩',
+      checkStatus: true,
+    },
+    {
       title: 'message',
       checkStatus: false,
     },
     {
       title: '单元测试',
       checkStatus: false,
-    },
-    {
-      title: 'webpack打包压缩',
-      checkStatus: false,
     }
   ];
 
   html = {
     chart: '<chart [type]="type" [data]="data" [options]="options"></chart>',
-    chartJS:`type = 'line';
+    chartJS: `type = 'line';
 data = [
 labels: ["January", "February", "March", "April", "May", "June", "July"],
 datasets: [
@@ -150,11 +150,11 @@ options = {
                (change)="jodiEditorUpload($event)"/>
       </div>
     </div>`,
-    upload:`<div class="upload-box">
+    upload: `<div class="upload-box">
   <input type="file" accept="image/*" (change)="selectedFileOnChanged($event)"/>
     打开本地图片
 </div>`,
-    richJS:`richContent = '';
+    richJS: `richContent = '';
 editor: any;
 editorConfig: any = {
     buttons: '|,bold,strikethrough,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,table,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall'
@@ -260,7 +260,7 @@ jodiEditorUpload() { // 富文本的上传图片操作
 <button class="confirm-btn" validate [validateType]="'submit'" (submit)="submitForm($event)" [validateRules]="rules">
    确认
 </button>`,
-    rules:`rules: any = {
+    rules: `rules: any = {
     name: [
       {
         required: true,
@@ -343,7 +343,7 @@ jodiEditorUpload() { // 富文本的上传图片操作
     let [e, el, container] = args;
     // do something
   }`,
-    modal:`<modal [modalStatus]="showStatus" (close)="closeModal()" [bgClose]="true">
+    modal: `<modal [modalStatus]="showStatus" (close)="closeModal()" [bgClose]="true">
         这里是模态框自定义内容
         <div>
           <button (click)="closeModal()">
@@ -351,13 +351,13 @@ jodiEditorUpload() { // 富文本的上传图片操作
           </button>
         </div>
       </modal>`,
-    modalJS:`openModal(index) {
+    modalJS: `openModal(index) {
     this.showStatus = true;// 将显示状态值设为true即可打开模态框
   }
   closeModal(){
     this.showStatus =false;// 将显示状态值设为false即可手动关闭模态框
   }`,
-    tooltip:`<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`,
+    tooltip: `<div [tooltip]="data" [color]="'black'" [showAnyway]="true" [direction]="'bottom'">{{data}}</div>`,
     multiSelect: `<multi-select [data]="cityList"
                     [firstName]="'provinceName'"
                     [secondName]="'cityName'"
