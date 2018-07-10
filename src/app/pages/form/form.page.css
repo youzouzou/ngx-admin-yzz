@@ -22,6 +22,19 @@
   position: relative;
 }
 
+@media screen and (max-width: 1200px) {
+  .form-part {
+    width: 96%;
+    margin-left: 2%;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    background: #fff;
+    border-radius: 15px;
+  }
+}
+
 .form-group {
   width: 100%;
   font-size: 14px;
