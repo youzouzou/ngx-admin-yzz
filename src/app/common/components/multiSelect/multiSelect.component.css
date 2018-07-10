@@ -1,3 +1,8 @@
+.select-component {
+  position: relative;
+  height: 50px;
+}
+
 .select {
   width: 100%;
   border: 1px solid #dfe3eb;
@@ -10,7 +15,7 @@
 }
 
 .select-box {
-  position: relative;
+  position: absolute;
   width: 370px;
   text-align: center;
   font-size: 14px;

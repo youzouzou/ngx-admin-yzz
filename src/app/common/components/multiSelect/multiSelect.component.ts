@@ -8,21 +8,21 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 export class multiSelectComponent {
   @Input() data = [];// 级联数组
   /*data = [{
-   province: '北京',
-   provinceCode: 1,
-   cities: [
-   {
-   city: '北京市',
-   cityCode: 2,
-   areas: [
-   {
-   area: '东城区',
-   areaCode: 3
-   }
-   ]
-   }
-   ]
-   }];*/
+    province: '北京',
+    provinceCode: 1,
+    cities: [
+      {
+        city: '北京市',
+        cityCode: 2,
+        areas: [
+          {
+            area: '东城区',
+            areaCode: 3
+          }
+        ]
+      }
+    ]
+  }];*/
   @Input() firstName = '';// 用于展示给用户的标签字段名 如 province
   @Input() secondName = '';// 用于展示给用户的标签字段名，如 city
   @Input() thirdName = '';// 用于展示给用户的标签字段名，如 area
@@ -34,7 +34,7 @@ export class multiSelectComponent {
   @Input() secondValue = '';// 初始化第二个数组选中的值
   @Input() thirdLabel = '';// 第三个数组的值的字段名，如 areaCode
   @Input() thirdValue = '';// 初始化第三个数组选中的值
-  @Output() getValue:EventEmitter<any> = new EventEmitter;
+  @Output() getValue: EventEmitter<any> = new EventEmitter;
 
   secondList = [];
   thirdList = [];
@@ -93,7 +93,7 @@ export class multiSelectComponent {
       this.thirdList = [];
       this.secondValue = '';
       this.thirdValue = '';
-      if(!this.secondList || !this.secondList.length){
+      if (!this.secondList || !this.secondList.length) {
         this.showStatus = false;
       }
     } else if (level == 2) {
@@ -102,7 +102,7 @@ export class multiSelectComponent {
       this.thirdSelectedShowName = '';
       this.thirdList = item[this.thirdChild];
       this.thirdValue = '';
-      if(!this.thirdList || !this.thirdList.length){
+      if (!this.thirdList || !this.thirdList.length) {
         this.showStatus = false;
       }
     } else if (level == 3) {
