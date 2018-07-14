@@ -22,7 +22,7 @@
       <td>{{item.receiver}}</td>
       <td>{{item.remark}}</td>
       <td>
-        <button (click)="alertMsg(item,i)" class="btn-default">点我</button>
+        <button (click)="alertMsg(item,i)" class="btn-default">{{"click" | translate}}</button>
         <button routerLink="/table/table_detail" class="btn-default">详情</button>
       </td>
     </tr>

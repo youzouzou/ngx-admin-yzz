@@ -9,9 +9,15 @@ import {ChartModule} from 'angular2-chartjs';
 import {FileUploadModule} from 'ng2-file-upload';
 import {FormsModule} from '@angular/forms';
 import {ImageCropperModule} from 'ngx-image-cropper';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {JoditAngularModule} from 'jodit-angular';
 import {NgDatepickerModule} from 'ng2-datepicker';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 // layout
 import {TopNavbarComponent} from './common/layout/topNavbar/topNavbar.component';
 import {SideNavbarComponent} from './common/layout/sideNavBar/sideNavBar.component';
@@ -92,7 +98,14 @@ import {LengthPipe} from './common/pipe/lengthPipe';
     ImageCropperModule,
     JoditAngularModule,
     DragulaModule,
-    NgDatepickerModule
+    NgDatepickerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [globalService, msgService, apiService, httpInterceptorProviders, {
     provide: LocationStrategy,
