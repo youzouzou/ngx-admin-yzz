@@ -28,4 +28,6 @@ Services
 - [ ] message（tip、alert，默认、安全、危险、警告，可点击关闭）
 
 // Others
-bug记录：侧边菜单栏折叠时，鼠标移动展开子菜单时，子菜单会缩一下再出现
+bug记录：侧边菜单栏折叠时，鼠标移动展开子菜单时，子菜单会缩一下再出现；
+日历组件点击年月报错：TypeError: rxjs.fromEvent is not a function
+        at SlimScrollDirective.initWheel
