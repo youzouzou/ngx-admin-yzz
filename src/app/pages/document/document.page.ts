@@ -97,6 +97,16 @@ export class DocumentPage {
     {
       title: 'gulp压缩',
       checkStatus: true,
+    }
+    ,
+    {
+      title: '国际化',
+      checkStatus: true,
+    }
+    ,
+    {
+      title: '日期选择',
+      checkStatus: true,
     },
     {
       title: 'message',
