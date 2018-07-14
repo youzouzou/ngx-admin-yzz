@@ -1,0 +1,39 @@
+.date-component {
+  display: flex;
+}
+
+.date-box {
+  display: inline-block;
+}
+
+.date-btn {
+  display: inline-block;
+  border: 1px solid #dfe3eb;
+  outline: none;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 10px;
+}
+
+.date-btn:hover {
+  background: #444;
+}
+
+/*日历组件样式问题 以下这段未生效，必须写在全局的style.css中*/
+
+.ngx-datepicker-container > .ngx-datepicker-input {
+  padding: 10px !important;
+}
+
+.ngx-datepicker-calendar-container {
+  z-index: 10000 !important;
+  padding-right: 30px !important;
+  overflow-y: auto !important;
+}
+
+.main-calendar-years {
+  overflow-y: auto !important;
+}

@@ -1,13 +1,14 @@
 .search-box {
   position: relative;
   width: 200px;
+  display: inline-block;
 }
 
 .search-input {
   width: 180px;
   padding: 10px;
   border-radius: 3px;
-  border: 1px solid #ccc;
+  border: 1px solid #dfe3e9;
 }
 
 .search-clear {

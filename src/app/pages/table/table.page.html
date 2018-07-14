@@ -1,9 +1,10 @@
 <div class="table-page">
   <div class="table-search-bar">
     <search (search)="search($event)" [palceholder]="'请输入菜名'"></search>
+    <div class="data-picker-box"><date-picker [date]="date" (search)="dateSearch($event)"></date-picker></div>
   </div>
 
-  <table animation="linear-show">
+  <table animation="linear-show" class="table">
     <thead>
     <tr>
       <th></th>

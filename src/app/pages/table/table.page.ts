@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {msgService} from "../../common/service/msg.service";
-import {DragulaService} from "ng2-dragula";
+import {msgService} from '../../common/service/msg.service';
+import {DragulaService} from 'ng2-dragula';
 
 @Component({
   selector: 'table-page',
@@ -9,7 +9,8 @@ import {DragulaService} from "ng2-dragula";
 })
 
 export class TablePage {
-  pageConfig:any;
+  date = new Date();
+  pageConfig: any;
   labelList = [
     '菜名',
     '价格',
@@ -210,26 +211,26 @@ export class TablePage {
 
 
   private onDrag(args) {
-    let [e, el] = args;
+    const [e, el] = args;
     // do something
   }
 
   private onDrop(args) {
-    let [e, el] = args;
+    const [e, el] = args;
     // do something
   }
 
   private onOver(args) {
-    let [e, el, container] = args;
+    const [e, el, container] = args;
     // do something
   }
 
   private onOut(args) {
-    let [e, el, container] = args;
+    const [e, el, container] = args;
     // do something
   }
 
-  constructor(public msgService:msgService, private dragulaService:DragulaService) {
+  constructor(public msgService: msgService, private dragulaService: DragulaService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
@@ -237,7 +238,7 @@ export class TablePage {
   }
 
   ngOnInit() {
-    let vm = this;
+    const vm = this;
     // 拖拽事件
     vm.dragulaService.drag.subscribe((value) => {
       // console.log(`drag: ${value[0]}`, value);
@@ -259,7 +260,7 @@ export class TablePage {
 
   alertMsg(item, index) {
     const msg = '订单序号：' + index + '：' + 'item.receiver' + '的' + item.name + '，送到' + item.address;
-    var setMsg = this.msgService.setMsg;
+    const setMsg = this.msgService.setMsg;
     setMsg({
       content: msg
     });
@@ -271,6 +272,10 @@ export class TablePage {
 
   search(keyword) {
     console.log('搜索', keyword);
+  }
+
+  dateSearch(date) {
+    console.log('日期', date);
   }
 
 }

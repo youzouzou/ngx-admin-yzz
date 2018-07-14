@@ -1,0 +1,4 @@
+<div class="date-component">
+  <div class="date-box"><ng-datepicker [(ngModel)]="date" [options]="options"></ng-datepicker></div>
+  <button class="date-btn" (click)="clickButton()" *ngIf="isShowButton">{{buttonText}}</button>
+</div>

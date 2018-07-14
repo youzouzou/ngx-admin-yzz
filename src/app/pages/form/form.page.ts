@@ -1,8 +1,8 @@
 import {Component, Renderer2} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
-import {msgService} from "../../common/service/msg.service";
-import {apiService} from "../../common/service/api.service";
+import {msgService} from '../../common/service/msg.service';
+import {apiService} from '../../common/service/api.service';
 
 @Component({
   selector: 'form-page',
@@ -159,11 +159,11 @@ export class FormPage {
   }
 
   constructor(private http: HttpClient, render2: Renderer2, public msgService: msgService, public  api: apiService) {
-    let vm = this;
+    const vm = this;
     this.uploader = new FileUploader({
       url: api.upload,
-      method: "POST",
-      itemAlias: "file" // 后端设定的字段名成
+      method: 'POST',
+      itemAlias: 'file' // 后端设定的字段名成
     });
     this.resetForm();
 
@@ -183,7 +183,7 @@ export class FormPage {
 
     // 获取省市区json数据
     this.http.get(api.cities).subscribe(res => {
-      let result: any = res;
+      const result: any = res;
       if (result.country) {
         for (let i = 0; i < result.country.length; i++) {
           vm.cityList.push(result.country[i].province);
@@ -195,11 +195,11 @@ export class FormPage {
   imageCropped(image: string) {
     this.croppedImage = image;
     // 将文件格式转换成file
-    let formData = new FormData();   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
-    //convertBase64UrlToBlob函数是将base64编码转换为Blob
-    let vm = this;
-    formData.append("cropper", vm.convertBase64UrlToBlob(image));
-    //append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同
+    const formData = new FormData();   // 这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
+    // convertBase64UrlToBlob函数是将base64编码转换为Blob
+    const vm = this;
+    formData.append('cropper', vm.convertBase64UrlToBlob(image));
+    // append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同
     console.log('查看这个DOM节点', formData.get('cropper'), vm.convertBase64UrlToBlob(image));
     vm.cropperFile = formData.get('cropper');
   }
@@ -220,7 +220,7 @@ export class FormPage {
 
   jodiEditorUpload() { // 富文本的上传图片操作
     // 这里是文件选择完成后的操作处理
-    let vm = this;
+    const vm = this;
     for (let i = 0; i < vm.uploader.queue.length; i++) {
       vm.uploader.queue[i].onSuccess = (response, status, headers) => {
         // 上传文件成功
@@ -238,12 +238,12 @@ export class FormPage {
   submitUpload() {
     console.log('裁剪图', this.croppedImage);
     console.log('cropperFile', this.cropperFile);
-    let vm = this;
+    const vm = this;
     if (this.cropperFile) {
       this.cropUploader = new FileUploader({
         url: vm.api.upload,
-        method: "POST",
-        itemAlias: "file" // 后端设定的字段名成
+        method: 'POST',
+        itemAlias: 'file' // 后端设定的字段名成
       });
       this.cropUploader.addToQueue([this.cropperFile]);
       this.cropUploader.uploadAll();
@@ -262,11 +262,11 @@ export class FormPage {
   }
 
   convertBase64UrlToBlob(urlData) { // 将文件的base64转换成file
-    var bytes = window.atob(urlData.split(',')[1]); //去掉url的头，并转换为byte
-    //处理异常,将ascii码小于0的转换为大于0
-    var ab = new ArrayBuffer(bytes.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < bytes.length; i++) {
+    const bytes = window.atob(urlData.split(',')[1]); // 去掉url的头，并转换为byte
+    // 处理异常,将ascii码小于0的转换为大于0
+    const ab = new ArrayBuffer(bytes.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < bytes.length; i++) {
       ia[i] = bytes.charCodeAt(i);
     }
     return new Blob([ab], {type: 'image/png'});

@@ -1,4 +1,4 @@
-table {
+.table {
   width: 98%;
   margin: 0 auto;
   background: #fff;
@@ -7,20 +7,20 @@ table {
   font-size: 14px;
 }
 
-tr:nth-child(odd) {
+.table tr:nth-child(odd) {
   background: #eee;
 }
 
-th {
+.table th {
   background: #dfe3eb;
   height: 40px;
 }
 
-tr:hover {
+.table tr:hover {
   background: #dfe3eb;
 }
 
-td {
+.table td {
   padding: 5px 10px;
   line-height: 30px;
   height: 40px;
@@ -50,4 +50,9 @@ td {
   cursor: move;
   cursor: grab;
   cursor: -webkit-grab;
+}
+
+.data-picker-box {
+  display: inline-block;
+  margin-left: 30px;
 }
