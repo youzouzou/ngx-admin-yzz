@@ -57,7 +57,8 @@
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button class="confirm-btn" validate [validateType]="'submit'" (submit)="submitForm($event)" [validateRules]="rules">
+          <button class="confirm-btn" validate [validateType]="'submit'" (submit)="submitForm($event)"
+                  [validateRules]="rules">
             确认
           </button>
         </div>
@@ -148,21 +149,21 @@
       </div>
       <div class="form-content flex-box">
         <div class="btn-ms">btn-warning</div>
-        <button class="btn-warning btn-ms">警告</button>
-        <button class="btn-warning btn-ls">警告</button>
-        <button class="btn-warning btn-xls">警告</button>
+        <button class="btn-warning btn-ms" (click)="waning()">警告</button>
+        <button class="btn-warning btn-ls" (click)="waning()">警告</button>
+        <button class="btn-warning btn-xls" (click)="waning()">警告</button>
       </div>
       <div class="form-content flex-box">
         <div class="btn-ms">btn-success</div>
-        <button class="btn-success btn-ms">成功</button>
-        <button class="btn-success btn-ls">成功</button>
-        <button class="btn-success btn-xls">成功</button>
+        <button class="btn-success btn-ms" (click)="success()">成功</button>
+        <button class="btn-success btn-ls" (click)="success()">成功</button>
+        <button class="btn-success btn-xls" (click)="success()">成功</button>
       </div>
       <div class="form-content flex-box">
         <div class="btn-ms">btn-danger</div>
-        <button class="btn-danger btn-ms">危险</button>
-        <button class="btn-danger btn-ls">危险</button>
-        <button class="btn-danger btn-xls">危险</button>
+        <button class="btn-danger btn-ms" (click)="danger()">危险</button>
+        <button class="btn-danger btn-ls" (click)="danger()">危险</button>
+        <button class="btn-danger btn-xls" (click)="danger()">危险</button>
       </div>
     </div>
   </div>
@@ -184,17 +185,17 @@
                     [thirdValue]="'110102'"
       ></multi-select>
 
-     <div style="width:100px;">
-       <multi-select [data]="hobbyList"
-                     [firstName]="'desc'"
-                     [firstLabel]="'desc'"
-                     (getValue)="selectHobby($event)"
-                     [firstValue]="'看书'"
-                     [mouseHide]="true"
-       ></multi-select>
-     </div>
+      <div style="width:100px;">
+        <multi-select [data]="hobbyList"
+                      [firstName]="'desc'"
+                      [firstLabel]="'desc'"
+                      (getValue)="selectHobby($event)"
+                      [firstValue]="'看书'"
+                      [mouseHide]="true"
+        ></multi-select>
+      </div>
     </div>
   </div>
 
 </div>
-<ng-datepicker [(ngModel)]="date" ></ng-datepicker>
+<ng-datepicker [(ngModel)]="date"></ng-datepicker>

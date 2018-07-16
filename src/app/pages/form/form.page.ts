@@ -1,8 +1,8 @@
 import {Component, Renderer2} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
-import {msgService} from '../../common/service/msg.service';
 import {apiService} from '../../common/service/api.service';
+import {alertService} from '../../common/service/alert.service';
 
 @Component({
   selector: 'form-page',
@@ -85,9 +85,7 @@ export class FormPage {
     if (res) {
       console.log('提交数据', this.user, this.hobbyList);
     } else {
-      this.msgService.setMsg({
-        content: '表单校验失败'
-      });
+      this.alert.warning('表单校验失败');
     }
   }
 
@@ -158,7 +156,7 @@ export class FormPage {
     this.hobbyList[i].checkStatus = data;
   }
 
-  constructor(private http: HttpClient, render2: Renderer2, public msgService: msgService, public  api: apiService) {
+  constructor(private http: HttpClient, render2: Renderer2, public alert: alertService, public  api: apiService) {
     const vm = this;
     this.uploader = new FileUploader({
       url: api.upload,
@@ -283,6 +281,18 @@ export class FormPage {
 
   selectHobby(data) {
     console.log('选择兴趣', data);
+  }
+
+  waning() {
+    this.alert.warning('警告');
+  }
+
+  success() {
+    this.alert.success('成功');
+  }
+
+  danger() {
+    this.alert.error('危险');
   }
 
 }

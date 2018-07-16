@@ -7,10 +7,11 @@ import {Component} from '@angular/core';
 })
 
 export class TabPage {
-  curTabIndex: number = 0;
+  curTabIndex = 0;
   showStatus = false;
   showStatus2 = false;
   tabList = [];
+
   constructor() {
     this.tabList = [
       {
@@ -33,7 +34,7 @@ export class TabPage {
         title: '标签页',
         hidden: false
       }
-    ]
+    ];
   }
 
   getTabData(index) {
@@ -55,4 +56,5 @@ export class TabPage {
   closeModal2() {
     this.showStatus2 = false;
   }
+
 }

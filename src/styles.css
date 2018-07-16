@@ -41,7 +41,8 @@ html, body {
   border-radius: 10px;
   animation: show-msg 3s;
   opacity: 0;
-  border: 1px solid #ddffff;
+  border: 1px solid #1FBF5B;
+  color: #1FBF5B;
 }
 
 .btn-default {

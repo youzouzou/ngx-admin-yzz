@@ -53,11 +53,14 @@ import {globalService} from './common/service/global.service';
 import {msgService} from './common/service/msg.service';
 import {DragulaModule} from 'ng2-dragula';
 import {apiService} from './common/service/api.service';
+import {alertService} from './common/service/alert.service';
 // pipe
 import {NumberPipe} from './common/pipe/numberPipe';
 import {LengthPipe} from './common/pipe/lengthPipe';
 // injector
 import {httpInterceptorProviders} from './common/interceptor/index';
+import {NgxCoolDialogsModule} from 'ngx-cool-dialogs';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -106,9 +109,11 @@ import {httpInterceptorProviders} from './common/interceptor/index';
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    NgxCoolDialogsModule.forRoot()
   ],
-  providers: [selfHttp, globalService, msgService, apiService, httpInterceptorProviders, {
+  providers: [selfHttp, alertService, globalService, msgService, apiService, httpInterceptorProviders, {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
