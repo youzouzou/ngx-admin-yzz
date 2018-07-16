@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   background: #ebeff5;
   font-family: '微软雅黑', Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
 }

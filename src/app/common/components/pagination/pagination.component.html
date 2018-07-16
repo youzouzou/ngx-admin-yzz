@@ -1,6 +1,16 @@
 <!--左移、右移1页，点击事件、跳转-->
 <div class="pagination-box">
-  <span [ngStyle]="{'display':curPage==1?'none':'inline-block'}" (click)="changePage(curPage-1)" class="pagination-item"> < </span>
-  <span (click)="changePage(pageNo)" class="pagination-item" [ngClass]="{'pagination-active':curPage==pageNo}" *ngFor="let pageNo of pageList">{{pageNo}}</span>
-  <span [ngStyle]="{'display':curPage==totalPage?'none':'inline-block'}" (click)="changePage(curPage+1)" class="pagination-item"> > </span>
+  <span class="cur-page">第 {{curPage}} / {{totalPage}} 页</span>
+  <div>
+    <button *ngIf="curPage!=1"
+            (click)="changePage(curPage-1)" class="pagination-item"> <
+    </button>
+    <button (click)="changePage(pageNo)" class="pagination-item" [ngClass]="{'pagination-active':curPage==pageNo}"
+            *ngFor="let pageNo of pageList">{{pageNo}}
+    </button>
+    <button *ngIf="curPage!=totalPage"
+            (click)="changePage(curPage+1)"
+            class="pagination-item"> >
+    </button>
+  </div>
 </div>

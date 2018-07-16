@@ -2,6 +2,9 @@
   width: 100%;
   text-align: right;
   margin-top: 10px;
+  clear: both;
+  border-top: 1px solid #fff;
+  padding-top: 10px;
 }
 
 .pagination-item {
@@ -14,14 +17,21 @@
   cursor: pointer;
   moz-user-select: -moz-none;
   -moz-user-select: none;
-  -o-user-select:none;
-  -khtml-user-select:none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
 }
 
 .pagination-active {
   background: #888;
   color: #fff;
+}
+
+.cur-page {
+  float: left;
+  font-size: 12px;
+  color: #333;
 }

@@ -1,26 +1,26 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, DoCheck} from '@angular/core';
 
 @Component({
   selector: 'pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
-export class PaginationComponent implements OnInit {
-  @Input() totalPage:number;
-  @Input() curPage:number;
-  @Output() changeCurPage:EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
-  pageList:any;
+export class PaginationComponent implements  DoCheck {
+  @Input() totalPage = 1;
+  @Input() curPage = 1;
+  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
+  pageList: any;
 
   constructor() {
     this.pageList = [];
   }
 
-  ngOnInit() {
+  ngDoCheck() {
     this.setPageList();
   }
 
   setPageList() {
-    var vm = this;
+    const vm = this;
     vm.pageList = [];
     if (vm.curPage > vm.totalPage) {
       vm.curPage = 1;
@@ -43,10 +43,12 @@ export class PaginationComponent implements OnInit {
   }
 
   changePage(pageNo) {
-    let vm = this;
-    vm.curPage = pageNo;
-    vm.changeCurPage.emit(vm.curPage);
-    this.setPageList();
+    const vm = this;
+    if (vm.curPage !== pageNo) {
+      vm.curPage = pageNo;
+      vm.changeCurPage.emit(vm.curPage);
+      this.setPageList();
+    }
   }
 
   // todo 输入页码跳转
