@@ -48,15 +48,16 @@ import {Tooltip} from './common/directives/tooltip.directive';
 import {Animation} from './common/directives/animation.directive';
 import {Validate} from './common/directives/validate.directive';
 // service
+import {selfHttp} from './common/service/selfhttp.service';
 import {globalService} from './common/service/global.service';
 import {msgService} from './common/service/msg.service';
 import {DragulaModule} from 'ng2-dragula';
 import {apiService} from './common/service/api.service';
 // pipe
 import {NumberPipe} from './common/pipe/numberPipe';
+import {LengthPipe} from './common/pipe/lengthPipe';
 // injector
 import {httpInterceptorProviders} from './common/interceptor/index';
-import {LengthPipe} from './common/pipe/lengthPipe';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,7 @@ import {LengthPipe} from './common/pipe/lengthPipe';
       }
     })
   ],
-  providers: [globalService, msgService, apiService, httpInterceptorProviders, {
+  providers: [selfHttp, globalService, msgService, apiService, httpInterceptorProviders, {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
