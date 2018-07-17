@@ -1,3 +1,4 @@
-<div class="breadcrumb-box">
-  <span [routerLink]="i<breadcrumbs.length-1?item.path:null" *ngFor="let item of breadcrumbs;let i=index">{{item.title}}{{i==breadcrumbs.length-1?'':' / '}}</span>
+<div class="breadcrumb-box"><!--[routerLink]="i<breadcrumbs.length-1?item.path:null"-->
+  <span (click)="back(i<breadcrumbs.length-1)"
+        *ngFor="let item of breadcrumbs;let i=index">{{item.title}}{{i==breadcrumbs.length-1?'':' / '}}</span>
 </div>

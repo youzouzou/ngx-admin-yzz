@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
+import {Location} from '@angular/common';
 import menuConfig from '../menu.config';
+
 @Component({
   selector: 'breadcrumb',
   templateUrl: './breadcrumb.component.html',
@@ -10,7 +12,7 @@ export class BreadcrumbComponent implements OnInit {
   breadcrumbs;
 
   // todo 考虑参数问题
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
     // console.log('路由数据', this.menuList);
   }
 
@@ -21,7 +23,8 @@ export class BreadcrumbComponent implements OnInit {
         if (event instanceof NavigationEnd) { // 当导航成功结束时执行
           console.log('NavigationEnd:', event.url);
           if (event && event.url) {
-            let paths = event.url.split('/');
+            event.url = event.url.split('?')[0];
+            const paths = event.url.split('/');
             if (paths.length > 1 && paths[1]) {
               for (let i = 0; i < this.menuList.length; i++) {
                 if (paths[1] === this.menuList[i].path) {
@@ -76,6 +79,12 @@ export class BreadcrumbComponent implements OnInit {
           }
         }
       });
+  }
+
+  back(flag) {
+    if (flag) {
+      this.location.back();
+    }
   }
 
 }
