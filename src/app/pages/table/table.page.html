@@ -1,6 +1,6 @@
 <div class="table-page">
   <div class="table-search-bar">
-    <search (search)="search($event)" [palceholder]="'请输入菜名'"></search>
+    <search (search)="search($event)" [palceholder]="'请输入菜名'" [keyword]="params.keyword"></search>
     <div class="data-picker-box"><date-picker [date]="date" (search)="dateSearch($event)"></date-picker></div>
   </div>
 

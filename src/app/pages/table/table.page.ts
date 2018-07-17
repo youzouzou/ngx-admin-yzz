@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {DragulaService} from 'ng2-dragula';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'table-page',
@@ -10,6 +11,9 @@ import {DragulaService} from 'ng2-dragula';
 export class TablePage {
   date = new Date();
   pageConfig: any;
+  params = {
+    keyword: null
+  };
   labelList = [
     '菜名',
     '价格',
@@ -229,11 +233,16 @@ export class TablePage {
     // do something
   }
 
-  constructor(private dragulaService: DragulaService) {
+  constructor(private dragulaService: DragulaService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
     };
+    console.log('router参数', activatedRoute);
+    const vm = this;
+    activatedRoute.queryParams.subscribe(queryParams => {
+      vm.params.keyword = queryParams.keyword;
+    });
   }
 
   ngOnInit() {
@@ -267,6 +276,9 @@ export class TablePage {
 
   search(keyword) {
     console.log('搜索', keyword);
+    this.params.keyword = keyword;
+    this.router.navigate([], {queryParams: this.params});
+    // this.getList(); // 这里还需要从后端获取数据
   }
 
   dateSearch(date) {
