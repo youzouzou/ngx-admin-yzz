@@ -25,6 +25,7 @@ export class TopNavbarComponent {
       .subscribe((event) => {
         if (!this.curPathIndex && this.curPathIndex!=0) {
           if (event instanceof NavigationEnd) {
+            event.url = event.url.split('?')[0];
             let paths = this.router.url.split('/');
             console.log('paths', paths);
             if (paths.length > 1 && paths[1]) {

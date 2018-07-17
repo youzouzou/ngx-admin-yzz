@@ -30,6 +30,7 @@ export class SideNavbarComponent {
     this.router.events
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
+          event.url = event.url.split('?')[0];
           let paths = event.url.split('/');
           if (paths.length > 1 && paths[1]) {
             this.curParent = paths[1];
