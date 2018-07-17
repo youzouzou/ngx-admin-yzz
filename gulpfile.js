@@ -14,17 +14,20 @@ gulp.task('script', function () {
     .pipe(gulp.dest('gulp-dist/'))
 });
 gulp.task('images', function () {
-  gulp.src('dist/assets/*.*').pipe(imagemin({progressive: true})).pipe(gulp.dest('gulp-dist/assets'));
+  return gulp.src('dist/assets/*.*').pipe(imagemin({progressive: true})).pipe(gulp.dest('gulp-dist/assets'));
 });
-gulp.task('icon', function () {
-  gulp.src('dist/*.ico').pipe(imagemin({progressive: true})).pipe(gulp.dest('gulp-dist/'));
+gulp.task('icons', ['images'], function () {
+  return gulp.src('dist/assets/icon/*.*').pipe(imagemin({progressive: true})).pipe(gulp.dest('gulp-dist/assets/icon'));
+});
+gulp.task('icon', ['images'], function () {
+  return gulp.src('dist/*.ico').pipe(imagemin({progressive: true})).pipe(gulp.dest('gulp-dist/'));
 });
 gulp.task('css', function () {
   gulp.src('dist/*.css')
     .pipe(minifyCSS())
     .pipe(gulp.dest('gulp-dist/'));
 });
-gulp.task('minifyJson', function () {
+gulp.task('minifyJson', ['images'], function () {
   return gulp.src(['dist/assets/data/*.json'])
     .pipe(jsonminify())
     .pipe(gulp.dest('gulp-dist/assets/data'));
@@ -32,4 +35,4 @@ gulp.task('minifyJson', function () {
 gulp.task('clean', function (cb) {
   del(['gulp-dist/*'], cb);
 });
-gulp.task('default', ['clean', 'icon', 'minifyHTML', 'script', 'css', 'images', 'minifyJson']);
+gulp.task('default', ['clean', 'images', 'icon', 'icons', 'minifyHTML', 'script', 'css', 'minifyJson']);
