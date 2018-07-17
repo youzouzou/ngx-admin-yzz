@@ -57,7 +57,7 @@
         <label></label>
         <div class="form-content form-btn">
           <button class="default-btn" (click)="resetForm()">重置</button>
-          <button class="confirm-btn" validate [validateType]="'submit'" (submit)="submitForm($event)"
+          <button class="confirm-btn" validate [validateType]="'submit'" [submitValue]="user" (submit)="submitForm($event)"
                   [validateRules]="rules">
             确认
           </button>

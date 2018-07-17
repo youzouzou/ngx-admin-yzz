@@ -38,6 +38,7 @@
 .tab-title-active > div {
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
+  border-top: 1px solid #eee;
   background: #fff;
   overflow: hidden;
   animation: tab-show-func 0.3s linear

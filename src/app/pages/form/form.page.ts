@@ -82,10 +82,10 @@ export class FormPage {
   // 提交表单
   submitForm(res) {
     console.log('表单校验结果', res);
-    if (res) {
+    if (res.status) {
       console.log('提交数据', this.user, this.hobbyList);
     } else {
-      this.alert.warning('表单校验失败');
+      this.alert.warning(res.msg ? res.msg : '表单校验失败');
     }
   }
 
@@ -99,7 +99,7 @@ export class FormPage {
   // 充值表单
   resetForm() {
     this.user = {
-      name: '游走走94',
+      name: '',
       age: 24,
       sex: 'female',
       school: '',
@@ -163,6 +163,11 @@ export class FormPage {
       method: 'POST',
       itemAlias: 'file' // 后端设定的字段名成
     });
+    // 如果跨域，试试下面这段
+    /*this.uploader.onAfterAddingFile = (item => {
+     item.withCredentials = false;
+     });
+     * */
     this.resetForm();
 
     this.changeEditor = function (event) {

@@ -1,14 +1,15 @@
-import {Directive, ElementRef, Input, Output, EventEmitter, DoCheck} from '@angular/core';
+import {Directive, ElementRef, Input, Output, EventEmitter, DoCheck, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[validate]'
 })
-export class Validate implements DoCheck {
+export class Validate implements DoCheck, OnInit {
   @Input() rule: any;
   @Input() validateValue: any;
   @Input() validateType: string;// 验证的类型，input，submit
   @Input() validateRules: any;
-  @Output() submit: EventEmitter<Boolean> = new EventEmitter;
+  @Input() submitValue: object;
+  @Output() submit: EventEmitter<object> = new EventEmitter;
   el: any;
   newDiv: any;
 
@@ -39,33 +40,61 @@ export class Validate implements DoCheck {
       if (this.validateValue) {
         vm.checkData();
       }
-      // this.el.nativeElement.onchange = function () {
-      //   vm.checkData();
-      // }
-      this.el.nativeElement.onblur = function () {
+      this.el.nativeElement.onchange = function () {
         vm.checkData();
       }
+      this.el.nativeElement.onblur = function () {
+        vm.checkData();
+      };
     } else {
-      let vm = this;
-      vm.el.nativeElement.onclick = function () {
-        event.stopPropagation();
-        event.preventDefault();
-        let res = true;
-        let keys = vm.getKeys(vm.validateRules);
-        for (let i = 0; vm.validateRules && i < keys.length; i++) {
-          for (let j = 0; j < vm.validateRules[keys[i]].length; j++) {
-            // 如果有默认值，并且始终没改直接提交，有问题
-            if (vm.validateRules[keys[i]][j].validateResult === false || (vm.validateRules[keys[i]][j].required && !vm.validateRules[keys[i]][j].validateResult)) {
-              console.log(vm.validateRules[keys[i]][j]);
-              res = false;
+      if (this.submitValue) {
+        const vm = this;
+        vm.el.nativeElement.onclick = function () {
+          event.stopPropagation();
+          event.preventDefault();
+          let res = true;
+          let msg = '';
+          const keys = vm.getKeys(vm.validateRules);
+          for (let i = 0; vm.validateRules && i < keys.length; i++) {
+            // console.log('keys', keys[i], vm.validateRules[keys[i]]);
+            for (let j = 0; j < vm.validateRules[keys[i]].length; j++) {
+              // 如果有默认值，并且始终没改直接提交，有问题
+              // if (vm.validateRules[keys[i]][j].validateResult === false || (vm.validateRules[keys[i]][j].required && !vm.validateRules[keys[i]][j].validateResult)) {
+              //   console.log('???', vm.validateRules[keys[i]][j], keys[i], vm.submitValue, vm.submitValue[keys[i]]);
+              //   if (vm.validateRules[keys[i]][j].required) {
+              //     if ((typeof vm.submitValue[keys[i]] === 'number' && vm.submitValue[keys[i]] == null) || (typeof vm.submitValue[keys[i]] !== 'number' && !vm.submitValue[keys[i]])) {
+              //       msg = vm.validateRules[keys[i]][j].message;
+              //     }
+              //   } else {
+              //     msg = vm.validateRules[keys[i]][j].validator(vm.submitValue[keys[i]]);
+              //   }
+              //   res = false;
+              //   break;
+              // }
+              if (vm.validateRules[keys[i]][j].required) {
+                if ((typeof vm.submitValue[keys[i]] === 'number' && vm.submitValue[keys[i]] == null) || (typeof vm.submitValue[keys[i]] !== 'number' && !vm.submitValue[keys[i]])) {
+                  // console.log('必填项校验', typeof vm.submitValue[keys[i]], vm.submitValue[keys[i]]);
+                  msg = vm.validateRules[keys[i]][j].message;
+                  res = false;
+                  break;
+                }
+              } else if (vm.submitValue[keys[i]] && vm.validateRules[keys[i]][j].validator(vm.submitValue[keys[i]])) {
+                // console.log('其他校验', vm.submitValue[keys[i]], vm.validateRules[keys[i]][j].validator(vm.submitValue[keys[i]]));
+                msg = vm.validateRules[keys[i]][j].validator(vm.submitValue[keys[i]]);
+                res = false;
+                break;
+              }
+            }
+            if (!res) {
               break;
             }
           }
-          if (!res) {
-            break;
-          }
-        }
-        vm.submit.emit(res);
+          console.log('msg', msg);
+          vm.submit.emit({
+            status: res,
+            msg: msg
+          });
+        };
       }
     }
   }
@@ -75,7 +104,7 @@ export class Validate implements DoCheck {
   }
 
   checkData() {
-    let vm = this;
+    const vm = this;
     vm.newDiv.style.display = 'none';
     for (let i = 0; i < vm.rule.length; i++) {
       vm.rule[i].validateResult = true;
