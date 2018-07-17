@@ -16,14 +16,15 @@
     <tbody dragula='table-bag' [dragulaModel]="data">
     <tr *ngFor="let item of data;let i=index" class="grab">
       <td>{{i+1}}</td>
-      <td [tooltip]="item.name" [color]="'black'">{{item.name}}</td>
+      <td [tooltip]="item.name" [color]="'black'" [direction]="'top'">{{item.name}}</td>
       <td>{{item.price | fixed:2}}</td>
       <td>{{item.address}}</td>
       <td>{{item.receiver}}</td>
       <td>{{item.remark}}</td>
       <td>
         <button (click)="alertMsg(item,i)" class="btn-default">{{"click" | translate}}</button>
-        <button routerLink="/table/table_detail" class="btn-default">详情</button>
+        <icon [name]="'delete'" [type]="'svg'" [desc]="'删除'"></icon>
+        <icon routerLink="/table/table_detail" [name]="'detail'" [type]="'svg'" [desc]="'详情'"></icon>
       </td>
     </tr>
     </tbody>
@@ -32,5 +33,4 @@
     <pagination (changeCurPage)="getPageData($event)" [totalPage]="pageConfig.totalPage"
                 [curPage]="pageConfig.curPage"></pagination>
   </div>
-  <!--<button (click)="openModal()">test</button>-->
 </div>

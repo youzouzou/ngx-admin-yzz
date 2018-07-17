@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {msgService} from '../../common/service/msg.service';
 import {DragulaService} from 'ng2-dragula';
 
 @Component({
@@ -230,7 +229,7 @@ export class TablePage {
     // do something
   }
 
-  constructor(public msgService: msgService, private dragulaService: DragulaService) {
+  constructor(private dragulaService: DragulaService) {
     this.pageConfig = {
       totalPage: 6,
       curPage: 3
@@ -260,10 +259,6 @@ export class TablePage {
 
   alertMsg(item, index) {
     const msg = '订单序号：' + index + '：' + 'item.receiver' + '的' + item.name + '，送到' + item.address;
-    const setMsg = this.msgService.setMsg;
-    setMsg({
-      content: msg
-    });
   }
 
   getPageData(curPageNo) {

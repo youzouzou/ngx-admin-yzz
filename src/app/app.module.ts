@@ -31,6 +31,7 @@ import {DocumentPage} from './pages/document/document.page';
 import {FormPage} from './pages/form/form.page';
 
 // components
+import {IconComponent} from './common/components/icon/icon.component';
 import {BreadcrumbComponent} from './common/layout/breadcrumb/breadcrumb.component';
 import {ModalComponent} from './common/components/modal/modal.component';
 import {TabComponent} from './common/components/tab/tab.component';
@@ -71,6 +72,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SearchComponent,
     TagComponent,
     LoaderComponent,
+    IconComponent,
     Tooltip,
     Validate,
     Animation,
