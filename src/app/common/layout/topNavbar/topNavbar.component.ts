@@ -1,20 +1,21 @@
-import {Component, Renderer2, OnInit} from '@angular/core';
+import {Component, Renderer2, OnInit, EventEmitter, Output} from '@angular/core';
 import menuConfig from '../menu.config';
-import {NavigationEnd, Router} from "@angular/router";
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'top-navbar',
   templateUrl: './topNavbar.component.html',
   styleUrls: ['./topNavbar.component.css']
 })
-export class TopNavbarComponent {
+export class TopNavbarComponent implements OnInit{
   menuList = menuConfig.menuList;
   screenWidth = window.innerWidth;
   curPathIndex: number;
-  prePathIndex: number = 0;
+  prePathIndex = 0;
   render2: any;
   curParent: string;
   curChild: string;
+  @Output() reload: EventEmitter<any> = new EventEmitter;
 
   constructor(render2: Renderer2, private router: Router) {
     this.render2 = render2;
@@ -23,7 +24,7 @@ export class TopNavbarComponent {
   ngOnInit() {
     this.router.events
       .subscribe((event) => {
-        if (!this.curPathIndex && this.curPathIndex!=0) {
+        if (!this.curPathIndex && this.curPathIndex != 0) {
           if (event instanceof NavigationEnd) {
             event.url = event.url.split('?')[0];
             let paths = this.router.url.split('/');
@@ -82,6 +83,7 @@ export class TopNavbarComponent {
         this.curChild = paths[2];
       }
     }
+    this.reload.emit();
   }
 
 }

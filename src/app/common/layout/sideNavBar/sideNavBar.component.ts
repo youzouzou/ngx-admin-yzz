@@ -1,4 +1,4 @@
-import {Component, Renderer2, OnInit, Input} from '@angular/core';
+import {Component, Renderer2, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import menuConfig from '../menu.config';
 import {NavigationEnd, Router} from "@angular/router";
 
@@ -7,14 +7,15 @@ import {NavigationEnd, Router} from "@angular/router";
   templateUrl: './sideNavbar.component.html',
   styleUrls: ['./sideNavbar.component.css']
 })
-export class SideNavbarComponent {
-  @Input() barWidth: number = 150;
+export class SideNavbarComponent implements OnInit {
+  @Input() barWidth = 150;
   menuList = menuConfig.menuList;
   screenHeight = window.innerHeight;
   curParent: string;
   curChild: string;
   foldStatus = window.innerWidth < 1200;
   showChildBoxIndex: number;
+  @Output() reload: EventEmitter<any> = new EventEmitter;
 
   constructor(private router: Router) {
   }
@@ -22,7 +23,7 @@ export class SideNavbarComponent {
   ngOnInit() {
     document.body.style.paddingLeft = this.foldStatus ? '50px' : (this.barWidth + 'px');
     document.body.style.width = this.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - this.barWidth + 'px');
-    var vm = this;
+    const vm = this;
     window.onresize = function () {
       vm.screenHeight = window.innerHeight;
       document.body.style.width = (vm.foldStatus ? (window.innerWidth - 50 + 'px') : (window.innerWidth - vm.barWidth + 'px'));
@@ -31,7 +32,7 @@ export class SideNavbarComponent {
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
           event.url = event.url.split('?')[0];
-          let paths = event.url.split('/');
+          const paths = event.url.split('/');
           if (paths.length > 1 && paths[1]) {
             this.curParent = paths[1];
             if (paths.length > 2) {
@@ -65,6 +66,7 @@ export class SideNavbarComponent {
     }
     menu.showChildren = !menu.showChildren;
     this.curChild = childMenu ? childMenu.path : ((menu.children && menu.children.length) ? menu.children[0].path : '');
+    this.reload.emit();
   }
 
   flod() {

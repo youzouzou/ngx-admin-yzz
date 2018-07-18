@@ -10,7 +10,7 @@ export class AppComponent {
   globalData = {
     loadStatus: false
   };
-
+  reloadStatus = true;
   constructor(global: globalService, translate: TranslateService) {
     this.globalData = global;
     // 添加语言支持
@@ -19,5 +19,15 @@ export class AppComponent {
     translate.setDefaultLang('zh-CN');
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use('zh-CN');
+  }
+
+  // todo 点击左侧菜单刷新右侧视图，这个方法能实现效果，但不是很优雅
+  // 点击左侧菜单后会重新渲染右侧router-outlet组件
+  reload() {
+    this.reloadStatus = false;
+    const vm = this;
+    setTimeout(function () {
+      vm.reloadStatus = true;
+    }, 1);
   }
 }
