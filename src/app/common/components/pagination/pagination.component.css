@@ -3,16 +3,16 @@
   text-align: right;
   margin-top: 10px;
   clear: both;
-  border-top: 1px solid #fff;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .pagination-item {
+  color: #606266;
   display: inline-block;
   font-size: 12px;
   background: #fff;
   border: 1px solid #dfe3eb;
-  padding: 3px 10px;
+  padding: 0 10px;
   border-radius: 5px;
   cursor: pointer;
   moz-user-select: -moz-none;
@@ -23,15 +23,44 @@
   -ms-user-select: none;
   user-select: none;
   outline: none;
+  line-height: 28px;
+  height: 28px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  margin-right: 5px;
 }
 
 .pagination-active {
-  background: #888;
+  background: #ff893e;
+  border: 1px transparent;
   color: #fff;
 }
 
 .cur-page {
   float: left;
   font-size: 12px;
-  color: #333;
+  color: #606266;
+}
+
+.page-diabled {
+  cursor: not-allowed;
+  color: #ccc;
+  background: #eee;
+}
+
+.input-page {
+  border: 1px solid #dfe3eb;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 5px;
+  outline: none;
+  width: 30px;
+  padding-left: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.input-page-box {
+  font-size: 14px;
+  margin-right: 20px;
+  color: #606266;
 }

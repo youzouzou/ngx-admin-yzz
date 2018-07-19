@@ -1,15 +1,21 @@
 <!--左移、右移1页，点击事件、跳转-->
 <div class="pagination-box">
-  <span class="cur-page">第 {{curPage}} / {{totalPage}} 页</span>
+  <span class="cur-page">共 {{totalNum}} 条， {{pageSize}}条/页</span>
   <div>
-    <button *ngIf="curPage!=1"
-            (click)="changePage(curPage-1)" class="pagination-item"> <
+    <span class="input-page-box" *ngIf="skipStatus">
+      第 <input type="number" class="input-page" [(ngModel)]="curPage" (keydown)="skip($event)" (blur)="skip()" min="1"
+               max="{{totalPage}}"> 页
+    </span>
+    <!-- *ngIf="curPage!=1"-->
+    <button [ngClass]="{'page-diabled':curPage==1}"
+            (click)="curPage==1?null:changePage(curPage-1)" class="pagination-item"> <
     </button>
     <button (click)="changePage(pageNo)" class="pagination-item" [ngClass]="{'pagination-active':curPage==pageNo}"
             *ngFor="let pageNo of pageList">{{pageNo}}
     </button>
-    <button *ngIf="curPage!=totalPage"
-            (click)="changePage(curPage+1)"
+    <!--*ngIf="curPage!=totalPage" -->
+    <button [ngClass]="{'page-diabled':curPage==totalPage}"
+            (click)="curPage==totalPage?null:changePage(curPage+1)"
             class="pagination-item"> >
     </button>
   </div>
