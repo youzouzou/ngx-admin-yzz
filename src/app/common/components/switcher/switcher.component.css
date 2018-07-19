@@ -11,6 +11,7 @@
 
 .switch-active {
   background: #ff893e;
+  border: 1px solid #ff893e;
 }
 
 .switch-circle {
