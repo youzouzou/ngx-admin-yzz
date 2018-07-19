@@ -1,13 +1,14 @@
-<div class="modal-screen"
-     [ngStyle]="{'width':screenWidth+'px', 'display':modalStatus?'block':'none'}"
+<div class="modal-screen" animation="'linear-show'"
+     [ngClass]="{'show':modalStatus, 'hide': !modalStatus}"
+     [ngStyle]="{'width':screenWidth+'px'}"
      (click)="closeModal()">
 </div>
 <div class="modal-box"
+     [ngClass]="{'show':modalStatus, 'hide': !modalStatus}"
      [ngStyle]="{
      'width':width+'px',
      'height':height+'px',
      'top': (screenHeight)/2.0-height/1.5-15+'px',
-     'left':(screenWidth-width)/2.0+'px',
-     'display':modalStatus?'block':'none'}">
+     'left':(screenWidth-width)/2.0+'px'}">
   <ng-content></ng-content>
 </div>

@@ -1,8 +1,7 @@
-<div [ngStyle]="{'height': screenHeight+'px', 'width': barWidth+'px', 'left': foldStatus?50-barWidth+'px':0}"
+<div (mouseenter)="enter()" (mouseleave)="leave()" [ngStyle]="{'height': screenHeight+'px', 'width': barWidth+'px', 'left': foldStatus?50-barWidth+'px':0}"
      class="left-navbar">
   <div>
     <div class="side-menu-list">
-      <div class="side-folder" (click)="flod()"></div>
       <ng-container>
         <div *ngFor="let menu of menuList;let i=index" class="side-menu-item-box">
           <div class="side-menu-item" (click)="changeMenu(menu,null,i)" *ngIf="!foldStatus"
@@ -57,4 +56,5 @@
     </div>
   </div>
 </div>
-
+<div class="side-folder" (click)="flod()"
+     [ngStyle]="{'left':foldStatus?(60+'px'):(barWidth+10+'px'), 'transform':foldStatus?'rotateZ(90deg)':'', 'top': foldStatus?'3px':'5px'}"></div>

@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, ElementRef} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ElementRef, DoCheck} from '@angular/core';
 
 @Component({
   selector: 'modal',
@@ -6,7 +6,7 @@ import {Component, Input, Output, EventEmitter, ElementRef} from '@angular/core'
   styleUrls: ['./modal.component.css']
 })
 
-export class ModalComponent {
+export class ModalComponent implements DoCheck {
   @Input() width: number = 500;
   @Input() height: number = 300;
   screenWidth: number = window.innerWidth;
@@ -15,20 +15,23 @@ export class ModalComponent {
   @Input() bgClose: boolean = true; // 点击背景遮罩关闭模态框
   @Output() close: EventEmitter<any> = new EventEmitter;
 
-  constructor(el: ElementRef) {
-    console.log('el', el, window.innerHeight);
+  ngDoCheck() {
+    const vm = this;
     if (this.modalStatus) {
       document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
     }
-    let vm = this;
+
     window.onresize = function () {
       vm.screenWidth = window.innerWidth;
       vm.screenHeight = window.innerHeight;
-    }
+    };
   }
 
   closeModal() {
-    if(this.bgClose){
+    if (this.bgClose) {
+      document.body.style.position = 'relative';
       document.body.style.overflow = 'auto';
       this.modalStatus = false;
       this.close.emit(false);

@@ -83,4 +83,14 @@ export class SideNavbarComponent implements OnInit {
     this.showChildBoxIndex = null;
   }
 
+// 阻止滚动事件冒泡
+  enter() {
+    document.body.style.position = 'fixed';
+    document.body.style.overflow = 'hidden';
+  }
+
+  leave() {
+    document.body.style.position = 'relative';
+    document.body.style.overflow = 'auto';
+  }
 }

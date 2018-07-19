@@ -12,7 +12,44 @@
   position: fixed;
   z-index: 4001;
   background: #fff;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 15px;
   overflow: auto;
+}
+
+.show {
+  display: block;
+  animation: linear-show-func 0.2s linear;
+}
+
+.hide {
+  display: none;
+  animation: linear-hide-func 0.2s linear;
+}
+
+@keyframes linear-show-func {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes linear-show-func {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes linear-hide-func {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
 }
