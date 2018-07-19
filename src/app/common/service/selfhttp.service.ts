@@ -19,7 +19,7 @@ export class selfHttp {
     const vm = this;
     if (params) {
       for (const key in params) {
-        if (params[key] === false || params[key]) {
+        if (params[key] === false || params[key] === 0 || params[key]) {
           httpParams = httpParams.set(key, params[key]);
         }
       }
