@@ -235,8 +235,8 @@ export class TablePage {
 
   constructor(private dragulaService: DragulaService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.pageConfig = {
-      totalPage: 6,
-      curPage: 3
+      totalNum: 6,
+      curPage: 1
     };
     console.log('router参数', activatedRoute);
     const vm = this;
