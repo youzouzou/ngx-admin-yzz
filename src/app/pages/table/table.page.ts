@@ -284,5 +284,4 @@ export class TablePage {
   dateSearch(date) {
     console.log('日期', date);
   }
-
 }
