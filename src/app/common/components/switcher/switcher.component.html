@@ -1,0 +1,4 @@
+<div [ngClass]="{'switch-active':value}" class="switch-box">
+  <input type="checkbox" class="switch-input" [(ngModel)]="value" (change)="changeSwitch()">
+  <div class="switch-circle" [ngClass]="{'switch-circle-active':value, 'switch-circle-default': !value}"></div>
+</div>

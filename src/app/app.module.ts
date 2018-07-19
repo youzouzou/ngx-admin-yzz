@@ -44,6 +44,8 @@ import {SearchComponent} from './common/components/search/search.component';
 import {TagComponent} from './common/components/tag/tag.component';
 import {LoaderComponent} from './common/components/loader/loader.component';
 import {DatePickerComponent} from './common/components/datePicker/datePicker.component';
+import {SwitcherComponent} from './common/components/switcher/switcher.component';
+
 // directives
 import {Tooltip} from './common/directives/tooltip.directive';
 import {Animation} from './common/directives/animation.directive';
@@ -84,6 +86,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DatePickerComponent,
     CheckboxComponent,
     RadioComponent,
+    SwitcherComponent,
     SelectInputComponent,
     TablePage,
     TableDetailPage,

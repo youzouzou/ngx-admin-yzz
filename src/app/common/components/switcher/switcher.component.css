@@ -1,0 +1,64 @@
+.switch-box {
+  background: #DDDFE7;
+  border: 1px solid #DDDFE7;
+  width: 38px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.switch-active {
+  background: #ff893e;
+}
+
+.switch-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 1px;
+}
+
+.switch-circle-active {
+  right: 1px;
+  animation: open-switch 0.2s linear;
+}
+
+.switch-circle-default {
+  left: 1px;
+  animation: close-switch 0.2s linear;
+}
+
+.switch-input {
+  position: absolute;
+  z-index: 5000;
+  width: 38px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+@keyframes open-switch {
+  0% {
+    right: 15px;
+  }
+  100% {
+    right: 1px;
+  }
+}
+
+@keyframes close-switch {
+  0% {
+    left: 15px;
+  }
+  100% {
+    left: 1px;
+  }
+}

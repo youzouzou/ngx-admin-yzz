@@ -1,26 +1,37 @@
-.radio-group-box {
-
-}
-
-.radio-item {
-  float: left;
-  margin-right: 20px;
-}
-
 .radio-box {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 1px solid #dfe3eb;
   border-radius: 50%;
-  float: left;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin-right: 5px;
+  position: relative;
+  padding: 0;
+  display: inline-block;
+}
+
+.radio-box input {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  outline: none;
+  opacity: 0;
+  z-index: 1000;
 }
 
 .radio-active {
-  border-radius: 50%;
-  background: #fff;
+
 }
 
-.radio-label {
-  font-size: inherit;
+.radio-checked {
+  background: #ff893e;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 999;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
 }
