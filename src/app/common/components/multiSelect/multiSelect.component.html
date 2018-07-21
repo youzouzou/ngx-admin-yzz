@@ -1,12 +1,14 @@
-<div class="select-component" (mouseleave)="mouseHide?showStatus=false:''">
-  <div class="select" (click)="showStatus=true">
+<div class="select-component" (mouseleave)="mouseHide?showStatus=false:''" (click)="showStatus=true">
+  <div class="select" [ngStyle]="{'width':firstWidth? firstWidth-10+'px' : '350px'}">
     {{firstSelectedShowName}}
     {{secondSelectedShowName?('/ '+secondSelectedShowName):''}}
     {{thirdSelectedShowName?('/ '+thirdSelectedShowName):''}}
   </div>
-  <div class="select-box" *ngIf="showStatus">
-    <div class="data-list">
-      <span *ngFor="let first of data" (click)="selected(1,first)" [ngClass]="{'selected':firstValue==first[firstLabel]}">{{first[firstName]}}</span>
+  <div class="select-box" *ngIf="showStatus" [ngStyle]="{'width':firstWidth? firstWidth+'px' : '370px'}">
+    <div class="data-list"
+         [ngStyle]="{'width':firstWidth? firstWidth+'px' : '120px'}">
+      <span *ngFor="let first of data" (click)="selected(1,first)"
+            [ngClass]="{'selected':firstValue==first[firstLabel]}">{{first[firstName]}}</span>
     </div>
     <div class="data-list" *ngIf="secondList && secondList.length">
     <span *ngFor="let second of secondList" (click)="selected(2,second)"
