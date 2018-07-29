@@ -19,7 +19,8 @@
         <label>性别</label>
         <div class="form-content">
           <div class="form-radio">
-            <!--todo-->
+            <radio [name]="'sex'" [value]="'female'" [model]="user.sex" [(ngModel)]="user.sex" ngDefaultControl></radio>女
+            <radio [name]="'sex'" [value]="'male'" [model]="user.sex" [(ngModel)]="user.sex" ngDefaultControl></radio>男
           </div>
         </div>
       </div>

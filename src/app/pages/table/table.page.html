@@ -23,10 +23,12 @@
        <td>{{item.receiver}}</td>
        <td>{{item.remark}}</td>
        <td>
-         <button (click)="alertMsg(item,i)" class="btn-default">{{"click" | translate}}</button>
+         <switcher [model]="item" [attr]="'status'" [value]="!!item.status"></switcher>
+       </td>
+       <td>
+         <!--<button (click)="alertMsg(item,i)" class="btn-default">{{"click" | translate}}</button>-->
          <icon [name]="'delete'" [type]="'svg'" [desc]="'删除'"></icon>
          <icon routerLink="/table/table_detail" [name]="'detail'" [type]="'svg'" [desc]="'详情'"></icon>
-         <switcher [model]="item" [attr]="'status'" [value]="!!item.status"></switcher>
        </td>
      </tr>
      </tbody>

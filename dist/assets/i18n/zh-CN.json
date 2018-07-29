@@ -1,0 +1,12 @@
+{
+  "search": "查询",
+  "click": "点击",
+  "loginPage": {
+    "title": "登录",
+    "login": "登录{{platform}}平台",
+    "forget": "忘记密码",
+    "register": "注册账号",
+    "agreement": "点击查看<a href=\"www.xxxx.com\" class=\"gray-color\">用户协议</a>",
+    "thirdParty": "使用{{thirdParty}}登录"
+  }
+}
