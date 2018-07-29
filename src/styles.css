@@ -15,14 +15,13 @@ html, body {
 }
 
 .breadcrumb-box {
-  width: 99%;
-  padding-left: 1%;
+  padding-left: 40px;
   margin-bottom: 10px;
   display: block;
   background: #fff;
-  height: 30px;
-  font-size: 12px;
-  line-height: 30px;
+  height: 40px;
+  font-size: 13px;
+  line-height: 40px;
 }
 
 .breadcrumb-box span {

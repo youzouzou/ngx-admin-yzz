@@ -81,9 +81,18 @@ export class BreadcrumbComponent implements OnInit {
       });
   }
 
-  back(flag) {
+  back(flag, item) {
     if (flag) {
       this.location.back();
+      const vm = this;
+      // todo 这个定时器是为了解决当用户直接打开详情页或者重载导致的面包屑不跳转问题
+      // 这样做虽然能够解决不跳转问题，但是会有500ms的延迟，并且当路由器跳转速度太慢时，参数就会被重置
+      setTimeout(function () {
+        const path = location.href.split('#')[1].split('?')[0];
+        if (path !== '/' + item.path) {
+          vm.router.navigate([item.path], {queryParams: this.params});
+        }
+      }, 500);
     }
   }
 
