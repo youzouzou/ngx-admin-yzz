@@ -106,23 +106,24 @@ export class Validate implements DoCheck, OnInit {
   checkData() {
     const vm = this;
     vm.newDiv.style.display = 'none';
-    for (let i = 0; i < vm.rule.length; i++) {
-      vm.rule[i].validateResult = true;
-      if (vm.rule[i].required) {
-        if ((typeof vm.validateValue === 'number' && vm.validateValue == null) || (typeof vm.validateValue !== 'number' && !vm.validateValue)) {
-          vm.newDiv.innerText = vm.rule[i].message;
+    if (vm.rule) {
+      for (let i = 0; i < vm.rule.length; i++) {
+        vm.rule[i].validateResult = true;
+        if (vm.rule[i].required) {
+          if ((typeof vm.validateValue === 'number' && vm.validateValue == null) || (typeof vm.validateValue !== 'number' && !vm.validateValue)) {
+            vm.newDiv.innerText = vm.rule[i].message;
+            vm.newDiv.style.display = 'inline-block';
+            vm.rule[i].validateResult = false;
+            break;
+          }
+        } else if (vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)) {
+          // console.log('校验', vm.rule[i].validator(vm.validateValue));
+          vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
           vm.newDiv.style.display = 'inline-block';
           vm.rule[i].validateResult = false;
           break;
         }
-      } else if (vm.rule[i].validator && vm.rule[i].validator(vm.validateValue)) {
-        // console.log('校验', vm.rule[i].validator(vm.validateValue));
-        vm.newDiv.innerText = vm.rule[i].validator(vm.validateValue);
-        vm.newDiv.style.display = 'inline-block';
-        vm.rule[i].validateResult = false;
-        break;
       }
     }
   }
-
 }
