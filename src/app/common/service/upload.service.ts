@@ -62,7 +62,6 @@ export class uploadService {
         vm.uploadSequence(uploader, i, cb);
       }
     };
-
     return vm;
   }
 
@@ -74,8 +73,12 @@ export class uploadService {
       // 上传文件成功
       if (status === 200) { // 上传文件后获取服务器返回的数据
         console.log(i + '上传成功', JSON.parse(response));
+        let name = '';
+        if (uploader.queue[i] && uploader.queue[i].some) {
+          name = uploader.queue[i].some.name;
+        }
         uploader.queue.splice(i, 1);
-        cb(JSON.parse(response).resultData[0].origin);
+        cb(JSON.parse(response).resultData[0].origin, name);
         if (i < uploader.queue.length) {
           vm.uploadSequence(uploader, i, cb);
         }
