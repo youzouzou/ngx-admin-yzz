@@ -38,7 +38,7 @@
 .main-calendar-years {
   overflow-y: auto !important;
 }
-
+/*以上*/
 .clear-btn {
   background: transparent;
   border: 1px solid #dfe3eb;
@@ -53,4 +53,5 @@
   color: #dfe3eb;
   outline: none;
   cursor: pointer;
+  padding: 0;
 }
