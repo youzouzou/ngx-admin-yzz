@@ -28,6 +28,7 @@ export class PaginationComponent implements DoCheck {
     vm.pageList = [];
     if (vm.curPage > vm.totalPage) {
       vm.curPage = 1;
+      this.changeCurPage.emit(vm.curPage);
     }
     if (vm.totalPage <= 5 || vm.curPage <= 5) {
       for (let i = 0; (i < vm.totalPage && i < 5); i++) {
