@@ -1,5 +1,6 @@
 .date-component {
   display: flex;
+  position: relative;
 }
 
 .date-box {
@@ -36,4 +37,20 @@
 
 .main-calendar-years {
   overflow-y: auto !important;
+}
+
+.clear-btn {
+  background: transparent;
+  border: 1px solid #dfe3eb;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 55px;
+  top: 10px;
+  line-height: 10px;
+  font-size: 12px;
+  color: #dfe3eb;
+  outline: none;
+  cursor: pointer;
 }

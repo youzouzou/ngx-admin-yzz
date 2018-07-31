@@ -9,7 +9,7 @@ import * as frLocale from 'date-fns/locale/zh_cn';
 })
 
 export class DatePickerComponent {
-  @Input() date = '1990年01月01日'; // new Date();
+  @Input() date = '';
   @Input() isShowButton = true;
   @Input() buttonText = '查询';
   @Output() search: EventEmitter<string> = new EventEmitter;
@@ -23,7 +23,7 @@ export class DatePickerComponent {
     locale: frLocale,
     // minDate: new Date(Date.now()), // Minimal selectable date
     // maxDate: new Date(Date.now()),  // Maximal selectable date
-    // barTitleIfEmpty: 'Click to select a date',
+    barTitleIfEmpty: '请选择日期',
     placeholder: '选择日期', // HTML input placeholder attribute (default: '')
     // addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
     // addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
@@ -34,6 +34,11 @@ export class DatePickerComponent {
   clickButton() {
     console.log('点击按钮');
     this.search.emit(this.date);
+  }
+
+  clear() {
+    this.date = null;
+    this.clickButton();
   }
 
 }
