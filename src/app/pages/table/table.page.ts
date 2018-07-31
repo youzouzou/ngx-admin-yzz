@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 
 export class TablePage {
-  date = new Date();
+  date: any;// = new Date();
   pageConfig: any;
   params = {
     keyword: null
@@ -284,5 +284,6 @@ export class TablePage {
 
   dateSearch(date) {
     console.log('日期', date);
+    this.date = date;
   }
 }
