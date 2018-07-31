@@ -27,7 +27,6 @@ export class PaginationComponent implements DoCheck {
   setPageList() {
     const vm = this;
     vm.pageList = [];
-    console.log(vm.curPage, vm.totalPage);
     if (vm.totalPage && vm.curPage > vm.totalPage) {
       vm.curPage = 1;
       this.changeCurPage.emit(vm.curPage);
@@ -51,7 +50,6 @@ export class PaginationComponent implements DoCheck {
 
   changePage(pageNo) {
     const vm = this;
-    console.log('分页改变');
     if (vm.curPage !== pageNo) {
       vm.curPage = pageNo;
       vm.changeCurPage.emit(vm.curPage);
