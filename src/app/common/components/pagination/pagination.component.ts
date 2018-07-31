@@ -6,11 +6,12 @@ import {Component, Input, Output, EventEmitter, DoCheck} from '@angular/core';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements DoCheck {
+  // @Input() totalPage = 1;
   @Input() curPage = 1;
   @Input() totalNum = 0;
   @Input() pageSize = 20;
   @Input() skipStatus = false; // 是否显示跳页输入框
-  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter; // 子组件向父组件广播事件，触发改变当前页面的事件
+  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
   pageList: any;
   totalPage = 1;
 
@@ -19,14 +20,15 @@ export class PaginationComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    this.totalPage = Math.ceil(this.totalNum / this.pageSize);
+    this.totalPage = Math.ceil(this.totalNum / (this.pageSize * 1.0)); // 浮点型
     this.setPageList();
   }
 
   setPageList() {
     const vm = this;
     vm.pageList = [];
-    if (vm.curPage > vm.totalPage) {
+    console.log(vm.curPage, vm.totalPage);
+    if (vm.totalPage && vm.curPage > vm.totalPage) {
       vm.curPage = 1;
       this.changeCurPage.emit(vm.curPage);
     }
@@ -49,6 +51,7 @@ export class PaginationComponent implements DoCheck {
 
   changePage(pageNo) {
     const vm = this;
+    console.log('分页改变');
     if (vm.curPage !== pageNo) {
       vm.curPage = pageNo;
       vm.changeCurPage.emit(vm.curPage);
