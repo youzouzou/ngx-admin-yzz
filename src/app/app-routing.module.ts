@@ -9,12 +9,13 @@ import {TabPage} from "./pages/tab/tab.page";
 import {AnimationPage} from "./pages/animation/animation.page";
 import {DocumentPage} from "./pages/document/document.page";
 import {FormPage} from "./pages/form/form.page";
+import {LoginPage} from "./pages/login/login.page";
 const routes: Routes = [
   {
     path: 'table',
     children: [
       {
-        path: 'basic_table',  component: TablePage
+        path: 'basic_table', component: TablePage
       },
       {
         path: 'table_detail', component: TableDetailPage
@@ -36,8 +37,11 @@ const routes: Routes = [
   {
     path: 'form', component: FormPage
   },
-  { path: '', redirectTo: 'document', pathMatch: 'full' },
-  { path: '**', redirectTo: 'document', pathMatch: 'full' }
+  {
+    path: 'login', component: LoginPage
+  },
+  {path: '', redirectTo: 'document', pathMatch: 'full'},
+  {path: '**', redirectTo: 'document', pathMatch: 'full'}
 ];
 
 @NgModule({

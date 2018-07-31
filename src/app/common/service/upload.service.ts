@@ -62,6 +62,7 @@ export class uploadService {
         vm.uploadSequence(uploader, i, cb);
       }
     };
+
     return vm;
   }
 

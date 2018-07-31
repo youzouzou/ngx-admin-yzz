@@ -6,7 +6,7 @@ import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 })
 
 // todo 不能直接改变数据对象，只能通过changeCheckStatus通知外部引用列表中的第几个对象的状态变化
-export class CheckboxComponent {
+export class CheckboxComponent implements OnInit {
   @Input() checkStatus: boolean | number | string; // 选中状态
   @Input() checkLabel: string; // 右侧描述
   @Input() checkboxColor: 'white' | 'black'; // 复选框钩子的图标可选中，支持自定义checkIcon，参数值为图标url链接
@@ -14,7 +14,7 @@ export class CheckboxComponent {
   @Input() checkboxBg = '#fff'; // 复选框的背景色
   @Input() checkboxBorderColor = '#fff';
   @Input() checkboxSize = 20; // 复选框大小
-  @Input() checkDisabled = false;// 是否可选，默认为可选
+  @Input() checkDisabled = false; // 是否可选，默认为可选
   @Output() changeCheckStatus: EventEmitter<boolean | number | string> = new EventEmitter;
 
   ngOnInit() {

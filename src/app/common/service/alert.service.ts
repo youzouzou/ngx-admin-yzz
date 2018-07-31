@@ -42,7 +42,6 @@ export class alertService {
         document.body.removeChild(msgDiv);
       }, seconds ? seconds : 2000);
     };
-
     vm.warning = function (title: string, seconds?: number) {
       const msgDiv = document.createElement('div');
       msgDiv.className = 'alert';
@@ -55,7 +54,6 @@ export class alertService {
         document.body.removeChild(msgDiv);
       }, seconds ? seconds : 2000);
     };
-
     vm.error = function (title: string, seconds?: number) {
       const msgDiv = document.createElement('div');
       msgDiv.className = 'alert';
@@ -68,7 +66,6 @@ export class alertService {
         document.body.removeChild(msgDiv);
       }, seconds ? seconds : 2000);
     };
-
     return vm;
   }
 }

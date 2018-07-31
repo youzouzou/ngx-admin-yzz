@@ -9,6 +9,7 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class SideNavbarComponent implements OnInit {
   @Input() barWidth = 150;
+  @Input() userInfo: object;
   menuList = menuConfig.menuList;
   screenHeight = window.innerHeight;
   curParent: string;

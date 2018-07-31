@@ -3,7 +3,7 @@ import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 @Directive({
   selector: '[animation]',
 })
-export class Animation implements OnInit{
+export class Animation implements OnInit {
   @Input() animation: string;
   elDOM: any;
 

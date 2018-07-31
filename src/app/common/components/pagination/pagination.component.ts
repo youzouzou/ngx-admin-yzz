@@ -6,12 +6,11 @@ import {Component, Input, Output, EventEmitter, DoCheck} from '@angular/core';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements DoCheck {
-  // @Input() totalPage = 1;
   @Input() curPage = 1;
   @Input() totalNum = 0;
   @Input() pageSize = 20;
-  @Input() skipStatus = false;// 是否显示跳页
-  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
+  @Input() skipStatus = false; // 是否显示跳页输入框
+  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter; // 子组件向父组件广播事件，触发改变当前页面的事件
   pageList: any;
   totalPage = 1;
 

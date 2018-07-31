@@ -14,21 +14,6 @@ html, body {
   color: transparent;
 }
 
-.breadcrumb-box {
-  padding-left: 40px;
-  margin-bottom: 10px;
-  display: block;
-  background: #fff;
-  height: 40px;
-  font-size: 13px;
-  line-height: 40px;
-}
-
-.breadcrumb-box span {
-  outline: none;
-  cursor: pointer;
-}
-
 .service-msg {
   padding: 10px 15px;
   position: fixed;

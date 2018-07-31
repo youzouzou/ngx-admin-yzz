@@ -1,5 +1,5 @@
 <!--<top-navbar (reload)="reload()"></top-navbar>-->
-<side-navbar (reload)="reload()" [barWidth]="180"></side-navbar>
+<side-navbar (reload)="reload()" [barWidth]="180" [userInfo]="userInfo"></side-navbar>
 <breadcrumb></breadcrumb>
 <router-outlet *ngIf="reloadStatus"></router-outlet>
 <loader [showStatus]="globalData.loadStatus"></loader>

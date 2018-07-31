@@ -6,6 +6,7 @@ import menuConfig from '../menu.config';
 @Component({
   selector: 'breadcrumb',
   templateUrl: './breadcrumb.component.html',
+  styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent implements OnInit {
   menuList: any = menuConfig.menuList;
