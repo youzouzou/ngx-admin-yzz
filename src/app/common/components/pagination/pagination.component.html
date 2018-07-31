@@ -15,7 +15,7 @@
     </button>
     <!--*ngIf="curPage!=totalPage" -->
     <button [ngClass]="{'page-diabled':curPage==totalPage}"
-            (click)="curPage==totalPage?null:changePage(curPage+1)"
+            (click)="curPage==totalPage?null:changePage(curPage*1+1)"
             class="pagination-item"> >
     </button>
   </div>
