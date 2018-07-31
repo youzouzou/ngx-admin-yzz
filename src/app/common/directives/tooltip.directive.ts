@@ -10,6 +10,7 @@ export class Tooltip implements OnInit {
   @Input() showAnyway = false; // 若为true，则不管是否超出设定长度都显示
   @Input() height = 0;
   @Input() width = 0;
+  @Input() once; // true:点击后消失
   newDiv: any;
   ELDOM: any;
 
@@ -50,11 +51,11 @@ export class Tooltip implements OnInit {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
+    // todo 位置计算还是有问题
     if (this.tooltip && this.ELDOM.nativeElement.clientWidth < this.ELDOM.nativeElement.scrollWidth || this.showAnyway) {
       this.newDiv.style.display = 'block';
       this.newDiv.innerText = this.tooltip;
       let left = 0, top = 0;
-      // todo 位置计算还是有问题
       if (this.direction == 'bottom') {
         top = this.ELDOM.nativeElement.offsetTop + this.ELDOM.nativeElement.clientHeight + 5;
         left = this.ELDOM.nativeElement.offsetLeft - this.width - 5;
@@ -75,8 +76,17 @@ export class Tooltip implements OnInit {
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.newDiv.style.display = 'none';
-    this.newDiv.innerText = this.tooltip;
+    if (this.newDiv) {
+      this.newDiv.style.display = 'none';
+      this.newDiv.innerText = this.tooltip;
+    }
+  }
+
+  @HostListener('click', ['$event']) onCLick() {
+    if (this.once = 'click' && this.newDiv) {
+      this.newDiv.style.display = this.newDiv.style.display === 'none' ? 'block' : 'none';
+      this.newDiv.innerText = this.tooltip;
+    }
   }
 
 }
